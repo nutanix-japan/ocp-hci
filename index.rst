@@ -27,9 +27,6 @@
   :name: _optional_labs
   :hidden:
 
-  files_deploy/files_deploy
-  files_expand_cluster/files_expand_cluster
-
 .. toctree::
   :maxdepth: 2
   :caption: Appendix
@@ -103,6 +100,7 @@ Cluster assignment
 The instructor will tell the attendees their assigned clusters.
 
 .. note::
+
   If these are Single Node Clusters (SNCs) pay close attention on the networking part. The SNCs are completely different setup and configured compared to the "normal" three/four node clusters
 
 Environment Details
