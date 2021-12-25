@@ -58,29 +58,30 @@ What's New
 ++++++++++
 
 - Workshop updated for the following software versions:
+
   - AOS 5.20.2.1
   - Prism Central pc.2021.9.0.2
   - Calm 3.3.1
 
-- Optional Lab Updates
-
 Agenda
 ++++++
 
-- 
 - OCP: Infrastructure Lifecycle Mangement
-    - OCP: Create SMB Share
-    - OCP: Create NFS Export
-    - OCP: Selective File Blocking
-    - OCP: Smart DR
+    - Setting up Nutanix Calm and importing OCP Blueprints
+    - Deploying Provisioning VM
+    - OCP: Deploying OCP Cluster
+    - OCP: Scale out and Scale in OCP Cluster Worker Nodes
+    - OCP: Deploying Nutanix CSI Drivers for OCP Cluster
+    - OCP: Deploying OCP Image Registry
 
-- OCP: Workloads on OCP
-    - File Analytics: Review Initial Scan
-    - File Analytics: Anomaly Rules
-    - File Analytics: Ransomware
+- OCP: Day in Life of OCP DevOps Team
+    - Deploying Zookeper application on OCP
+    - Walk through application to for OCP and Nutanix components 
+    - HA Testing Zookeeper
+    - Backup and Restore Zookeeper?
 
 - Optional Labs
-    - OCP: Deploy using Assited Installer
+    - OCP: Deploy using Red Hat Assited Installer
     - OCP: OCP Clusters Security Benchmarking
     - OCP: OCP Clusters 
 
