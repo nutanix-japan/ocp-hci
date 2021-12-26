@@ -231,14 +231,14 @@ Now it is time to launch the provisioning VM blueprint.
         -rwxr-xr-x. 2 core   core   118M Nov  4 19:41 oc
         -rwxr-xr-x. 1 core   core   369M Nov 22 17:12 openshift-install
         -rw-r--r--. 1 core   core    954 Nov  4 19:41 README.md
-        -rw-rw-r--. 1 core   core   988M Dec 26 05:12 rhcos-live.x86_64.iso << this is RHOCS ISO
+        -rw-rw-r--. 1 core   core   988M Dec 26 05:12 rhcos-live.x86_64.iso ## << this is RHOCS ISO
         drwxrwxr-x. 2 apache apache  105 Dec 26 05:12 web
 
         openshift/web:
         total 144M
         -rw-rw-r--. 1 apache apache 7.3M Dec 26 05:12 coreos-installer 
-        -rw-rw-r--. 1 apache apache  48M Dec 26 05:11 openshift-client-linux.tar.gz << this is OCP Client
-        -rw-rw-r--. 1 apache apache  89M Dec 26 05:11 openshift-install-linux.tar.gz << this is OCP Server
+        -rw-rw-r--. 1 apache apache  48M Dec 26 05:11 openshift-client-linux.tar.gz ## << this is OCP Client
+        -rw-rw-r--. 1 apache apache  89M Dec 26 05:11 openshift-install-linux.tar.gz ## << this is OCP Server
 
 Now we have the provisioning VM up and running. This part of the lab is done.
 
