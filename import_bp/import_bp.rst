@@ -46,7 +46,7 @@ OCP has the following infrastructure pre-requistes available in the environment.
     - Primary Network
     - Deployed with HPOC
   * - Existing AD and DNS Server
-    - AutoAD (Windows based Active Directory and DNS server)
+    - AutoAD (Windows based Active Directory+DNS server)
     - Deployed with HPOC 
   * - Calm Project
     - BootcampInfra
@@ -55,7 +55,7 @@ OCP has the following infrastructure pre-requistes available in the environment.
     - CentOS, RHOCS, etc.
     - Deployed with HPOC (downloadable images)
   * - DNS Entries Update Mechanism
-    - Calm Endpoint to AutoAD and DNS server
+    - Calm Endpoint to contact AutoAD+DNS server
     - You will create this
 
 
@@ -123,10 +123,10 @@ Upload Blueprints
 
    .. figure:: images/ocp_bp_list.png
 
-Deploying Provisioning VM 
+Deploy Provisioning VM 
 ++++++++++++++++++++++++++
 
-Configuring Provisioning VM Blueprint
+Configure Provisioning VM Blueprint
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now lets configure and deploy Provisioning VM
@@ -196,7 +196,7 @@ We need to configure network and credentials for the blueprint so it can be depl
    .. figure:: images/ocp_bp_warnings.png
 
 
-Launching Provisioning VM Blueprint
+Launch Provisioning VM Blueprint
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now it is time to launch the provisioning VM blueprint.
@@ -209,10 +209,42 @@ Now it is time to launch the provisioning VM blueprint.
 
 #. Click on **Deploy**
 
-#. Go to Audit and check the deployment tasks
+#. Go to Audit and monitor the deployment tasks. There will be detailed logging for all tasks
 
-#. This should take about 10 minutes
+#. This should take about 10-15 minutes
 
+#. Once deployed the Calm application will be in a running state
+
+   .. figure:: images/ocp_prov_vm_audit.png
+
+#. **Optional step** - You are also able to ssh into the provisioning VM using the application's (if you are curious to see the downloaded files for OCP setup) > **Services** > **Open Terminal**
+   
+   .. figure:: images/ocp_prov_vm_ssh.png
+
+   .. code-block:: zsh 
+
+        [core@Openshift-provisioning-0-211225-210356 ~]$ ls -lRh openshift/
+        openshift/:
+        total 1.6G
+        -rw-rw-r--. 1 core   core   7.3M Dec 26 05:11 coreos-installer
+        -rwxr-xr-x. 2 core   core   118M Nov  4 19:41 kubectl
+        -rwxr-xr-x. 2 core   core   118M Nov  4 19:41 oc
+        -rwxr-xr-x. 1 core   core   369M Nov 22 17:12 openshift-install
+        -rw-r--r--. 1 core   core    954 Nov  4 19:41 README.md
+        -rw-rw-r--. 1 core   core   988M Dec 26 05:12 rhcos-live.x86_64.iso << this is RHOCS ISO
+        drwxrwxr-x. 2 apache apache  105 Dec 26 05:12 web
+
+        openshift/web:
+        total 144M
+        -rw-rw-r--. 1 apache apache 7.3M Dec 26 05:12 coreos-installer 
+        -rw-rw-r--. 1 apache apache  48M Dec 26 05:11 openshift-client-linux.tar.gz << this is OCP Client
+        -rw-rw-r--. 1 apache apache  89M Dec 26 05:11 openshift-install-linux.tar.gz << this is OCP Server
+
+Now we have the provisioning VM up and running. This part of the lab is done.
+
+.. figure:: images/ocp_lab_status_1.png
+
+We will proceed to deploy a OCP cluster in the next section of the lab. 
 
 
 
