@@ -240,7 +240,7 @@ Now it is time to launch the provisioning VM blueprint.
         -rw-rw-r--. 1 apache apache  48M Dec 26 05:11 openshift-client-linux.tar.gz ## << this is OCP Client
         -rw-rw-r--. 1 apache apache  89M Dec 26 05:11 openshift-install-linux.tar.gz ## << this is OCP Server
 
-Now we have the provisioning VM up and running. This part of the lab is done.
+Now we have the provisioning VM up and running. This section of the lab is done.
 
 .. figure:: images/ocp_lab_status_1.png
 
