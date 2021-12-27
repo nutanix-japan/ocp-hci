@@ -166,4 +166,4 @@ Deploying OCP Cluster
 
    .. figure:: images/ocp_console_cred.png
 
-#. You will need this to logon to the OCP cluster managment console
+#. You will need these details to logon to the OCP cluster managment console
