@@ -152,3 +152,18 @@ Deploying OCP Cluster
 #. Once deployed the Calm application **Openshift ocp1** will be in a running state
 
    .. figure:: images/ocp_prov_vm_audit.png
+
+#. Go to the end of the audit trail and look for **OS_Status_Check Start** and exapand 
+
+#. Click on **OS_Status_Check - Show Login Information** sub task and click to maximize the output window
+
+   .. figure:: images/ocp_os_status_check.png
+
+#. Make a note of the following
+ 
+   - Console URL
+   - Credentials
+
+   .. figure:: images/ocp_console_cred.png
+
+#. You will need this to logon to the OCP cluster managment console
