@@ -61,6 +61,8 @@ OCP has the following infrastructure pre-requistes available in the environment.
 
 Now we can proceed to setup pre-requistes and deploying blueprints. 
 
+.. _endpoint:
+ 
 Set up Calm Endpoint
 +++++++++++++++++++++
 
@@ -149,7 +151,9 @@ We need to configure network and credentials for the blueprint so it can be depl
    
    .. figure:: images/ocp_bp_save.png
 
-#. Copy the following primary key (this could be any primary key that you may already have)
+#. Click on **Credentials** (next to Save)
+
+#. Copy and paste the following primary key (this could be any primary key that you may already have)
    
    .. code-block:: bash
 
@@ -180,10 +184,6 @@ We need to configure network and credentials for the blueprint so it can be depl
     EEa8CaSUJaybyqTLwPfPX02U8jEwUF8n/5NGusMer8cIy0OFe1WyVEuaUk6zWgF7HIn/ba
     impp30n2vf7rkNoJAAAAFGxha3NobWlAQzAyRjcwRkxNTDg1AQIDBAUG
     -----END OPENSSH PRIVATE KEY-----
-
-#. Click on **Credentials** (next to Save)
-
-#. Paste the copied ssh private key 
 
 #. Click on **Save**
 
