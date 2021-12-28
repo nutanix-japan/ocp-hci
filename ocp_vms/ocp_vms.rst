@@ -153,7 +153,7 @@ Deploying OCP Cluster
 
    .. figure:: images/ocp_prov_vm_audit.png
 
-#. Go to the end of the audit trail and look for **OS_Status_Check Start** and exapand 
+#. Go to the end of the audit trail and look for **OS_Status_Check Start** task and expand 
 
 #. Click on **OS_Status_Check - Show Login Information** sub task and click to maximize the output window
 
