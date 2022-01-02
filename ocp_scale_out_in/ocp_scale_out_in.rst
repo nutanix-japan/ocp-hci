@@ -178,15 +178,17 @@ We will do this using Calm Actions.
 
    .. figure:: images/ocp_scalein_complete.png
 
-#. In your OCP Console, go to Compute > Nodes and make sure OCP has picked up the two extra worker nodes
+#. In your OCP Console, go to Compute > Nodes and make sure OCP has deleted 1 worker node
    
    .. figure:: images/ocp_scalein_check_cm.png
 
-   .. note::
+   .. warning::
 
-    OCP keeps the node entry as **Not Ready** (unless manually deleted) to register a new node that comes in as a result of another scale out operation 
+    OCP keeps the node entry as **Not Ready** (unless manually deleted) to prevent any data corruption to workloads running on the node and to register a new node that comes in as a result of another scale out operation 
+
+    Only delete a node that you have confirmed is completely stopped and cannot be restored
     
-   .. Tip::
+   .. tip::
    
      Run the Scale Out action once again with ``1`` node and check in the OCP node becomes **Ready**.
 
