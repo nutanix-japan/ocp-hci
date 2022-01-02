@@ -18,7 +18,7 @@ Since we sucessfully setup OCP provisioning VM, we have to do the following to p
 
 
 Configuring OCP VM Blueprint
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++
 
 In this section we will configure the environemnt for the OCP VM blueprint to run. This will include the following:
 
@@ -104,7 +104,7 @@ Now we will check if OCP DNS endpoints are configured for the services.
    .. figure:: images/ocp_bp_save_validation.png
 
 Deploying OCP Cluster 
-^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++
 
 #. In **Prism Central** > **Services** > **Calm**
  
@@ -153,17 +153,8 @@ Deploying OCP Cluster
 
    .. figure:: images/ocp_prov_vm_audit.png
 
-#. Go to the end of the audit trail and look for **OS_Status_Check Start** task and expand 
+Now that your OCP cluster has been deployed, in the **Services** tab, lets check the VMs (Services in Calm) and their corresponding functions.
 
-#. Click on **OS_Status_Check - Show Login Information** sub task and click to maximize the output window
+Click on each VM (Service) will display IP addresses and Open Terminal options. We will be using the private key to ssh into these VMs (if required)
 
-   .. figure:: images/ocp_os_status_check.png
-
-#. Make a note of the following
- 
-   - Console URL
-   - Credentials
-
-   .. figure:: images/ocp_console_cred.png
-
-#. You will need these details to logon to the OCP cluster managment console
+.. figure:: images/ocp_deployed_vms.png
