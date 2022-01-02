@@ -1,8 +1,7 @@
 .. _prov_vm:
 
-
-Deploy Provisioning VM 
-++++++++++++++++++++++++++
+OCP: Deploy Provisioning VM 
+++++++++++++++++++++++++++++
 
 Configure Provisioning VM Blueprint
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

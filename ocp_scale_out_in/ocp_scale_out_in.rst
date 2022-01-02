@@ -10,7 +10,9 @@ For the purposes of the lab, we will achieve scale in/out operations by triggeri
 
 .. _ocp_cluster_login:
 
+.. warning::
 
+  This section can only be attempted if the previous sections are completed successfully
 
 Day 0: Getting OCP Cluster Login Details 
 ++++++++++++++++++++++++++++++++++++++++
@@ -75,25 +77,25 @@ For this reason, we will have to access the OCP Cluster Manager using the Window
 
    .. figure:: images/ocp_overview.png
 
-#. Go through the following important components and make a note of the details:
+#. Go through the following important components and make a note of the following details:
 
    - Overview 
    - Projects
    - Networking
-     - Services
-     - Routes
+        - Services
+        - Routes
    - Storage
-     - StorageClasses
+        - StorageClasses
    - Monitoring
-     - Dashboards
+        - Dashboards
    - Compute
-     - Nodes (these are your OCP Cluster VMs)
+        - Nodes (these are your OCP Cluster VMs)
    - User Management (identify which users/user groups from your AutoAD are added)
-     - Users
-     - Groups
+        - Users
+        - Groups
    - Administration
-     - Cluster Settings - get your cluster's version
-     - Namespaces - make a note of system and user namespaces 
+        - Cluster Settings - get your cluster's version
+        - Namespaces - make a note of system and user namespaces 
 
 You can see how managing all parts of the OCP cluster are in a single place. In a open source kubernetes cluster you would have to install many management packages and go many places them. This is one of the strong selling points of a OCP kubernetes cluster.
 
