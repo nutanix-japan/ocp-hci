@@ -184,6 +184,8 @@ We will do this using Calm Actions.
 
     OCP keeps the node entry as **Not Ready** (unless manually deleted) to register a new node that comes in as a result of another scale in 
 
+    **Tip** - Run the Scale Out action once again with ``1`` node and check in the OCP node becomes ready.
+
 Calm makes it really simple to scale in your OCP cluster Day 1 operations as the resource requirements reduces. 
 
 Takeaways
