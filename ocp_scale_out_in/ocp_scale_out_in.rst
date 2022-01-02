@@ -158,7 +158,7 @@ We will do this using Calm Actions.
 
    .. figure:: images/ocp_scalein.png
 
-#. Enter ``1`` as the **SCALEIN_WORKER** and click on **Run**
+#. Enter ``1`` as the **SCALEIN_WORKER** input and click on **Run**
 
    .. figure:: images/ocp_scalein_no.png
 
@@ -182,9 +182,11 @@ We will do this using Calm Actions.
 
    .. note::
 
-    OCP keeps the node entry as **Not Ready** (unless manually deleted) to register a new node that comes in as a result of another scale in 
-
-    **Tip** - Run the Scale Out action once again with ``1`` node and check in the OCP node becomes ready.
+    OCP keeps the node entry as **Not Ready** (unless manually deleted) to register a new node that comes in as a result of another scale out operation 
+    
+   .. Tip::
+   
+     Run the Scale Out action once again with ``1`` node and check in the OCP node becomes **Ready**.
 
 Calm makes it really simple to scale in your OCP cluster Day 1 operations as the resource requirements reduces. 
 
