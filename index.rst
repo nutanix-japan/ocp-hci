@@ -71,7 +71,7 @@ Agenda
     - OCP: Deploying Nutanix CSI Drivers for OCP Cluster
     - OCP: Deploying OCP Image Registry
 
-- OCP: Day in Life of OCP DevOps Team
+- OCP: Day in Life of OCP Administrator
     - Deploying Zookeper application on OCP
     - Walk through application to for OCP and Nutanix components 
     - HA Testing Zookeeper
