@@ -145,7 +145,7 @@ We will do this using Calm Actions.
 
 Calm makes it really simple to scale out your OCP cluster Day 1 operations. 
 
-Day 1: Scale In Worker Nodes
+Day 1: Scale In Worker Nodes 
 ++++++++++++++++++++++++++++
 
 As any environment would require more kubernetes nodes from time to time to host more workloads. In this sectoin we will look at how a extra worker node is added to this OCP cluster.
