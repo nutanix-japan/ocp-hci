@@ -1,7 +1,7 @@
 .. _ocp_scale_out_in:
 
 -------------------------------------
-OCP: Day O and Day 1 Operations
+OCP: Day 0 and Day 1 Operations
 -------------------------------------
 
 In this section we will look at Typical Day 1 operations of your OCP cluster in terms of scaling out and scaling in VMs.
