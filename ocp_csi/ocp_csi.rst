@@ -101,6 +101,10 @@ Install StorageClass
 
 #. Create a secret that the StorageClass can use to access the Nutanix HCI storage
 
+   Copy the following Secret configuration script, modify required fields and execute it in the command line
+
+   **Open a text editor (notepad / vi / nano), paste the contents and change the fields indicated to suit your environment. Example is also provided**
+
    **Be sure to use your environment's details for the following fields:**
 
    - Prism Element IP
@@ -110,19 +114,23 @@ Install StorageClass
    .. code-block:: bash
 
     cat << EOF | oc apply -f -
-    kind: StorageClass
+    apiVersion: v1
+    kind: Secret
     metadata:
       name: ntnx-secret
       namespace: ntnx-system
     stringData:
       key: <Prism Element IP>:9440:<Prism Element UserName>:<Prism Element Password>
-      # example: key: 10.38.2.71:9440:admin:password
+      # example: 
+      # key: 10.38.2.71:9440:admin:password
     EOF
 
-#. Copy the following StorageClass configuration script and paste it in the command line window 
+#. Copy the following StorageClass configuration script, modify required fields and execute it in the command line
+    
+   **Open a text editor (notepad / vi / nano), paste the contents and change the fields indicated to suit your environment. Example is also provided**
 
    **Be sure to use your environment's details for the following fields:**
-    
+
    - Data Services IP and 
    - Storage Container Name
 
@@ -143,9 +151,11 @@ Install StorageClass
       csi.storage.k8s.io/controller-expand-secret-namespace: ntnx-system
       csi.storage.k8s.io/fstype: ext4
       dataServiceEndPoint: <Data Services IP>:3260
-      # example: dataServiceEndPoint: 10.38.5.72:3260
+      # example: 
+      # dataServiceEndPoint: 10.38.5.72:3260
       storageContainer: <Storage Container Name>
-      # example: storageContainer: Default
+      # example: 
+      # storageContainer: Default
       storageType: NutanixVolumes
     allowVolumeExpansion: true
     reclaimPolicy: Delete

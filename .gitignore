@@ -3,3 +3,4 @@ _build
 ## Ignore .sh files for the time being
 
 *.sh
+Dockerfile

@@ -39,7 +39,10 @@ Creating the PVC
           storage: 100Gi
     storageClassName: nutanix-volume
     EOF
-    # example output here
+
+   .. code-block:: bash
+
+    # example output here for the above command
     # persistentvolumeclaim/image-registry-claim created
 
 Presenting the PVC to OCP Image Registry
@@ -50,7 +53,10 @@ Presenting the PVC to OCP Image Registry
    .. code-block:: bash
   
     oc patch configs.imageregistry.operator.openshift.io cluster --type merge --patch '{"spec":{"managementState":"Managed","storage":{"pvc":{"claim":"image-registry-claim-1"}},"rolloutStrategy": "Recreate"}}'
-    # example output here
+   
+   .. code-block:: bash
+
+    # example output here for the above command
     # config.imageregistry.operator.openshift.io/cluster patched
 
    This will patch the image registry with the created storage (PVC) by re-creating imageregistry operator.
