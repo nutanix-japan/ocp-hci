@@ -158,3 +158,9 @@ Now that your OCP cluster has been deployed, in the **Services** tab, lets check
 Click on each VM (Service) will display IP addresses and Open Terminal options. We will be using the private key to ssh into these VMs (if required)
 
 .. figure:: images/ocp_deployed_vms.png
+
+We have completed this section of the lab where our OCP cluster is sucessfully deployed.
+
+.. figure:: images/ocp_vm_complete.png
+
+We will proceed to test Day 1 operations (Scale out and Scale in) in the next section of the lab.
