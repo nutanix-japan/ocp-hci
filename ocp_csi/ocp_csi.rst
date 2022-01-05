@@ -187,8 +187,6 @@ We have sucessfully installed Nutanix StorageClass so we can provision Physical 
 
 
 
-
-
     
 
 
