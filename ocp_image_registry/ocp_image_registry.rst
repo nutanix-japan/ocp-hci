@@ -37,7 +37,7 @@ Creating the PVC
       resources:
         requests:
           storage: 100Gi
-    storageClassName: nutanix-volume
+      storageClassName: nutanix-volume
     EOF
 
    .. code-block:: bash
@@ -52,7 +52,7 @@ Presenting the PVC to OCP Image Registry
   
    .. code-block:: bash
   
-    oc patch configs.imageregistry.operator.openshift.io cluster --type merge --patch '{"spec":{"managementState":"Managed","storage":{"pvc":{"claim":"image-registry-claim-1"}},"rolloutStrategy": "Recreate"}}'
+    oc patch configs.imageregistry.operator.openshift.io cluster --type merge --patch '{"spec":{"managementState":"Managed","storage":{"pvc":{"claim":"image-registry-claim"}},"rolloutStrategy": "Recreate"}}'
    
    .. code-block:: bash
 
@@ -61,8 +61,40 @@ Presenting the PVC to OCP Image Registry
 
    This will patch the image registry with the created storage (PVC) by re-creating imageregistry operator.
 
-You have successfully created a storage PVC in Nutanix HCI and presented it to a resource in OCP cluster. We will create other resources and present Nutanix HCI storage to them in the subsequent sections of the lab.
+#. To see the changes at the operator level execute the following command:
 
+   .. code-block:: bash
+  
+    oc describe configs.imageregistry.operator.openshift.io
+
+   .. code-block:: bash
+
+     # example output here for the above command
+     Spec:
+        Operator Log Level:  Normal
+        Proxy:
+        Replicas:  1
+        Requests:
+            Read:
+            Max Wait In Queue:  0s
+            Write:
+            Max Wait In Queue:  0s
+        Rollout Strategy:       Recreate
+        Storage:
+            Management State:  Unmanaged
+            Pvc:
+              Claim: image-registry-claim   ## << Here is the claim
+        Unsupported Config Overrides:  <nil>
+
+To check the existence this PV in Prism Element, check the volume detail in Storage container.
+
+#. Go to your **Prism Element** > **Storage** > **Volume Group**
+
+#. You should see a 100 GB disk provisioned as shown below 
+   
+   .. figure:: images/ocp_pv_vg.png
+
+You have successfully created a storage PVC in Nutanix HCI and presented it to a resource in OCP cluster. We will create other resources and present Nutanix HCI storage to them in the subsequent sections of the lab.
 
     
 

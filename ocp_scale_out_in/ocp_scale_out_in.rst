@@ -45,6 +45,8 @@ In the HPOC environment all the DNS lookups are contained within each HPOC clust
 
 For this reason, we will have to access the OCP Cluster Manager using the Windows Tools VM.
 
+If you don't have a Windows Tools VM in your HPOC. Use these instructions here in :ref:`windows_tools_vm` to create one.
+
 .. note:: 
  
   DNS lookup will not work from anywhere else except the Windows Tools VM

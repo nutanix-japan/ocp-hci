@@ -170,7 +170,7 @@ Install StorageClass
     # NAME             PROVISIONER       RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
     # nutanix-volume   csi.nutanix.com   Delete          Immediate           true                   45h
 
-#. Create a subscription of the Operator
+#. Create a subscription of the Operator to attach it to ``ntnx-system`` namespace
 
    .. code-block:: bash
 
@@ -182,6 +182,7 @@ Install StorageClass
         namespace: ntnx-system
     spec:
         namespace: ntnx-system
+    EOF
    
 We have sucessfully installed Nutanix StorageClass so we can provision Physical Volumes (PV) and Physical Volume Claims (PVC) for the applications we will be deploying in this OCP cluster.
 
