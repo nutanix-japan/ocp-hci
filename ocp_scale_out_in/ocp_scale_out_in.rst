@@ -79,25 +79,61 @@ If you don't have a Windows Tools VM in your HPOC. Use these instructions here i
 
    .. figure:: images/ocp_overview.png
 
-#. Go through the following important components and make a note of the following details:
+#. Go through the following important components and make a note of the following details (you will need this information for your validation exercise):
+   
+   .. list-table::
+     :widths: 25 30 30 30
+     :header-rows: 1
 
-   - Overview 
-   - Projects
-   - Networking
-        - Services
-        - Routes
-   - Storage
-        - StorageClasses
-   - Monitoring
-        - Dashboards
-   - Compute
-        - Nodes (these are your OCP Cluster VMs)
-   - User Management (identify which users/user groups from your AutoAD are added)
-        - Users
-        - Groups
-   - Administration
-        - Cluster Settings - get your cluster's version
-        - Namespaces - make a note of system and user namespaces 
+     * - OCP Property 
+       - Sub Property
+       - Value
+       - Notes
+     * - Overview
+       - 
+       -
+       -
+     * - Projects
+       - 
+       - 
+       -
+     * - Networking
+       - Services
+       -
+       -
+     * - 
+       - Routes
+       - 
+       -
+     * - Storage
+       - StorageClasses
+       - 
+       -
+     * - Monitoring
+       - Dashboards
+       - 
+       -
+     * - Compute
+       - Nodes (these are your OCP Cluster VMs)
+       -
+       -
+     * - User Management 
+       - Users
+       - 
+       - Identify which users from your AutoAD are added
+     * - 
+       - Groups
+       -
+       - Identify which groups from your AutoAD are added
+     * - Administration
+       - Cluster Settings 
+       -
+       - Get your OCP cluster's version
+     * - Namespaces  
+       -
+       - 
+       - Make a note of system and user namespaces
+
 
 You can see how managing all parts of the OCP cluster are in a single place. In a open source kubernetes cluster you would have to install many management packages and go many places them. This is one of the strong selling points of a OCP kubernetes cluster.
 
