@@ -10,9 +10,9 @@ For the purposes of the lab, we will achieve scale in/out operations by triggeri
 
 .. _ocp_cluster_login:
 
-.. warning::
-
-  This section can only be attempted if the previous sections are completed successfully
+.. raw:: html
+  
+  <strong><font color="red">This section can only be attempted if the previous sections are completed successfully</font></strong>
 
 Day 0: Getting OCP Cluster Login Details 
 ++++++++++++++++++++++++++++++++++++++++
@@ -101,13 +101,6 @@ If you don't have a Windows Tools VM in your HPOC. Use these instructions here i
 
 You can see how managing all parts of the OCP cluster are in a single place. In a open source kubernetes cluster you would have to install many management packages and go many places them. This is one of the strong selling points of a OCP kubernetes cluster.
 
-Day 0: Deploy a Simple POD
-++++++++++++++++++++++++++
-
-- Steps to deploy a simple pod 
-- Expose it using services 
-
-
 Day 1: Scale Out Worker Nodes
 +++++++++++++++++++++++++++++
 
@@ -184,20 +177,26 @@ We will do this using Calm Actions.
    
    .. figure:: images/ocp_scalein_check_cm.png
 
-   .. warning::
+   .. note::
 
     OCP keeps the node entry as **Not Ready** (unless manually deleted) to prevent any data corruption to workloads running on the node and to register a new node that comes in as a result of another scale out operation 
 
-    Only delete a node that you have confirmed is completely stopped and cannot be restored
+    Only delete a node that you have confirmed is completely stopped and cannot be restored.
     
-   .. tip::
+   .. note::
    
      Run the Scale Out action once again with ``1`` node and check in the OCP node becomes **Ready**.
 
 Calm makes it really simple to scale in your OCP cluster Day 1 operations as the resource requirements reduces. 
+
+We have now successfully completed this section of the lab doing Day 1 operations.
+
+.. figure:: images/ocp_day1_complete.png
 
 Takeaways
 +++++++++
 
 - Calm makes Day 0 and Day 1 operations easy to manage in a complex environment
 - As maintaining a OCP environment is difficult in terms of administration, Calm helps facilitate this in a repeatable and reliable manner
+
+We will proceed to deploying Nutanix CSI drivers section of the lab.
