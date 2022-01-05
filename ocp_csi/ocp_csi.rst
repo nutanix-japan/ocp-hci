@@ -113,7 +113,7 @@ Install StorageClass
 
    .. code-block:: bash
 
-    cat << EOF | oc apply -f -
+    cat << EOF | oc create -f -
     apiVersion: v1
     kind: Secret
     metadata:
@@ -136,7 +136,7 @@ Install StorageClass
 
    .. code-block:: bash
 
-    cat << EOF | oc apply -f -
+    cat << EOF | oc create -f -
     apiVersion: storage.k8s.io/v1
     kind: StorageClass
     metadata:
@@ -170,6 +170,19 @@ Install StorageClass
     # NAME             PROVISIONER       RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
     # nutanix-volume   csi.nutanix.com   Delete          Immediate           true                   45h
 
+#. Create a subscription of the Operator
+
+   .. code-block:: bash
+
+    cat << EOF | oc create -f -
+    apiVersion: crd.nutanix.com/v1alpha1
+    kind: NutanixCsiStorage
+    metadata:
+        name: nutanixcsistorage
+        namespace: ntnx-system
+    spec:
+        namespace: ntnx-system
+   
 We have sucessfully installed Nutanix StorageClass so we can provision Physical Volumes (PV) and Physical Volume Claims (PVC) for the applications we will be deploying in this OCP cluster.
 
 
