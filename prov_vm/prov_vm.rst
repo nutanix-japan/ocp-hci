@@ -28,41 +28,17 @@ We need to configure network and credentials for the blueprint so it can be depl
 
 #. Click on **Credentials** (next to Save)
 
-#. Copy and paste the following primary key (this could be any primary key that you may already have)
-   
-   .. code-block:: bash
+#. Go to this  `URL <https://travistidwell.com/jsencrypt/demo/>`_ to create a RSA private key
 
-    -----BEGIN OPENSSH PRIVATE KEY-----
-    b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdzc2gtcn
-    NhAAAAAwEAAQAAAQEA5//EaGHrEDLtng7U252IFsWvglORQXCGCpY3urfMOjl/LMY+41s7
-    ug028XPlMO+kw5J6ylIgcepWijrfyqBTklHjXVNWo0WuukjrbEwG2CNHwdaCAGwBXhzNHV
-    kgiaMj9mCCoNhZ6UZW+X2WsdpSjgkTKKXGoLh6R5wm+5ZdXvsjlZcwrNvuwKJ8uAsdWafV
-    KlafThHUNHpLh+ZvNiinLGmfiBx1DTZzIUEsjf4fYcRk1drUbJnrMO6eXHPa6aPjx/MO9k
-    eF6VLOM5dqZrdAYedMU3MFxWuTyXB6o6kd4ddmd/twSTC7cgRcADtaE5zcB3ZNmz2Ek5Lh
-    dkIm9Yu8HwAAA9AATH8HAEx/BwAAAAdzc2gtcnNhAAABAQDn/8RoYesQMu2eDtTbnYgWxa
-    +CU5FBcIYKlje6t8w6OX8sxj7jWzu6DTbxc+Uw76TDknrKUiBx6laKOt/KoFOSUeNdU1aj
-    Ra66SOtsTAbYI0fB1oIAbAFeHM0dWSCJoyP2YIKg2FnpRlb5fZax2lKOCRMopcaguHpHnC
-    b7ll1e+yOVlzCs2+7Aony4Cx1Zp9UqVp9OEdQ0ekuH5m82KKcsaZ+IHHUNNnMhQSyN/h9h
-    xGTV2tRsmesw7p5cc9rpo+PH8w72R4XpUs4zl2pmt0Bh50xTcwXFa5PJcHqjqR3h12Z3+3
-    BJMLtyBFwAO1oTnNwHdk2bPYSTkuF2Qib1i7wfAAAAAwEAAQAAAQEA59REnw4iB+jsW4J0
-    oBSWFjNrA6+gOiVIPLIJdHMQCKrF86cS1rynPW7RFYx7XWBLZAcu3pgcxdimq7DTSrbVbC
-    SaL/sEW1lZldsiLfD28eqnXQKOm/9Rior7SLV0dzVnzV55imNHzXy1ktA10vnYfwiAdaDa
-    kGZoAsD+j2+dVDd3+qCLftw/uvXrlp8gx+bvX8xcoMxsckdKIQUE8zZJedV3QBfCHSnagc
-    ub3BI3x5zaYTx3lZqaYYknkDr9gyGHuvPywJTMUsoAXhvt3/AONByLOUwpNt92svR+ljwy
-    wszP7XqLtZEFA/Xb0t8fHd2ZhtndR9V5wTz6fPu/xvO6MQAAAIBQU03ZxyZyt72FygB/n+
-    hBnVru7B7e3m2EjaLW6HKWmUaHez3go2GjAfQFMXHtHKkUbZ/25JwFNIYPRqgan45sgrxl
-    UYGPCcwYMMqAg+8YsL8sxl6Ypc5YyoSUZTjRScGZw8us5qV/TBaXiY0TK3dqNM0VI7LFj6
-    t89iKi6/KeZQAAAIEA+y0rIun5o27XfB+S4biP8xV1P8dls8NFg1uwFs50dJQfSozokW8z
-    lgY92LvjHzgVs8OCj2HfrcM3+ySj6sZgRHkr+eL0fdum5ttYcuJx6391nuE4FehS5jtyjG
-    3FIjVW9B5PPx7MXucp9w9ewSVNFo7Fn41d6++ALFThF1c2jucAAACBAOx0UbbNg4BTUKGU
-    e8jg/uY36BFUJ8znKrPqLxMZv6YCW90dozPY0bFoV2iaPaqtKDJi/zrfyiteQkPA5o2MCt
-    EEa8CaSUJaybyqTLwPfPX02U8jEwUF8n/5NGusMer8cIy0OFe1WyVEuaUk6zWgF7HIn/ba
-    impp30n2vf7rkNoJAAAAFGxha3NobWlAQzAyRjcwRkxNTDg1AQIDBAUG
-    -----END OPENSSH PRIVATE KEY-----
+#. Choose **2048 bit** as the key size and click on **Generate New Keys**
 
-#. Click on **Save**
+   .. figure:: images/generate_rsa_key.png
+
+#. Copy the **Private Key** and paste the generated primary key in the bluprints credential called **CRED**
 
    .. figure:: images/ocp_bp_save_cred.png
+
+#. Click on **Save**
 
 #. Click on **Back** to return to the blueprints main window
 
