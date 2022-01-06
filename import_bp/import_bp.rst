@@ -127,3 +127,6 @@ Upload Blueprints
 
    .. figure:: images/ocp_bp_list.png
 
+Now that we are setup with all required information. We can proceed to deploying the Provisioning VM and ultimately OCP Cluster in the next sections of the lab.
+
+
