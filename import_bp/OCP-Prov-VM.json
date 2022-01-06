@@ -301,7 +301,7 @@
 								"kind": "subnet",
 								"type": "",
 								"name": "Primary",
-								"uuid": "016cbd2d-7ec2-46f6-978b-a28a935a32fc"
+								"uuid": "b423e64c-7acc-46bd-9e17-8b5c894ca411"
 							},
 							"type": ""
 						}],
@@ -324,7 +324,7 @@
 						},
 						"power_state": "ON",
 						"type": "",
-						"account_uuid": "b8616ea1-1f83-4fe5-9f4e-ac745d5d7713",
+						"account_uuid": "11a8799f-21b8-4247-9712-bb57a772ba73",
 						"boot_config": {
 							"boot_device": {
 								"type": "",
@@ -343,7 +343,7 @@
 								"kind": "app_package",
 								"type": "",
 								"name": "Centos84",
-								"uuid": "0c791bda-5cda-4d1d-a1ea-66a96ab85f5b"
+								"uuid": "2334cdc2-aff7-42d9-91e7-33f32ef9c398"
 							},
 							"type": "",
 							"disk_size_mib": 0,
@@ -377,7 +377,8 @@
 						"secret_reference": {}
 					}
 				},
-				"name": "CRED"
+				"name": "CRED",
+				"cred_class": "static"
 			}],
 			"package_definition_list": [{
 				"description": "",
@@ -523,6 +524,7 @@
 					"description": ""
 				}],
 				"environment_reference_list": [],
+				"patch_list": [],
 				"description": "",
 				"action_list": [{
 					"description": "",
@@ -678,7 +680,7 @@
 							"name": "run Blueprint",
 							"attrs": {
 								"exit_status": [],
-								"script": " #region define variables\njwt     = '@@{calm_jwt}@@'\napi_server = \"localhost\"\napi_server_port = \"9440\"\napi_server_endpoint = \"\/api\/nutanix\/v3\/blueprints\/{}\/runtime_editables\".format(\"@@{blueprint_uuid}@@\")\n\nlength = 100\nurl = \"https:\/\/{}:{}{}\".format(\n    api_server,\n    api_server_port,\n    api_server_endpoint\n)\n#endregion\n\n# region prepare api call\nmethod = \"GET\"\nheaders = {\n    'Content-Type': 'application\/json',\n    'Accept': 'application\/json',\n    'Authorization': 'Bearer {}'.format(jwt)\n}\n\n\n#region make the api call\nprint(\"Making a {} API call to {}\".format(method, url))\nr = urlreq(\n    url,\n    verb=method,\n    headers=headers,\n    verify=False\n)\n#endregion\n\n#region process the results\nif r.ok:\n    resp_json = json.loads(r.content)\n    #variable_list = json.dumps(json_resp['resources'][0]['runtime_editables']['variable_list'])\n# If the call failed\nelse:\n    # print the content of the response (which should have the error message)\n    print(\"Request failed\")\n    exit(1)\n# endregion\n\n\n#### RUN BP\n\n#region define variables\napi_server_endpoint = \"\/api\/nutanix\/v3\/blueprints\/{}\/simple_launch\".format(\"@@{blueprint_uuid}@@\")\n\nlength = 100\nurl = \"https:\/\/{}:{}{}\".format(\n    api_server,\n    api_server_port,\n    api_server_endpoint\n)\n#endregion\n\n# region prepare api call\nmethod = \"POST\"\nheaders = {\n    'Content-Type': 'application\/json',\n    'Accept': 'application\/json',\n    'Authorization': 'Bearer {}'.format(jwt)\n}\n\n# Compose the json payload\npayload = {\n  \"spec\": {\n    \"app_name\": \"Openshift @@{OCP_SUBDOMAIN}@@\",\n    \"app_description\": \"Automated OCP Tenant\",\n    \"app_profile_reference\": {\n      \"kind\": \"app_profile\",\n      \"name\": \"\"\n    },\n    \"runtime_editables\": {\n      \"variable_list\":[],\n      \"credential_list\":[]\n    }\n  }\n}\n\nif (@@{WORKER}@@==0):\n\tpayload['spec']['app_profile_reference']['name']='MasterOnly'\nelse:\n\tpayload['spec']['app_profile_reference']['name']='MasterWorker'\n\n\npayload['spec']['runtime_editables']['variable_list']=resp_json['resources'][0]['runtime_editables']['variable_list']\npayload['spec']['runtime_editables']['credential_list']=resp_json['resources'][0]['runtime_editables']['credential_list']\n\npayload['spec']['runtime_editables']['variable_list'][0]['value']['value']=\"@@{BASE_DOMAIN}@@\"\npayload['spec']['runtime_editables']['variable_list'][1]['value']['value']=\"@@{OCP_SUBDOMAIN}@@\"\npayload['spec']['runtime_editables']['variable_list'][2]['value']['value']=\"@@{address}@@\"\npayload['spec']['runtime_editables']['variable_list'][3]['value']['value']=\"@@{OCP_MACHINE_NETWORK}@@\"\npayload['spec']['runtime_editables']['variable_list'][4]['value']['value']='@@{KUBECONFIG}@@'\npayload['spec']['runtime_editables']['variable_list'][5]['value']['value']='@@{KUBEADMIN}@@'\npayload['spec']['runtime_editables']['variable_list'][6]['value']['value']='@@{platform.status.resources.nic_list[0].subnet_reference.uuid}@@'\npayload['spec']['runtime_editables']['variable_list'][7]['value']['value']='@@{WORKER}@@'\n\npayload['spec']['runtime_editables']['credential_list'][0]['value']['secret']['attrs']['is_secret_modified']=True\n\nol_cred =\"\"\"@@{CRED.secret}@@\"\"\"\npayload['spec']['runtime_editables']['credential_list'][0]['value']['secret']['value']=ol_cred\n\nprint payload\n# endregion\n\n#region make the api call\nprint(\"Making a {} API call to {}\".format(method, url))\nr = urlreq(\n    url,\n    verb=method,\n    params=json.dumps(payload),\n    headers=headers,\n    verify=False\n)\n#endregion\n\n#region process the results\nif r.ok:\n    resp_json = json.loads(r.content)\n    print \"launch_uuid={}\".format(resp_json[\"status\"][\"request_id\"])\n# If the call failed\nelse:\n    # print the content of the response (which should have the error message)\n    print(\"Request failed\", json.dumps(\n        json.loads(r.content),\n        indent=4\n    ))\n    print(\"Headers: {}\".format(headers))\n    print(\"Payload: {}\".format(payload))\n    exit(1)\n# endregion",
+								"script": " #region define variables\njwt     = '@@{calm_jwt}@@'\napi_server = \"localhost\"\napi_server_port = \"9440\"\napi_server_endpoint = \"\/api\/nutanix\/v3\/blueprints\/{}\/runtime_editables\".format(\"@@{blueprint_uuid}@@\")\n\nlength = 100\nurl = \"https:\/\/{}:{}{}\".format(\n    api_server,\n    api_server_port,\n    api_server_endpoint\n)\n#endregion\n\n# region prepare api call\nmethod = \"GET\"\nheaders = {\n    'Content-Type': 'application\/json',\n    'Accept': 'application\/json',\n    'Authorization': 'Bearer {}'.format(jwt)\n}\n\n\n#region make the api call\nprint(\"Making a {} API call to {}\".format(method, url))\nr = urlreq(\n    url,\n    verb=method,\n    headers=headers,\n    verify=False\n)\n#endregion\n\n#region process the results\nif r.ok:\n    resp_json = json.loads(r.content)\n    #variable_list = json.dumps(json_resp['resources'][0]['runtime_editables']['variable_list'])\n# If the call failed\nelse:\n    # print the content of the response (which should have the error message)\n    print(\"Request failed\")\n    exit(1)\n# endregion\n\n\n#### RUN BP\n\n#region define variables\napi_server_endpoint = \"\/api\/nutanix\/v3\/blueprints\/{}\/simple_launch\".format(\"@@{blueprint_uuid}@@\")\n\nlength = 100\nurl = \"https:\/\/{}:{}{}\".format(\n    api_server,\n    api_server_port,\n    api_server_endpoint\n)\n#endregion\n\n# region prepare api call\nmethod = \"POST\"\nheaders = {\n    'Content-Type': 'application\/json',\n    'Accept': 'application\/json',\n    'Authorization': 'Bearer {}'.format(jwt)\n}\n\n# Compose the json payload\npayload = {\n  \"spec\": {\n    \"app_name\": \"Openshift @@{OCP_SUBDOMAIN}@@ @@{HPOC_USER_INITIALS}@@\",\n    \"app_description\": \"Automated OCP Tenant\",\n    \"app_profile_reference\": {\n      \"kind\": \"app_profile\",\n      \"name\": \"\"\n    },\n    \"runtime_editables\": {\n      \"variable_list\":[],\n      \"credential_list\":[]\n    }\n  }\n}\n\nif (@@{WORKER}@@==0):\n\tpayload['spec']['app_profile_reference']['name']='MasterOnly'\nelse:\n\tpayload['spec']['app_profile_reference']['name']='MasterWorker'\n\n\npayload['spec']['runtime_editables']['variable_list']=resp_json['resources'][0]['runtime_editables']['variable_list']\npayload['spec']['runtime_editables']['credential_list']=resp_json['resources'][0]['runtime_editables']['credential_list']\n\npayload['spec']['runtime_editables']['variable_list'][0]['value']['value']=\"@@{BASE_DOMAIN}@@\"\npayload['spec']['runtime_editables']['variable_list'][1]['value']['value']=\"@@{OCP_SUBDOMAIN}@@\"\npayload['spec']['runtime_editables']['variable_list'][2]['value']['value']=\"@@{address}@@\"\npayload['spec']['runtime_editables']['variable_list'][3]['value']['value']=\"@@{OCP_MACHINE_NETWORK}@@\"\npayload['spec']['runtime_editables']['variable_list'][4]['value']['value']='@@{KUBECONFIG}@@'\npayload['spec']['runtime_editables']['variable_list'][5]['value']['value']='@@{KUBEADMIN}@@'\npayload['spec']['runtime_editables']['variable_list'][6]['value']['value']='@@{platform.status.resources.nic_list[0].subnet_reference.uuid}@@'\npayload['spec']['runtime_editables']['variable_list'][7]['value']['value']='@@{WORKER}@@'\n\npayload['spec']['runtime_editables']['credential_list'][0]['value']['secret']['attrs']['is_secret_modified']=True\n\nol_cred =\"\"\"@@{CRED.secret}@@\"\"\"\npayload['spec']['runtime_editables']['credential_list'][0]['value']['secret']['value']=ol_cred\n\nprint payload\n# endregion\n\n#region make the api call\nprint(\"Making a {} API call to {}\".format(method, url))\nr = urlreq(\n    url,\n    verb=method,\n    params=json.dumps(payload),\n    headers=headers,\n    verify=False\n)\n#endregion\n\n#region process the results\nif r.ok:\n    resp_json = json.loads(r.content)\n    print \"launch_uuid={}\".format(resp_json[\"status\"][\"request_id\"])\n# If the call failed\nelse:\n    # print the content of the response (which should have the error message)\n    print(\"Request failed\", json.dumps(\n        json.loads(r.content),\n        indent=4\n    ))\n    print(\"Headers: {}\".format(headers))\n    print(\"Payload: {}\".format(payload))\n    exit(1)\n# endregion",
 								"eval_variables": ["launch_uuid"],
 								"eval_scope": "local",
 								"type": "",
@@ -897,11 +899,33 @@
 								"type": "PREDEFINED",
 								"choices": []
 							}
+						}, {
+							"val_type": "STRING",
+							"is_mandatory": false,
+							"description": "",
+							"data_type": "BASE",
+							"type": "LOCAL",
+							"name": "HPOC_USER_INITIALS",
+							"value": "",
+							"label": "",
+							"attrs": {
+								"type": ""
+							},
+							"editables": {
+								"value": true
+							},
+							"is_hidden": false,
+							"options": {
+								"type": "PREDEFINED",
+								"choices": []
+							}
 						}]
 					},
 					"name": "Deploy OCP"
 				}],
 				"name": "Nutanix",
+				"restore_config_list": [],
+				"snapshot_config_list": [],
 				"variable_list": [{
 					"val_type": "STRING",
 					"is_mandatory": false,
@@ -991,14 +1015,14 @@
 			},
 			"type": "USER"
 		},
-		"name": "OCP-ProvisioningVMx"
+		"name": "OCP_Prov_VM"
 	},
 	"api_version": "3.0",
 	"metadata": {
-		"last_update_time": "1634831645996999",
+		"last_update_time": "1641454083051782",
 		"kind": "blueprint",
-		"spec_version": 3,
-		"creation_time": "1634826689254434",
-		"name": "OCP-ProvisioningVMx"
+		"spec_version": 8,
+		"creation_time": "1641288275735113",
+		"name": "OCP_Prov_VM"
 	}
 }

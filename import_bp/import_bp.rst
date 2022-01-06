@@ -97,29 +97,31 @@ Let's create a Calm endpoint for authentication, authorization and DNS updates f
 Upload Blueprints
 +++++++++++++++++
 
-#. Download `Provisioning VM Blueprint 1 <https://raw.githubusercontent.com/nutanix-japan/ocp-hci/main/import_bp/OCP-Prov-VM.json>`_ (right-click and save as json extension)
+#. Download blueprint1 by right clickin on this link `Provisioning VM <https://raw.githubusercontent.com/nutanix-japan/ocp-hci/main/import_bp/OCP-Prov-VM.json>`_ and save as Initials_OCP_Prov_VM.json file (e.g XYZ_OCP_Prov_VM.json)
 
-#. Download `OCP Master Worker Blueprint 2 <https://raw.githubusercontent.com/nutanix-japan/ocp-hci/main/import_bp/OCP-Master-Worker.json>`_ (right-click save as json extension)
+#. Download blueprint2 by right clickin on this link  `OCP Master Worker <https://raw.githubusercontent.com/nutanix-japan/ocp-hci/main/import_bp/OCP-Master-Worker.json>`_ and save as Initials_OCP_Master_Worker.json file (e.g XYZ_OCP_Master_Worker.json)
 
 #. In **Prism Central** > **Services** > **Calm**
  
 #. Click on **Blueprints**
 
-#. Select your Provisioning VM ``Blueprint 1``
+#. Select your Provisioning VM Initials_OCP_Prov_VM.json blueprint
 
 #. Fill the following Details 
 
-   - **Blueprint Name** - OCP_Prov_VM
+   - **Blueprint Name** - XYZ_OCP_Prov_VM
    - **Project** - BootcampInfra
 
    .. figure:: images/ocp_upload_bp.png
 
 #. Click on **Upload**
 
-#. Return to **Blueprints** and upload OC Master Worker ``Blueprint 2``
+#. Return to **Blueprints** and upload OC Master Worker Initials_OCP_Master_Worker.json blueprint
    
-   - **Blueprint Name** - OCP_Master_Worker
+   - **Blueprint Name** - XYZ_OCP_Master_Worker
    - **Project** - BootcampInfra
+
+   .. figure:: images/ocp_upload_bp_mw.png
 
 #. Return to **Blueprints** once again and you will see both blueprints uploaded to Calm
 

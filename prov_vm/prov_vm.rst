@@ -12,19 +12,17 @@ Now lets configure and deploy Provisioning VM
  
 #. Click on **Blueprints**
 
-#. Select your Provisioning VM ``OCP_Prov_VM`` blueprint
+#. Select your Provisioning VM ``XYZ_OCP_Prov_VM`` blueprint
 
 We need to configure network and credentials for the blueprint so it can be deployed in your HPOC/SPOC.
 
 #. Select the Provisioning_VM service 
 
-#. In the services' VM properties, Choose Primary as the NIC 1
-
-   .. figure:: images/ocp_prov_vm_nic1.png
-
-#. Click on **Save**
+#. In the Provisioning_VM service's VM properties, Choose **Primary** as the NIC 1
    
    .. figure:: images/ocp_bp_save.png
+
+#. Click on **Save**
 
 #. Click on **Credentials** (next to **Save**)
 

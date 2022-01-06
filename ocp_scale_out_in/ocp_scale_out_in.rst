@@ -187,7 +187,7 @@ We will do this using Calm Actions.
 
 #. In **Calm** > **Applications**
 
-#. Click on the **Openshift ocp1** application and go to **Manage** tab
+#. Click on the **Openshift ocp1 XYZ** application and go to **Manage** tab
 
 #. In the **Scale In** action, click on :fa:`play` play button
 
@@ -203,11 +203,11 @@ We will do this using Calm Actions.
 
 #. Monitor the events in Prism Central to see what is being create on the HCI infrastructure
 
-#. Note down the number of resources created (e.g VM, Disk, etc)
+#. Note down the number of resources deleted (e.g VM, Disk, etc)
 
 #. This will take about 5-10 minutes
 
-#. Once the Scale Out action is successfully completed, go to the **Service** tab of the VM and check if one worker nodes is deleted
+#. Once the Scale In action is successfully completed, go to the **Service** tab of the VM and check if one worker nodes is deleted
 
    .. figure:: images/ocp_scalein_complete.png
 
@@ -223,9 +223,9 @@ We will do this using Calm Actions.
     
    .. note::
    
-     Run the Scale Out action once again with ``1`` node and check in the OCP node becomes **Ready**.
+     As an optional task run the **Scale Out** action once again with ``1`` node and check if the OCP node becomes **Ready**.
 
-Calm makes it really simple to scale in your OCP cluster Day 1 operations as the resource requirements reduces. 
+Calm makes it simple to scale in your OCP cluster Day 1 operations as the resource requirements reduces. 
 
 We have now successfully completed this section of the lab doing Day 1 operations.
 

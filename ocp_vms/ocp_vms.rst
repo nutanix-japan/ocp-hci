@@ -104,7 +104,7 @@ Deploying OCP Cluster
 
    .. figure:: images/ocp_deploy_task_runtime_variables.png
 
-#. Go to the **Audit** tab to check the stautus of the launched **Deploy OCP**　action
+#. Go to the **Audit** tab to check the stautus of the launched **Deploy OCP** action
 
    .. figure:: images/ocp_deploy_audit.png
 
@@ -112,7 +112,7 @@ Deploying OCP Cluster
  
    .. figure:: images/ocp_app_provisioning.png
 
-#. Click on the **Openshift ocp1** application and go to **Audit** tab
+#. Click on the **Openshift ocp1 XYZ** application and go to **Audit** tab
 
 #. Observe the vm create, package and other Calm actions 
 
@@ -120,7 +120,7 @@ Deploying OCP Cluster
 
 #. Meanwhile you can notice that Prism Central's event will be getting quite busy. This is a result of VMs, storage, etc,. getting provisioned by Calm using REST calls to Prism Cental
 
-#. Once deployed the Calm application **Openshift ocp1** will be in a running state
+#. Once deployed the Calm application **Openshift ocp1 XYZ** will be in a running state
 
    .. figure:: images/ocp_prov_vm_audit.png
 
