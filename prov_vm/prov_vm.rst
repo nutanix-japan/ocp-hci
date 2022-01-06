@@ -12,6 +12,12 @@ Now lets configure and deploy Provisioning VM
  
 #. Click on **Blueprints**
 
+   .. note::
+    
+    .. raw:: html
+
+     <FONT COLOR="RED">Make sure that you edit only your blueprint with your intials. There could be other users using the same HPOC cluster.</FONT>
+
 #. Select your Provisioning VM ``XYZ_OCP_Prov_VM`` blueprint
 
 We need to configure network and credentials for the blueprint so it can be deployed in your HPOC/SPOC.
