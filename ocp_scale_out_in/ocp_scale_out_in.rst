@@ -19,7 +19,7 @@ Day 0: Getting OCP Cluster Login Details
 
 #. In **Calm** > **Applications**
 
-#. Click on the **Openshift ocp1** application and go to **Audit** tab
+#. Click on the **Openshift ocp1 XYZ** application and go to **Audit** tab
 
 #. Go to the end of the audit trail and look for **OS_Status_Check Start** task and expand 
 
@@ -34,9 +34,11 @@ Day 0: Getting OCP Cluster Login Details
 
    .. figure:: images/ocp_console_cred.png
 
-   Note that the password will be different for your implementation. 
+   .. note::
+   
+     The password will be different for your application. 
 
-#. You will need these details to logon to the OCP cluster managment console
+#. Note this down as you will need these credentials to logon to the OCP cluster managment console
 
 Day 0: Accessing OCP Cluster Manager
 +++++++++++++++++++++++++++++++++++++

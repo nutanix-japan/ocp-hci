@@ -108,7 +108,7 @@ Deploying OCP Cluster
 
    .. figure:: images/ocp_deploy_audit.png
 
-#. If this action launch is succesful, you will see another application **Openshift ocp1** in the **Calm** > **Applications** in a **Provisioning** state
+#. If this action launch is succesful, you will see another application **Openshift ocp1 XYZ** in the **Calm** > **Applications** in a **Provisioning** state
  
    .. figure:: images/ocp_app_provisioning.png
 

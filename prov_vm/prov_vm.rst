@@ -26,13 +26,31 @@ We need to configure network and credentials for the blueprint so it can be depl
    
    .. figure:: images/ocp_bp_save.png
 
-#. Click on **Credentials** (next to Save)
+#. Click on **Credentials** (next to **Save**)
 
 #. Go to this  `URL <https://travistidwell.com/jsencrypt/demo/>`_ to create a RSA private key
 
 #. Choose **2048 bit** as the key size and click on **Generate New Keys**
 
    .. figure:: images/generate_rsa_key.png
+
+   .. note::
+
+    You can use any online key generator if you using Windows.
+    
+    Execute the following commands in you are in a Linux / Mac environment to generate a private key.
+
+    .. code-block:: bash
+
+      ssh-keygen -t rsa -b 2048 -C "Created for OCP Workshop"
+
+      # follow prompts 
+      # do not specify passphrase
+      # once completed run the following command
+      
+      cat id_rsa
+
+      # copy the contents of the id_rsa file to your Calm blueprint
 
 #. Copy the **Private Key** and paste the generated primary key in the bluprints credential called **CRED**
 
