@@ -118,16 +118,17 @@ Deploying OCP Cluster
 
 #. Click on the play :fa:`play` button next to **Deploy OCP** action
 
-   .. figure:: images/ocp_bp_save_validation.png
+   .. figure:: images/ocp_deployocp_action.png
 
 #. This will open up **Run Action: Deploy OCP** window for user inputs
 
 #. Fill only the following details:
-
+   
+   - **HPOC_USER_INITIALS** - XYZ
    - **Number of Workers** - 2
-   - **OCP_PULL_SECRET** - download/copy this from your Red Hat Portal `Login <https://console.redhat.com/openshift/install/pull-secret>`_ (you will need Red Hat Portal Access)
+   - **OCP_PULL_SECRET** - download/copy pull secret this from your Red Hat Portal `Login <https://console.redhat.com/openshift/install/pull-secret>`_ (you will need Red Hat Portal Access)
    - **OCP_MACHINE_NETWORK** - provide your Primary network address for your HPOC/SPOC (e.g. 10.38.2.64/26 ) - check in your cluster reservation email/webpage
-   - **OCP_BP** - OCP_Master_Worker (modify if you have used a different blueprint name)
+   - **OCP_BP** - OCP_Master_Worker (modify this if you have used a different blueprint name)
 
 #. Click on **Run**
 
@@ -145,7 +146,7 @@ Deploying OCP Cluster
 
 #. Observe the vm create, package and other Calm actions 
 
-#. This should take about 10-15 minutes
+#. This should take about 20-25 minutes
 
 #. Meanwhile you can notice that Prism Central's event will be getting quite busy. This is a result of VMs, storage, etc,. getting provisioned by Calm using REST calls to Prism Cental
 

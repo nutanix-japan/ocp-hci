@@ -27,6 +27,8 @@
   :name: _optional_labs
   :hidden:
 
+  ocp_vms_2/ocp_vms_2
+
 .. toctree::
   :maxdepth: 2
   :caption: Appendix

@@ -49,7 +49,7 @@ If you don't have a Windows Tools VM in your HPOC. Use these instructions here i
 
 .. note:: 
  
-  DNS lookup will not work from anywhere else except the Windows Tools VM
+  DNS lookup will not work from anywhere else except the Windows Tools VM. So please use this VM to do the rest of this lab.
 
 #. Login to you Windows Tools VM using the following credentials;
 

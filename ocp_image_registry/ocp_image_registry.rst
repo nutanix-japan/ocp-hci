@@ -21,6 +21,18 @@ The PVC will be 100 GB.
 Creating the PVC
 ++++++++++++++++
 
+#. In Calm go to your **Applications** > **Openshift ocp1** application
+
+#. Go to the **Services** 
+
+#. Select your **LB_DNS** service
+
+#. Click on **Open Terminal**
+   
+   .. figure:: images/ocp_lbdns_terminal.png
+
+   The terminal will open in a new browser tab
+
 #. Copy the following StorageClass configuration script and paste it in the command line window
     
    .. code-block:: bash

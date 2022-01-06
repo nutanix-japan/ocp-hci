@@ -85,7 +85,7 @@ Install StorageClass
 
 #. Go to the **Services** 
 
-#. Select your LB_DNS service
+#. Select your **LB_DNS** service
 
 #. Click on **Open Terminal**
    
