@@ -1,7 +1,7 @@
 {
 	"status": {},
 	"contains_secrets": false,
-	"product_version": "3.2.6",
+	"product_version": "3.3.1",
 	"spec": {
 		"description": "",
 		"resources": {
@@ -2040,7 +2040,7 @@
 						"guest_customization": null,
 						"power_state": "ON",
 						"type": "",
-						"account_uuid": "b8c74dc0-16ca-4598-9f98-5588589e6bb5",
+						"account_uuid": "11a8799f-21b8-4247-9712-bb57a772ba73",
 						"boot_config": {
 							"boot_device": {
 								"type": "",
@@ -2059,7 +2059,7 @@
 								"kind": "app_package",
 								"type": "",
 								"name": "RHCOS47_BOOTSTRAP",
-								"uuid": "311b3736-d606-4f8a-a902-a806f6c8c1fd"
+								"uuid": "400b71fe-e142-4d7a-942d-736899e43e29"
 							},
 							"type": "",
 							"disk_size_mib": 0,
@@ -2249,7 +2249,7 @@
 						"guest_customization": null,
 						"power_state": "ON",
 						"type": "",
-						"account_uuid": "b8c74dc0-16ca-4598-9f98-5588589e6bb5",
+						"account_uuid": "11a8799f-21b8-4247-9712-bb57a772ba73",
 						"boot_config": {
 							"boot_device": {
 								"type": "",
@@ -2268,7 +2268,7 @@
 								"kind": "app_package",
 								"type": "",
 								"name": "RHCOS47_BOOTSTRAP",
-								"uuid": "311b3736-d606-4f8a-a902-a806f6c8c1fd"
+								"uuid": "400b71fe-e142-4d7a-942d-736899e43e29"
 							},
 							"type": "",
 							"disk_size_mib": 0,
@@ -2477,7 +2477,7 @@
 						},
 						"power_state": "ON",
 						"type": "",
-						"account_uuid": "b8c74dc0-16ca-4598-9f98-5588589e6bb5",
+						"account_uuid": "11a8799f-21b8-4247-9712-bb57a772ba73",
 						"boot_config": {
 							"boot_device": {
 								"type": "",
@@ -2496,7 +2496,7 @@
 								"kind": "app_package",
 								"type": "",
 								"name": "OpenshiftC8",
-								"uuid": "7bfe4b70-7542-460f-bdd4-818ac19093df"
+								"uuid": "2258a23d-9b53-4de0-b573-73ee9856bc0f"
 							},
 							"type": "",
 							"disk_size_mib": 0,
@@ -2696,7 +2696,7 @@
 						"guest_customization": null,
 						"power_state": "ON",
 						"type": "",
-						"account_uuid": "b8c74dc0-16ca-4598-9f98-5588589e6bb5",
+						"account_uuid": "11a8799f-21b8-4247-9712-bb57a772ba73",
 						"boot_config": {
 							"boot_device": {
 								"type": "",
@@ -2715,7 +2715,7 @@
 								"kind": "app_package",
 								"type": "",
 								"name": "RHCOS47_BOOTSTRAP",
-								"uuid": "311b3736-d606-4f8a-a902-a806f6c8c1fd"
+								"uuid": "400b71fe-e142-4d7a-942d-736899e43e29"
 							},
 							"type": "",
 							"disk_size_mib": 0,
@@ -2766,7 +2766,8 @@
 				"name": "CRED",
 				"editables": {
 					"secret": true
-				}
+				},
+				"cred_class": "static"
 			}],
 			"package_definition_list": [{
 				"description": "",
@@ -4008,216 +4009,9 @@
 					"description": ""
 				}],
 				"environment_reference_list": [],
+				"patch_list": [],
 				"description": "",
 				"action_list": [{
-					"description": "",
-					"type": "user",
-					"critical": false,
-					"runbook": {
-						"task_definition_list": [{
-							"retries": "0",
-							"description": "",
-							"child_tasks_local_reference_list": [{
-								"kind": "app_task",
-								"name": "Deploy CSI Driver"
-							}],
-							"name": "425a1dab_dag",
-							"attrs": {
-								"edges": [],
-								"type": ""
-							},
-							"timeout_secs": "0",
-							"type": "DAG",
-							"variable_list": []
-						}, {
-							"target_any_local_reference": {
-								"kind": "app_service",
-								"name": "OS_Status_Check"
-							},
-							"retries": "0",
-							"description": "",
-							"child_tasks_local_reference_list": [],
-							"name": "Deploy CSI Driver",
-							"attrs": {
-								"exit_status": [],
-								"script": "export KUBECONFIG=~\/openshift\/auth\/kubeconfig\necho \"\"\"apiVersion: v1\nkind: Secret\nmetadata:\n  name: ntnx-secret\n  namespace: ntnx-system\nstringData:\n  key: @@{PE_IP}@@:9440:@@{PE_ADMIN}@@:@@{PE_PW}@@\"\"\" > ntnx-secret.yaml\necho \"\"\"apiVersion: operators.coreos.com\/v1\nkind: OperatorGroup\nmetadata:\n  name: ntnx-system-r8czl\n  namespace: ntnx-system\nspec:\n  targetNamespaces:\n  - ntnx-system\"\"\" > operatorgroup.yaml\necho \"\"\"apiVersion: operators.coreos.com\/v1alpha1\nkind: Subscription\nmetadata:\n  name: nutanixcsioperator\n  namespace: ntnx-system\nspec:\n  channel: beta\n  name: nutanixcsioperator\n  installPlanApproval: Automatic\n  source: certified-operators\n  sourceNamespace: openshift-marketplace\"\"\" > subscription.yaml\necho \"\"\"apiVersion: crd.nutanix.com\/v1alpha1\nkind: NutanixCsiStorage\nmetadata:\n  name: nutanixcsistorage\n  namespace: ntnx-system\nspec:\n  namespace: ntnx-system\"\"\" > instance.yaml\n  \noc create ns ntnx-system\noc create -f ntnx-secret.yaml\noc create -f operatorgroup.yaml\noc create -f subscription.yaml\n\nATTEMPTS=0\nROLLOUT_STATUS_CMD=\"oc wait --for=condition=available --timeout=120s -n ntnx-system deployments nutanix-csi-operator-controller-manager\"\nuntil $ROLLOUT_STATUS_CMD || [ $ATTEMPTS -eq 12 ]; do\n  $ROLLOUT_STATUS_CMD\n  ATTEMPTS=$((attempts + 1))\n  sleep 10\ndone\n\n# Check deployment rollout status every 10 seconds (max 2 minutes) until complete.\nATTEMPTS=0\nROLLOUT_STATUS_CMD=\"oc get NutanixCsiStorage -n ntnx-system\"\nuntil $ROLLOUT_STATUS_CMD || [ $ATTEMPTS -eq 12 ]; do\n  $ROLLOUT_STATUS_CMD\n  ATTEMPTS=$((attempts + 1))\n  sleep 10\ndone\n\noc create -f instance.yaml",
-								"script_type": "sh",
-								"type": "",
-								"command_line_args": "",
-								"login_credential_local_reference": {
-									"kind": "app_credential",
-									"name": "CRED"
-								}
-							},
-							"timeout_secs": "0",
-							"type": "EXEC",
-							"variable_list": []
-						}],
-						"description": "",
-						"name": "87f0cf03_runbook",
-						"main_task_local_reference": {
-							"kind": "app_task",
-							"name": "425a1dab_dag"
-						},
-						"variable_list": [{
-							"val_type": "STRING",
-							"is_mandatory": false,
-							"description": "",
-							"data_type": "BASE",
-							"type": "SECRET",
-							"name": "PE_PW",
-							"value": "",
-							"label": "",
-							"attrs": {
-								"is_secret_modified": false,
-								"secret_reference": {},
-								"type": "SECRET"
-							},
-							"editables": {
-								"value": true
-							},
-							"is_hidden": false,
-							"options": {
-								"type": "PREDEFINED",
-								"choices": []
-							}
-						}, {
-							"val_type": "STRING",
-							"is_mandatory": false,
-							"description": "",
-							"data_type": "BASE",
-							"type": "LOCAL",
-							"name": "PE_ADMIN",
-							"value": "admin",
-							"label": "",
-							"attrs": {
-								"type": ""
-							},
-							"editables": {
-								"value": true
-							},
-							"is_hidden": false,
-							"options": {
-								"type": "PREDEFINED",
-								"choices": []
-							}
-						}, {
-							"val_type": "STRING",
-							"is_mandatory": false,
-							"description": "",
-							"data_type": "BASE",
-							"type": "LOCAL",
-							"name": "PE_IP",
-							"value": "",
-							"label": "",
-							"attrs": {
-								"type": ""
-							},
-							"editables": {
-								"value": true
-							},
-							"is_hidden": false,
-							"options": {
-								"type": "PREDEFINED",
-								"choices": []
-							}
-						}]
-					},
-					"name": "Deploy CSI"
-				}, {
-					"description": "",
-					"type": "user",
-					"critical": false,
-					"runbook": {
-						"task_definition_list": [{
-							"retries": "0",
-							"description": "",
-							"child_tasks_local_reference_list": [{
-								"kind": "app_task",
-								"name": "Enable Image Registry"
-							}],
-							"name": "0be64741_dag",
-							"attrs": {
-								"edges": [],
-								"type": ""
-							},
-							"timeout_secs": "0",
-							"type": "DAG",
-							"variable_list": []
-						}, {
-							"target_any_local_reference": {
-								"kind": "app_service",
-								"name": "OS_Status_Check"
-							},
-							"retries": "0",
-							"description": "",
-							"child_tasks_local_reference_list": [],
-							"name": "Enable Image Registry",
-							"attrs": {
-								"exit_status": [],
-								"script": "export KUBECONFIG=~\/openshift\/auth\/kubeconfig\necho \"\"\"apiVersion: storage.k8s.io\/v1\nkind: StorageClass\nmetadata:\n  name: nutanix-volume\nprovisioner: csi.nutanix.com\nparameters:\n  csi.storage.k8s.io\/provisioner-secret-name: ntnx-secret\n  csi.storage.k8s.io\/provisioner-secret-namespace: ntnx-system\n  csi.storage.k8s.io\/node-publish-secret-name: ntnx-secret\n  csi.storage.k8s.io\/node-publish-secret-namespace: ntnx-system\n  csi.storage.k8s.io\/controller-expand-secret-name: ntnx-secret\n  csi.storage.k8s.io\/controller-expand-secret-namespace: ntnx-system\n  csi.storage.k8s.io\/fstype: ext4\n  dataServiceEndPoint: @@{DS_IP}@@:3260\n  storageContainer: @@{PE_CONTAINER}@@\n  storageType: NutanixVolumes\n  #whitelistIPMode: ENABLED\n  #chapAuth: ENABLED\nallowVolumeExpansion: true\nreclaimPolicy: Delete\"\"\" > storageclass.yaml\necho \"\"\"kind: PersistentVolumeClaim\napiVersion: v1\nmetadata:\n  name: image-registry-claim\n  namespace: openshift-image-registry\nspec:\n  accessModes:\n  - ReadWriteOnce\n  resources:\n    requests:\n      storage: 100Gi\n  storageClassName: nutanix-volume\"\"\" > pvc.yaml\n\noc create -f storageclass.yaml\noc create -f pvc.yaml\n\n# Patch OC Image Registry to use created PVC\noc patch configs.imageregistry.operator.openshift.io cluster --type merge --patch '{\"spec\":{\"managementState\":\"Managed\",\"storage\":{\"pvc\":{\"claim\":\"image-registry-claim\"}},\"rolloutStrategy\": \"Recreate\"}}'\n",
-								"script_type": "sh",
-								"type": "",
-								"command_line_args": "",
-								"login_credential_local_reference": {
-									"kind": "app_credential",
-									"name": "CRED"
-								}
-							},
-							"timeout_secs": "0",
-							"type": "EXEC",
-							"variable_list": []
-						}],
-						"description": "",
-						"name": "0843e467_runbook",
-						"main_task_local_reference": {
-							"kind": "app_task",
-							"name": "0be64741_dag"
-						},
-						"variable_list": [{
-							"val_type": "STRING",
-							"is_mandatory": false,
-							"description": "",
-							"data_type": "BASE",
-							"type": "LOCAL",
-							"name": "DS_IP",
-							"value": "10.38.15.136",
-							"label": "DataServiceIP",
-							"attrs": {
-								"type": ""
-							},
-							"editables": {
-								"value": true
-							},
-							"is_hidden": false,
-							"options": {
-								"type": "PREDEFINED",
-								"choices": []
-							}
-						}, {
-							"val_type": "STRING",
-							"is_mandatory": false,
-							"description": "",
-							"data_type": "BASE",
-							"type": "LOCAL",
-							"name": "PE_CONTAINER",
-							"value": "Default",
-							"label": "Storage Container",
-							"attrs": {
-								"type": ""
-							},
-							"editables": {
-								"value": true
-							},
-							"is_hidden": false,
-							"options": {
-								"type": "PREDEFINED",
-								"choices": []
-							}
-						}]
-					},
-					"name": "Enable Image Registry"
-				}, {
 					"description": "",
 					"type": "user",
 					"critical": false,
@@ -4361,6 +4155,8 @@
 					"name": "Scale In"
 				}],
 				"name": "MasterWorker",
+				"restore_config_list": [],
+				"snapshot_config_list": [],
 				"variable_list": [{
 					"val_type": "STRING",
 					"is_mandatory": false,
@@ -4532,14 +4328,14 @@
 			},
 			"type": "USER"
 		},
-		"name": "OCP-MasterWorker"
+		"name": "XYZ_OCP_Master_Worker"
 	},
 	"api_version": "3.0",
 	"metadata": {
-		"last_update_time": "1639536843123539",
+		"last_update_time": "1641468938303052",
 		"kind": "blueprint",
-		"spec_version": 9,
-		"creation_time": "1639533822646935",
-		"name": "OCP-MasterWorker"
+		"spec_version": 2,
+		"creation_time": "1641463718773574",
+		"name": "XYZ_OCP_Master_Worker"
 	}
 }

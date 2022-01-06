@@ -8,18 +8,19 @@ In this section we will look at Typical Day 1 operations of your OCP cluster in 
 
 For the purposes of the lab, we will achieve scale in/out operations by triggering a Calm Action manually. These Calm Actions can also be triggered using REST calls from an automation script. 
 
-.. _ocp_cluster_login:
 
 .. raw:: html
   
   <strong><font color="red">This section can only be attempted if the previous sections are completed successfully</font></strong>
+
+.. _ocp_cluster_login:
 
 Day 0: Getting OCP Cluster Login Details 
 ++++++++++++++++++++++++++++++++++++++++
 
 #. In **Calm** > **Applications**
 
-#. Click on the **Openshift ocp1 XYZ** application and go to **Audit** tab
+#. Click on the **Openshift xyz1** application and go to **Audit** tab
 
 #. Go to the end of the audit trail and look for **OS_Status_Check Start** task and expand 
 
@@ -51,18 +52,20 @@ If you don't have a Windows Tools VM in your HPOC. Use these instructions here i
 
 .. note:: 
  
-  DNS lookup will not work from anywhere else except the Windows Tools VM. So please use this VM to do the rest of this lab.
+  DNS lookup will not work from anywhere else except the Windows Tools VM within your HPOC/SPOC cluster as it is connected to the AutoAD server which also is a DNS server.
+  
+  Only use this Windows Tools VM to access the ocp cluster manager web UI.
 
 #. Login to you Windows Tools VM using the following credentials;
 
    - **Username** - administrator@ntnxlab.local
    - **Password** - nutanix/4u
 
-#. Using Chrome browser browse to Console URL you obtained in the previous section. 
+#. Using Chrome browser browse to Console URL you obtained in the previous section. Note that this URL will be different for each cluster that you deploy.
 
    .. code-block:: url
    
-    https://console-openshift-console.apps.ocp1.ntnxlab.local
+    https://console-openshift-console.apps.xyz1.ntnxlab.local
 
 #. Use your credentials to Login
    
@@ -77,7 +80,7 @@ If you don't have a Windows Tools VM in your HPOC. Use these instructions here i
 
    .. note::
 
-    To be able to manage other clusters, you will need to register this cluster to ``https://console.redhat.com/openshift/`` web interface
+    To be able to manage other clusters or a group of clusters, you will need to register this cluster to ``https://console.redhat.com/openshift/`` web interface
 
    .. figure:: images/ocp_overview.png
 
