@@ -13,7 +13,7 @@ We are able to achieve this by executing the **Deploy OCP** action once again fr
  
 #. Click on **Applications**
 
-#. Select your Provisioning VM ``*Initials*_PROV_VM`` application
+#. Select your Provisioning VM ``Initials_PROV_VM`` application
  
    .. figure:: images/prov_vm_app.png
    

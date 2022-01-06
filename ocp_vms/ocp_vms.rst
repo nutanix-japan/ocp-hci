@@ -36,7 +36,7 @@ In this section we will configure the environemnt for the OCP VM blueprint to ru
  
 We need to configure network and credentials for the blueprint so it can be deployed in your HPOC/SPOC.
 
-#. Select your Provisioning VM ``OCP_Master_Worker`` blueprint
+#. Select your Provisioning VM ``XYZ_OCP_Master_Worker`` blueprint
 
 #. Click on **Credentials** (next to Save)
 
