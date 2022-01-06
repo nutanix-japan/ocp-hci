@@ -16,7 +16,7 @@ Now lets configure and deploy Provisioning VM
     
     .. raw:: html
 
-     <FONT COLOR="RED">Make sure that you edit only your blueprint with your intials. There could be other users using the same HPOC cluster.</FONT>
+     <FONT COLOR="RED">Make sure that you edit only the blueprints you uploaded with your intials. There could be other users using the same HPOC cluster.</FONT>
 
 #. Select your Provisioning VM ``XYZ_OCP_Prov_VM`` blueprint
 
