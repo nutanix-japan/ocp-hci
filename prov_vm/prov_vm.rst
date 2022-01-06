@@ -56,7 +56,7 @@ We need to configure network and credentials for the blueprint so it can be depl
 
       # copy the contents of the id_rsa file to your Calm blueprint
 
-#. Copy the **Private Key** and paste the generated primary key in the bluprints credential called **CRED**
+#. Copy the **Private Key** and paste the generated primary key in the bluprint's credential called **CRED**
 
    .. figure:: images/ocp_bp_save_cred.png
 
