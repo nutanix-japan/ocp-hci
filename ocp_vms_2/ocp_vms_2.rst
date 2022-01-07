@@ -61,10 +61,14 @@ We are able to achieve this by executing the **Deploy OCP** action once again fr
 
 #. Once deployed the Calm application **Openshift xyz2** will be in a running state
 
-   .. figure:: images/ocp_prov_vm_audit.png
+   .. figure:: images/ocp_prov_vm_audit_success_2.png
 
 #. Go to DNS in your AutoAD VM to check for the **xyz2** subdomain for your **Openshift xyz2**
+
+   .. figure:: images/ocp_xyz2_cluster_dns.png
    
    .. note::
      
      If other users are using your cluster you will see other subdomains in DNS
+
+You are able to access the **Openshift xyz2** cluster administation page by following the process here :ref:`ocp_cluster_login`.
