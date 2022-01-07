@@ -35,7 +35,9 @@ Install Nutanix CSI Operator
 
    .. code-block:: url
    
-    https://console-openshift-console.apps.ocp1.ntnxlab.local
+    https://console-openshift-console.apps.<initials>1.ntnxlab.local
+    # example URL
+    # https://console-openshift-console.apps.xyz1.ntnxlab.local
 
 #. Use your credentials to Login
    
@@ -124,6 +126,11 @@ Install StorageClass
       # example: 
       # key: 10.38.2.71:9440:admin:password
     EOF
+    
+   .. code-block:: bash
+   
+    # example output here for the above command
+    # secret/ntnx-secret created
 
 #. Copy the following StorageClass configuration script, modify required fields and execute it in the command line
     
@@ -161,12 +168,21 @@ Install StorageClass
     reclaimPolicy: Delete
     EOF
 
+   .. code-block:: bash
+   
+    # example output here for the above command
+    # storageclass.storage.k8s.io/nutanix-volume created
+    
+
 #. List your StorageClass
  
    .. code-block:: bash
 
     oc get StorageClass -A
-    # example output here
+
+   .. code-block:: bash
+
+    # example output here for the above command
     # NAME             PROVISIONER       RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
     # nutanix-volume   csi.nutanix.com   Delete          Immediate           true                   45h
 
@@ -183,6 +199,11 @@ Install StorageClass
     spec:
         namespace: ntnx-system
     EOF
+
+   .. code-block:: bash
+
+    # example output here for the above command 
+    # nutanixcsistorage.crd.nutanix.com/nutanixcsistorage created
    
 We have sucessfully installed Nutanix StorageClass so we can provision Physical Volumes (PV) and Physical Volume Claims (PVC) for the applications we will be deploying in this OCP cluster.
 

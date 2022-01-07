@@ -65,7 +65,9 @@ If you don't have a Windows Tools VM in your HPOC. Use these instructions here i
 
    .. code-block:: url
    
-    https://console-openshift-console.apps.xyz1.ntnxlab.local
+    https://console-openshift-console.apps.<initials>1.ntnxlab.local
+    # example URL
+    # https://console-openshift-console.apps.xyz1.ntnxlab.local
 
 #. Use your credentials to Login
    
@@ -184,7 +186,7 @@ Calm makes it really simple to scale out your OCP cluster Day 1 operations.
 Day 1: Scale In Worker Nodes 
 ++++++++++++++++++++++++++++
 
-As any environment would require more kubernetes nodes from time to time to host more workloads. In this sectoin we will look at how a extra worker node is added to this OCP cluster.
+As any environment would require more kubernetes nodes from time to time to host more workloads. In this section we will look at how a worker node is removed from this OCP cluster as the resource requirements for workloads decreases.
 
 We will do this using Calm Actions. 
 
@@ -208,13 +210,13 @@ We will do this using Calm Actions.
 
 #. Note down the number of resources deleted (e.g VM, Disk, etc)
 
-#. This will take about 5-10 minutes
+#. This will take about 5 minutes
 
 #. Once the Scale In action is successfully completed, go to the **Service** tab of the VM and check if one worker nodes is deleted
 
    .. figure:: images/ocp_scalein_complete.png
 
-#. In your OCP Console, go to Compute > Nodes and make sure OCP has deleted 1 worker node
+#. In your OCP Console, go to Compute > Nodes and make sure OCP has deleted 1 worker node (there will be three left)
    
    .. figure:: images/ocp_scalein_check_cm.png
 

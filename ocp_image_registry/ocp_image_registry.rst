@@ -56,6 +56,17 @@ Creating the PVC
 
     # example output here for the above command
     # persistentvolumeclaim/image-registry-claim created
+#. Confirm the creation of pvc using the following command
+   
+   .. code-block:: bash
+    
+    oc get pvc -n openshift-image-registry
+
+   .. code-block:: bash
+
+    # example output here for the above command
+    # NAME                   STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS     AGE
+    # image-registry-claim   Bound    pvc-e31a2dc7-fcb0-498b-bb88-ffdf61aeaa81   100Gi      RWO            nutanix-volume   2m14s
 
 Presenting the PVC to OCP Image Registry
 +++++++++++++++++++++++++++++++++++++
