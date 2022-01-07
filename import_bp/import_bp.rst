@@ -154,9 +154,10 @@ Let's create a Calm endpoint for authentication, authorization and DNS updates f
 Upload Blueprints
 +++++++++++++++++
 
-#. Download blueprint1 by right-clicking on this link `Provisioning VM <https://raw.githubusercontent.com/nutanix-japan/ocp-hci/main/import_bp/OCP-Prov-VM.json>`_ and save as Initials_OCP_Prov_VM.json file (e.g XYZ_OCP_Prov_VM.json)
+#. Download blueprint1 by right-clicking on this link `Provisioning VM <https://raw.githubusercontent.com/nutanix-japan/ocp-hci/main/import_bp/XYZ_OCP-
+_Prov_VM.json>`_ and save as Initials_OCP_Prov_VM.json file (e.g XYZ_OCP_Prov_VM.json)
 
-#. Download blueprint2 by right-clicking on this link `OCP Master Worker <https://raw.githubusercontent.com/nutanix-japan/ocp-hci/main/import_bp/OCP-Master-Worker.json>`_ and save as Initials_OCP_Master_Worker.json file (e.g XYZ_OCP_Master_Worker.json)
+#. Download blueprint2 by right-clicking on this link `OCP Master Worker <https://raw.githubusercontent.com/nutanix-japan/ocp-hci/main/import_bp/XYZ_OCP_Master_Worker.json>`_ and save as Initials_OCP_Master_Worker.json file (e.g XYZ_OCP_Master_Worker.json)
 
 #. In **Prism Central** > **Services** > **Calm**
  
