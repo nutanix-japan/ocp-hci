@@ -79,6 +79,8 @@ We will use two Calm blueprints to deploy OCP infrastructure.
 .. note::
 
  These Calm blueprints are developed by Nutanix's very own SA **Wolfgang Huse** and team. For updates and more information about these blueprints check this github page `here. <https://github.com/nutanix/openshift/tree/calm-automation/automation/calm>`_
+ 
+ This lab uses a modified version of the blueprint to suit HPOC/SPOC environment and to achieve the learnining objectives. 
 
 1. Blueprint 1 - provisions a OCP provisioning VM with Calm action to deploy OCP 
 2. Blueprint 2 - is called by a Calm action in ``Blueprint 1`` with all the necessary information that ``Blueprint 2`` needs to run
