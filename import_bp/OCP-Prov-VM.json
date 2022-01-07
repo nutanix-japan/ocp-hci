@@ -722,7 +722,7 @@
 							"data_type": "BASE",
 							"type": "LOCAL",
 							"name": "OCP_BP",
-							"value": "OCP_Master_Worker",
+							"value": "XYZ_OCP_Master_Worker",
 							"label": "",
 							"attrs": {
 								"type": ""
@@ -886,7 +886,7 @@
 							"data_type": "BASE",
 							"type": "LOCAL",
 							"name": "WORKER",
-							"value": "0",
+							"value": "2",
 							"label": "Number of Workers",
 							"attrs": {
 								"type": ""

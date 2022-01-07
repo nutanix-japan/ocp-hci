@@ -1,8 +1,8 @@
 .. _import_bp:
 
--------------------------------
-OCP: Import OCP Calm Blueprints
--------------------------------
+-----------------------------------
+OCP: Architecture and Initial Setup
+-----------------------------------
 
 In this lab, we will set up OCP infrastructure using Nutanix Calm. 
 
@@ -10,7 +10,7 @@ Calm provides an easy way of provisioning and configuring repeatable infrastruct
 
 As OCP infrastructure requirements consist of many moving parts, it is easy to manage the soltuion in Calm. Since Calm can be used to deploy the same infrastructure accross multiple clouds, it is a optimal solution to manage the lifecycle of OCP infrastructure.
 
-At a high-level OCP consists of the following components.
+At a high-level OCP consists of the following components:
 
 1. Boostrap VM
 2. Stacked Master Nodes (Kubernetes Master + ETCD)
@@ -18,6 +18,61 @@ At a high-level OCP consists of the following components.
 4. Infra Nodes (used to run infrastructure based workloads)
 
 .. figure:: images/ocp_infra.png 
+
+Minimum Hardware Requirements for OCP VMs 
++++++++++++++++++++++++++++++++++++++++++
+
+These are minimum required resrouces and software for the OCP VMs at the time of writing this bootcamp. 
+
+The Calm blueprints in this lab will have these resources pre-configured for your use.
+
+For latest resource requirements refer to OpenShift portal `here. <https://docs.openshift.com/container-platform/3.11/install/prerequisites.html>`_
+
+.. list-table::
+     :widths: 25 30 30 30
+     :header-rows: 1
+
+     * - OCP Component 
+       - Resource
+       - Resource Requirement
+       - Software Requirement
+     * - Master
+       - CPU
+       - 4 vCPU
+       - 
+     * - 
+       - RAM
+       - 16 GB
+       - 
+     * - 
+       - OS Disk
+       - 50 GB
+       - 
+     * - 
+       - OS
+       - 
+       - RHEL 7.5
+     * - 
+       - Number of Master VMs
+       - 3
+       - 
+     * - Worker
+       - CPU
+       - 4 vCPU
+       - 
+     * - 
+       - RAM
+       - 16 GB
+       - 
+     * - 
+       - OS Disk
+       - 50 GB
+       - 
+     * - 
+       - OS
+       - 
+       - RHEL 7.5
+
 
 We will use two Calm blueprints to deploy OCP infrastructure.
 
@@ -30,8 +85,8 @@ We will use two Calm blueprints to deploy OCP infrastructure.
 
 .. figure:: images/ocp_bp_actions.png 
 
-Pre-requisites for OCP Environment
-++++++++++++++++++++++++++++++++++
+Pre-requisites for OCP Environment in HPOC/SPOC
++++++++++++++++++++++++++++++++++++++++++++++++
 
 OCP has the following infrastructure pre-requistes available in the environment. Since we will be doing the labs in Nutanix HPOC/SPOC clusters, here is a list of OCP pre-requisites and HPOC/SPOC components that fulfill them.
 
