@@ -159,7 +159,7 @@ Install StorageClass
       csi.storage.k8s.io/fstype: ext4
       dataServiceEndPoint: <Data Services IP>:3260
       # example: 
-      # dataServiceEndPoint: 10.38.5.72:3260
+      # dataServiceEndPoint: 10.38.2.72:3260
       storageContainer: <Storage Container Name>
       # example: 
       # storageContainer: Default

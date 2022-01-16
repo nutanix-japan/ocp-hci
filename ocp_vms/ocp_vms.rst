@@ -104,7 +104,7 @@ Deploying OCP Cluster
 
     Make sure that the **OCP_SUBDOMAIN** name is be unique for each OCP cluster you deploy with this blueprint. A DNS zone is created based on this subdomain name. 
 
-    You can observe this in DNS in your AutoAD VM once a OCP cluster deployed.
+    You can observe this in DNS in your AutoAD VM for other deployed clusters.
 
     .. figure:: images/ocp_xyz1_cluster_dns.png
 
