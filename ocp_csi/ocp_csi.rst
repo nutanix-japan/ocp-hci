@@ -36,6 +36,7 @@ Install Nutanix CSI Operator
    .. code-block:: url
    
     https://console-openshift-console.apps.<initials>1.ntnxlab.local
+    
     # example URL
     # https://console-openshift-console.apps.xyz1.ntnxlab.local
 

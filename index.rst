@@ -28,6 +28,7 @@
   :hidden:
 
   ocp_vms_2/ocp_vms_2
+  ocp_assisted_install/ocp_assisted_install
 
 .. toctree::
   :maxdepth: 2
