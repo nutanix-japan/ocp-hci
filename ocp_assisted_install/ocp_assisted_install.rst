@@ -209,23 +209,25 @@ Install OCP Cluster in Red Hat Console
 
 In this section we will use Red Hat Console's Assisted Installer wizard to install the OCP cluster with the VMs we have provisioned. 
 
-#. Return to Red Hat Openshift Console and check if the VMs appear
+#. Return to Red Hat Openshift Console and check if the VMs appear (this may take up to 5 minutes) 
 
    .. figure:: images/ocp_rh_console_vms.png
 
-#. Assign IPs for your **API Virtual IP** and **Ingress Virtual IP** from you HPOC/SPOC **Primary** network pool
+#. Click **Next** at the bottom of the page
+
+#. In the Networking section, assign IPs for your **API Virtual IP** and **Ingress Virtual IP** from you HPOC/SPOC **Primary** network pool
 
    .. figure:: images/ocp_ing_api_ips.png
    
    .. note::
 
-    Prism Element now shows used IP in the Networking setup and you can use this to determine the IPs for **API Virtual IP** and **Ingress Virtual IP** of your OCP cluster.
+    Prism Element now shows used IP in the **Networking** setup page. You can use this to determine the IPs for **API Virtual IP** and **Ingress Virtual IP** of your OCP cluster.
     
     Prism Element > :fa:`bars` > Network Configuration > **Primary**
 
     .. figure:: images/pe_net_config.png
 
-    A new pop-up will show the used IPs. Choose two **unused** IPs from here.
+    A new pop-up will show the used IPs. Choose two IPs that are not listed here.
 
     .. figure:: images/pe_used_ips.png
    
