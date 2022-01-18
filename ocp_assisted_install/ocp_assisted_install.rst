@@ -108,13 +108,13 @@ If it is not already present in your HPOC, create Linux Tools VM using instructi
     git clone https://github.com/nutanix-japan/tf-ocp-infra
     cd tf-ocp-infra
     alias "tf=terraform" 
-    terraform init
+    tf init
 
-#. Get your variables Ready
+#. Get your variables file ready with your HPOC/SPOC environment information
 
    .. code-block:: bash
     
-    cp variables.tfvars.sample terraform.tfvars
+    cp terraform.tfvars.sample terraform.tfvars
      
 #. Modify your variables to suit your HPOC environment using ``vi`` or ``nano`` editor
 
