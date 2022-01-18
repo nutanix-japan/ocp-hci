@@ -282,8 +282,12 @@ In this section we will use Red Hat Console's Assisted Installer wizard to insta
      .. figure:: images/ocp_dns_hosts.png
 
      You can download KUBECONFIG file to use ``oc`` commands.
+
+#. Using Windows Tools PC you can browse to the IP addresses, or DNS entries you have manually created you are able to login to OC console.
+
+   .. figure:: images/ocp_console_ai.png
      
-You have successfully deployed a OCP cluster using Assisted Installer. 
+You have successfully deployed a OCP cluster using Red Hat Console Assisted Installer. 
 
 
 
