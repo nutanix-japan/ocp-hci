@@ -283,7 +283,7 @@ In this section we will use Red Hat Console's Assisted Installer wizard to insta
 
      You can download KUBECONFIG file to use ``oc`` commands.
 
-#. Using Windows Tools PC you can browse to the IP addresses, or DNS entries you have manually created you are able to login to OC console.
+#. After adding DNS/hosts entries to your environment, use Windows Tools PC you can browse to the IP addresses, or DNS entries you have manually created you are able to login to OC console.
 
    .. figure:: images/ocp_console_ai.png
      
