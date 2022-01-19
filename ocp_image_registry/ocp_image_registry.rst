@@ -56,6 +56,7 @@ Creating the PVC
 
     # example output here for the above command
     # persistentvolumeclaim/image-registry-claim created
+    
 #. Confirm the creation of pvc using the following command
    
    .. code-block:: bash

@@ -12,6 +12,7 @@
   ocp_scale_out_in/ocp_scale_out_in
   ocp_csi/ocp_csi
   ocp_image_registry/ocp_image_registry
+  ocp_idp/ocp_idp
   
 
 .. toctree::
