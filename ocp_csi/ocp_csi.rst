@@ -174,6 +174,11 @@ Install StorageClass
     # example output here for the above command
     # storageclass.storage.k8s.io/nutanix-volume created
     
+#. Make this your default StorageClass
+   
+   .. code-block:: bash
+    
+    oc patch storageclass nutanix-volume -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 
 #. List your StorageClass
  

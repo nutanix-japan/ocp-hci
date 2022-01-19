@@ -54,10 +54,14 @@ Lifecycle management for kubernetes and storage yet another silo within IT, intr
 
 Nutanix believes there is no room for silos in the Enterprise Cloud. By approaching Infrastructure and storage as an app, running in software on top of a proven HCI core, Nutanix delivers high performance, scalability, and rapid innovation through One Click management.
 
+.. note::
+
+ Estimated time to complete this lab is 90 to 120 minutes depending on your familiarity level with Nutanix and Openshift concepts.
+
 What's New
 ++++++++++
 
-- Workshop updated for the following software versions:
+- Workshop uses for the following software versions:
 
   - AOS 5.20.2.1
   - Prism Central pc.2021.9.0.2

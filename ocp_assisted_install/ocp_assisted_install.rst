@@ -6,7 +6,15 @@ OCP: Assisted Installation
 
 In this optional lab we will go through Assited Installation feature that Red Hat Console offers.
 
-Assisted Installer is a GUI driven way of deploying OCP clusters:
+Assisted Installer is a GUI driven way of deploying OCP clusters. 
+
+You would use Assisted Installer clusters for to deploy OCP clusters quickly (e.g. before a POC) and for personal testing purposes.
+
+Single node OCP cluster implementation is also available with Assisted Installer. We will only look at deploying multi-node clusters in this lab.
+
+.. note::
+
+ Estimated time to complete this lab is 60 minutes.
 
 Pre-requisites for Assisted Installation
 +++++++++++++++++++++++++++++++++++++++++
@@ -36,6 +44,8 @@ Assisted Installer does the following:
   Assisted Installers usage is in `Technical Preview <https://access.redhat.com/support/offerings/techpreview>`_ stage with Red Hat. 
   
   The OCP clusters deployed using Assisted Installers can be used for testing and development purposes.
+
+  Scaling out/in OCP cluster nodes is not available yet
 
 At a very high level, we will accomplish the following to get a OCP cluster deployed using Assisted Installer:
 
@@ -84,7 +94,60 @@ If it is not already present in your HPOC, create Linux Tools VM using instructi
 
 .. note::
  
- You are able to create these VMs and its resources using the GUI. But in this section we will use **Terraform** code for repeatability. 
+ You are able to create these VMs and its resources using the Prism Element GUI. But in this section we will use **Terraform** code for repeatability ans ease. 
+
+
+We will create the following resources:
+
+
+.. list-table::
+     :widths: 25 30 30 30
+     :header-rows: 1
+
+     * - OCP Component 
+       - Resource
+       - Resource Requirement
+       - Software Requirement
+     * - Master
+       - CPU
+       - 4 vCPU
+       - 
+     * - 
+       - RAM
+       - 16 GB
+       - 
+     * - 
+       - OS Disk
+       - 120 GB
+       - 
+     * - 
+       - OS
+       - 
+       - RHEL 7.5
+     * - 
+       - Number of Master VMs
+       - 3
+       - 
+     * - Worker
+       - CPU
+       - 4 vCPU
+       - 
+     * - 
+       - RAM
+       - 16 GB
+       - 
+     * - 
+       - OS Disk
+       - 120 GB
+       - 
+     * - 
+       - OS
+       - 
+       - RHEL 7.5
+     * - 
+       - Number of Woker VMs
+       - 2
+       - 
 
 #. Login to the Linux Tools VM using the following credentials
     
@@ -291,16 +354,9 @@ In this section we will use Red Hat Console's Assisted Installer wizard to insta
      
 You have successfully deployed a OCP cluster using Red Hat Console Assisted Installer. 
 
+Takeaways
++++++++++
 
-
-
-
-
-
-  
-
-
-
-
-
-
+- You can easily deploy multinode/single node OCP cluster using the Red Hat console
+- You can provision resoruces (VM, Storage, etc) on Nutanix using Terraform IaaC (GitOps)
+- Assisted Installer provisioned OCP clusters can be used as a learning ground and for testing purposes
