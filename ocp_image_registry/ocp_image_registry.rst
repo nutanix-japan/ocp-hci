@@ -2,9 +2,9 @@
 
 .. _ocp_image_registry:
 
-----------------------------
-OCP: Create Image Registry
-----------------------------
+-----------------------------------------
+OCP: Provision Storage for Image Registry
+-----------------------------------------
 
 OCP comes with a in-built container image registry. The advantages of these container image registry are the following:
 

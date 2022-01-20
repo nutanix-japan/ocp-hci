@@ -92,7 +92,7 @@ Install StorageClass
 
    We suggest doing the following when modifications to commands are required:
 
-   1. Copy the code from lab instructions to notepad/vi/nano 
+   1. Copy the code from lab instructions to notepad/vi/nano or any other favourite text editor
    2. Modify the required fields 
    3. Paste the modified command into the terminal of LB_DNS service through Calm UI
       
