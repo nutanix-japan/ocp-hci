@@ -84,6 +84,27 @@ You have succesfully installed the Nutanix CSI operator to take care of StorageC
 Install StorageClass
 ++++++++++++++++++++
 
+.. note::
+
+   From now you will be performing commands in LB_DNS service ssh console. 
+   
+   The lab instructions will have templates for these commands. You will have to change necessary areas to suit your HPOC/SPOC details.
+
+   We suggest doing the following when modifications to commands are required:
+
+   1. Copy the code from lab instructions to notepad/vi/nano 
+   2. Modify the required fields 
+   3. Paste the modified command into the terminal of LB_DNS service through Calm UI
+      
+      If you are using **Windows PC** the shortcut for pasting into Calm invoked terminal is:
+
+      **Shift + Insert**
+
+      If you are using **Mac** the shortcut for pasting into Calm invoked terminal is:
+
+      **Command + v**
+
+
 #. In Calm go to your **Applications** > **Openshift ocp1** application
 
 #. Go to the **Services** 
@@ -123,7 +144,7 @@ Install StorageClass
       name: ntnx-secret
       namespace: ntnx-system
     stringData:
-      key: <Prism Element IP>:9440:<Prism Element UserName>:<Prism Element Password>
+      key: <Prism Element IP>:9440:<Prism Element UserName>:<Prism Element Password>    #<< change this
       # example: 
       # key: 10.38.2.71:9440:admin:password
     EOF
@@ -158,10 +179,10 @@ Install StorageClass
       csi.storage.k8s.io/controller-expand-secret-name: ntnx-secret
       csi.storage.k8s.io/controller-expand-secret-namespace: ntnx-system
       csi.storage.k8s.io/fstype: ext4
-      dataServiceEndPoint: <Data Services IP>:3260
+      dataServiceEndPoint: <Data Services IP>:3260   #<< change this
       # example: 
       # dataServiceEndPoint: 10.38.2.72:3260
-      storageContainer: <Storage Container Name>
+      storageContainer: <Storage Container Name>     #<< change this
       # example: 
       # storageContainer: Default
       storageType: NutanixVolumes

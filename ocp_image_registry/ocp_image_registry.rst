@@ -33,6 +33,12 @@ Creating the PVC
 
    The terminal will open in a new browser tab
 
+#. Export the OCP cluster's KUBECONFIG file to environment so we can perform ``oc`` commands (if you haven't already)
+
+   .. code-block:: bash
+      
+    export KUBECONFIG=~/openshift/auth/kubeconfig
+
 #. Copy the following StorageClass configuration script and paste it in the command line window
     
    .. code-block:: bash
@@ -56,7 +62,7 @@ Creating the PVC
 
     # example output here for the above command
     # persistentvolumeclaim/image-registry-claim created
-    
+
 #. Confirm the creation of pvc using the following command
    
    .. code-block:: bash
