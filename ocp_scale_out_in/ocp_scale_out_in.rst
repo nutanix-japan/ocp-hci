@@ -80,11 +80,11 @@ If you don't have a Windows Tools VM in your HPOC. Use these instructions here i
 
    This is in principle similar to Nutanix Karbon's individual kubernetes cluster management page. Note that you can only manage the resources of just this local cluster. 
 
+   .. figure:: images/ocp_overview.png
+
    .. note::
 
     To be able to manage other clusters or a group of clusters, you will need to register this cluster to ``https://console.redhat.com/openshift/`` web interface
-
-   .. figure:: images/ocp_overview.png
 
 #. Go through the following important components and make a note of the following details (you will need this information for your validation exercise):
    

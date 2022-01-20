@@ -15,29 +15,52 @@ Deploy this VM on your assigned cluster if directed to do so as part of **Lab Se
 
   <strong><font color="red">Only deploy the VM once, it does not need to be cleaned up as part of any lab completion.</font></strong>
 
-Deploying CentOS
-++++++++++++++++
+Deploying Linux Tools VM
+++++++++++++++++++++++++
 
-In **Prism Central** > select :fa:`bars` **> Virtual Infrastructure > VMs**, and click **Create VM**.
+In **Prism Central** > select :fa:`bars` **> Compute and Storage > VMs**, and click **Create VM**.
 
-Fill out the following fields:
+#. Fill out the following fields:
 
-- **Name** - *Initials*-Linux-ToolsVM
-- **Description** - (Optional) Description for your VM.
-- **vCPU(s)** - 1
-- **Number of Cores per vCPU** - 2
-- **Memory** - 2 GiB
+   - **Name** - *Initials*-Linux-ToolsVM
+   - **Description** - (Optional) Description for your VM.
+   - **Number of VMs** - 1
+   - **vCPU(s)** - 1
+   - **Number of Cores per vCPU** - 2
+   - **Memory** - 2 GiB
 
-- Select **+ Add New Disk**
-    - **Type** - DISK
-    - **Operation** - Clone from Image Service
-    - **Image** - Linux_ToolsVM.qcow2
-    - Select **Add**
+#. Click **Next**
 
-- Select **Add New NIC**
-    - **VLAN Name** - Primary
-    - Select **Add**
+#. Under **Disks** select **Attach Disk**
 
-Click **Save** to create the VM.
+   - **Type** - DISK
+   - **Operation** - Clone from Image 
+   - **Image** - Linux_ToolsVM.qcow2
+   - **Capacity** - leave at default size
+   - **Bus Type** - leave at default SCSI Setting
 
-Power on the VM.
+#. Click **Save**
+
+#. Under **Networks** select **Attach to Subnet**
+
+   - **VLAN Name** - Primary
+   - **Network Connection State** - Connected
+   - **Assignment Type** - Assign with DHCP
+
+#. Click **Save**
+
+#. Click **Next** at the bottom
+
+#. In Management page 
+   
+   - **Categories** - leave blank
+   - **Timezone** - leave at default UTC
+   - **Guest Customization** - No customization 
+
+#. Click **Create VM** at the bottom
+
+#. Go back to **Prism Central** > select :fa:`bars` **> Compute and Storage > VMs**
+
+#. Select your *Initials*-Linux-ToolsVM
+
+#. Under **Actions** drop-down menu, choose **Power On**

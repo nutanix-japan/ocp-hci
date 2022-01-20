@@ -39,28 +39,58 @@ We will use the AutoAD Active Directory as the IDP as it is already installed in
     apiVersion: config.openshift.io/v1
     kind: OAuth
     metadata:
-    name: cluster
+      name: cluster
     spec:
-    identityProviders:
-    - name: ntnxlab.local 
-      mappingMethod: claim 
-      type: LDAP
-      ldap:
-        attributes:
-          id: 
-          - sAMAccountName
-          email: []
-          name: 
-          - displayName
-          preferredUsername: 
-          - sAMAccountName
-        bindDN: administrator@ntnxlab.local 
-        bindPassword: 
-          name: ldap-secret
-        insecure: true
-        url: ldap://dc.ntnxlab.local/CN=Users,DC=ntnxlab,DC=local?sAMAccountName
+        identityProviders:
+            - name: ntnxlab.local 
+            mappingMethod: claim 
+            type: LDAP
+            ldap:
+                attributes:
+                id: 
+                - sAMAccountName
+                email: []
+                name: 
+                - displayName
+                preferredUsername: 
+                - sAMAccountName
+                bindDN: administrator@ntnxlab.local 
+                bindPassword: 
+                    name: ldap-secret
+                insecure: true
+                url: ldap://dc.ntnxlab.local/CN=Users,DC=ntnxlab,DC=local?sAMAccountName
     EOF
 
+#. Setup the LDAP sync
+
+   .. code-block:: bash
+
+        cat << EOF | oc appl
+        kind: LDAPSyncConfig
+        apiVersion: v1
+        url: ldap://dc.ntnxlab.local:389
+        bindDN: administrator@ntnxlab.local 
+        bindPassword: nutanix/4u
+        insecure: true
+        groupUIDNameMapping:
+        CN=SSP Admins,CN=Users,DC=ntnxlab,DC=local: OCP_SSP_Admins
+        CN=Domain Admins,CN=Users,DC=ntnxlab,DC=local: OCP_Cluster_Admins
+        augmentedActiveDirectory:
+        groupsQuery:
+            baseDN: CN=users,DC=ntnxlab,DC=local
+            scope: sub
+            derefAliases: never
+            pageSize: 0
+        groupUIDAttribute: dn
+        groupNameAttributes: [ cn ]
+        usersQuery:
+            baseDN: cn=users,dc=ntnxlab,dc=local
+            scope: sub
+            derefAliases: never
+            filter: (objectclass=person)
+            pageSize: 0
+        userNameAttributes: [ sAMAccountName ] 
+        groupMembershipAttributes: [ memberOf ]
 
     
      

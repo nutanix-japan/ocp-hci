@@ -34,9 +34,13 @@ We need to configure network and credentials for the blueprint so it can be depl
 
 #. Go to this  `URL <https://travistidwell.com/jsencrypt/demo/>`_ to create a RSA private key
 
-#. Choose **2048 bit** as the key size and click on **Generate New Keys**
+#. Choose **2048 bit** as the key size and click on **Generate New Keys** 
+
+   **Copy the private key and public key to somewhere safe (notepad/notes) on your PC/Mac** 
 
    .. figure:: images/generate_rsa_key.png
+
+
 
    .. note::
 
@@ -55,6 +59,8 @@ We need to configure network and credentials for the blueprint so it can be depl
       cat id_rsa
 
       # copy the contents of the id_rsa file to your Calm blueprint
+
+#. 
 
 #. Copy the **Private Key** and paste the generated primary key in the bluprint's credential called **CRED**
 

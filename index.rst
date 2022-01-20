@@ -134,7 +134,7 @@ For example:
 
 - **Cluster Name** - POC055
 - **Subnet** - 10.38.55.0
-- **Cluster IP** - 10.38.55.37 for the VIP of the Cluster
+- **Cluster IP** - 10.42.55.37 for the VIP of the Cluster
 
 
 Throughout the Workshop there are multiple instances where you will need to substitute *XYZ* with the correct octet for your subnet, for example:
