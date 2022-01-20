@@ -86,7 +86,7 @@ Install StorageClass
 
 .. note::
 
-   From now you will be performing commands in LB_DNS service ssh console. 
+   From now you will be performing commands in **LB_DNS** service/VM's ssh console. 
    
    The lab instructions will have templates for these commands. You will have to change necessary areas to suit your HPOC/SPOC details.
 
@@ -144,7 +144,7 @@ Install StorageClass
       name: ntnx-secret
       namespace: ntnx-system
     stringData:
-      key: <Prism Element IP>:9440:<Prism Element UserName>:<Prism Element Password>    #<< change this
+      key: <Prism Element IP>:9440:<Prism Element UserName>:<Prism Element Password>    # << change this
       # example: 
       # key: 10.38.2.71:9440:admin:password
     EOF
@@ -179,10 +179,10 @@ Install StorageClass
       csi.storage.k8s.io/controller-expand-secret-name: ntnx-secret
       csi.storage.k8s.io/controller-expand-secret-namespace: ntnx-system
       csi.storage.k8s.io/fstype: ext4
-      dataServiceEndPoint: <Data Services IP>:3260   #<< change this
+      dataServiceEndPoint: <Data Services IP>:3260   # << change this
       # example: 
       # dataServiceEndPoint: 10.38.2.72:3260
-      storageContainer: <Storage Container Name>     #<< change this
+      storageContainer: <Storage Container Name>     # << change this
       # example: 
       # storageContainer: Default
       storageType: NutanixVolumes

@@ -61,36 +61,50 @@ We will use the AutoAD Active Directory VM as the IDP as it is already installed
                 url: ldap://dc.ntnxlab.local/CN=Users,DC=ntnxlab,DC=local?sAMAccountName
     EOF
 
-#. Setup the LDAP sync
+#. Create the LDAP sync config file
 
    .. code-block:: bash
 
-        cat << EOF | oc appl
-        kind: LDAPSyncConfig
-        apiVersion: v1
-        url: ldap://dc.ntnxlab.local:389
-        bindDN: administrator@ntnxlab.local 
-        bindPassword: nutanix/4u
-        insecure: true
-        groupUIDNameMapping:
-        CN=SSP Admins,CN=Users,DC=ntnxlab,DC=local: OCP_SSP_Admins
-        CN=Domain Admins,CN=Users,DC=ntnxlab,DC=local: OCP_Cluster_Admins
-        augmentedActiveDirectory:
-        groupsQuery:
-            baseDN: CN=users,DC=ntnxlab,DC=local
-            scope: sub
-            derefAliases: never
-            pageSize: 0
-        groupUIDAttribute: dn
-        groupNameAttributes: [ cn ]
-        usersQuery:
-            baseDN: cn=users,dc=ntnxlab,dc=local
-            scope: sub
-            derefAliases: never
-            filter: (objectclass=person)
-            pageSize: 0
-        userNameAttributes: [ sAMAccountName ] 
-        groupMembershipAttributes: [ memberOf ]
+    echo """kind: LDAPSyncConfig
+    apiVersion: v1
+    url: ldap://dc.ntnxlab.local:389
+    bindDN: administrator@ntnxlab.local 
+    bindPassword: "nutanix/4u"
+    insecure: true
+    groupUIDNameMapping:
+    CN=SSP Admins,CN=Users,DC=ntnxlab,DC=local: OCP_SSP_Admins
+    CN=Domain Admins,CN=Users,DC=ntnxlab,DC=local: OCP_Cluster_Admins
+    CN=SSP Operators,CN=Users,DC=ntnxlab,DC=local: OCP_Cluster_Operators
+    augmentedActiveDirectory:
+    groupsQuery:
+        baseDN: CN=users,DC=ntnxlab,DC=local
+        scope: sub
+        derefAliases: never
+        pageSize: 0
+    groupUIDAttribute: dn
+    groupNameAttributes: [ cn ]
+    usersQuery:
+        baseDN: cn=users,dc=ntnxlab,dc=local
+        scope: sub
+        derefAliases: never
+        filter: (objectclass=person)
+        pageSize: 0
+    userNameAttributes: [ sAMAccountName ] 
+    groupMembershipAttributes: [ memberOf ]""" > ldapsync.yaml
+
+#. Setup the LDAP sync
+
+   .. code-block:: bash
+    
+     oc adm groups sync --sync-config=ldapsync.yaml --confirm
+
+#. Create rolebinding using the following commands
+   
+   .. code-block:: bash
+    
+    oc adm policy add-cluster-role-to-group cluster-admin OCP_SSP_Admins
+    oc adm policy add-cluster-role-to-group console-operator OCP_Cluster_Operators
+    oc adm policy add-cluster-role-to-group cluster-admin OCP_Cluster_Admins
 
     
      
