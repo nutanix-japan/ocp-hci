@@ -41,26 +41,26 @@ This setup can also be done using the OCP Cluster Manger GUI. But in this sectio
     apiVersion: config.openshift.io/v1
     kind: OAuth
     metadata:
-      name: cluster
+    name: cluster
     spec:
-        identityProviders:
-            - name: ntnxlab.local 
-            mappingMethod: claim 
-            type: LDAP
-            ldap:
-                attributes:
-                id: 
-                - sAMAccountName
-                email: []
-                name: 
-                - displayName
-                preferredUsername: 
-                - sAMAccountName
-                bindDN: administrator@ntnxlab.local 
-                bindPassword: 
-                    name: ldap-secret
-                insecure: true
-                url: ldap://dc.ntnxlab.local/CN=Users,DC=ntnxlab,DC=local?sAMAccountName
+      identityProviders:
+      - name: ntnxlab.local 
+        mappingMethod: claim 
+        type: LDAP
+        ldap:
+          attributes:
+            id: 
+            - sAMAccountName
+            email: []
+            name: 
+            - displayName
+            preferredUsername: 
+            - sAMAccountName
+            bindDN: administrator@ntnxlab.local 
+            bindPassword: 
+              name: ldap-secret
+            insecure: true
+            url: ldap://dc.ntnxlab.local/CN=Users,DC=ntnxlab,DC=local?sAMAccountName
     EOF
 
 #. Create the LDAP sync config file
