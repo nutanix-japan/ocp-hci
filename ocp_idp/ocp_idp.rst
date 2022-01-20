@@ -8,6 +8,8 @@ In this lab we will deploy a IDP connection to your OCP cluster to provide Authe
 
 We will use the AutoAD Active Directory VM as the IDP as it is already installed in your HPOC/SPOC cluster.
 
+This setup can also be done using the OCP Cluster Manger GUI. But in this section we will use commands.
+
 #. In Calm go to your **Applications** > **Openshift ocp1** application
 
 #. Go to the **Services** 
@@ -106,5 +108,18 @@ We will use the AutoAD Active Directory VM as the IDP as it is already installed
     oc adm policy add-cluster-role-to-group console-operator OCP_Cluster_Operators
     oc adm policy add-cluster-role-to-group cluster-admin OCP_Cluster_Admins
 
-    
-     
+If you logout of the OCP cluster manager Web UI. You will be able to see two authentication mechanisms(instead of just 1 before):
+
+- **Local** - kubeadmin
+- **ntnxlab** - AD users 
+
+Verifying Authentication and Authorisation
+++++++++++++++++++++++++++++++++++++++++++
+
+Now that we have setup connectivity for OCP to Active Directory as ID provider, we can now check which user (authentication) is allowed to perform what action (authorization).
+
+Cluster Admin 
+-------------
+
+Cluster Operator
+----------------
