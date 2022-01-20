@@ -8,7 +8,7 @@ OCP: Create Additional OCP Clusters
  
   .. raw:: html
 
-   <body><font color="red">If you are doing the lab using a Single Node HPOC (SPOC) there will not be enough resources to deploy a second OCP cluster. Please delete the first OCP cluster from Calm > Actions > Delete before proceeding with this lab.</font></body>
+   <body><font color="red">If you are doing this section of the lab using a Single Node HPOC (SPOC) there will not be enough resources to deploy a second OCP cluster. Please delete the first OCP cluster from Calm > Actions > Delete before proceeding with this lab.</font></body>
 
 There will instances where you will want to deploy a second OCP cluster in the same/different environment using these blueprints.
 

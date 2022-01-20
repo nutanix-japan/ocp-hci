@@ -20,7 +20,7 @@ Single node OCP cluster implementation is also available with Assisted Installer
  
   .. raw:: html
 
-   <body><font color="red">If you are doing the lab using a Single Node HPOC (SPOC) there will not be enough resources to deploy a second OCP cluster. Please delete the other OCP cluster(s) from Calm > Actions > Delete before proceeding with this lab.</font></body>
+   <body><font color="red">If you are doing this section of the lab using a Single Node HPOC (SPOC) there will not be enough resources to deploy a second OCP cluster. Please delete the other OCP cluster(s) from Calm > Actions > Delete before proceeding with this lab.</font></body>
 
 Pre-requisites for Assisted Installation
 +++++++++++++++++++++++++++++++++++++++++

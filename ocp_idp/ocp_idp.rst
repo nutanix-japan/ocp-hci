@@ -4,9 +4,9 @@
 OCP: Deploying IDP
 -------------------
 
-In this lab we will deploy a IDP connection to your OCP cluster to provide Authentication and Austhorization.
+In this lab we will deploy a IDP connection to your OCP cluster to provide Authentication and Authorization.
 
-We will use the AutoAD Active Directory as the IDP as it is already installed in your HPOC/SPOC cluster.
+We will use the AutoAD Active Directory VM as the IDP as it is already installed in your HPOC/SPOC cluster.
 
 #. In Calm go to your **Applications** > **Openshift ocp1** application
 

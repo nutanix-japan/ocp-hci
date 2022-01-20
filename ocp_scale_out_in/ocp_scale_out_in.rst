@@ -152,7 +152,7 @@ We will do this using Calm Actions.
 
 #. In **Calm** > **Applications**
 
-#. Click on the **Openshift ocp1** application and go to **Manage** tab
+#. Click on the **Openshift xyz1** application and go to **Manage** tab
 
 #. In the **Scale Out** action, click on :fa:`play` play button
 
@@ -191,7 +191,7 @@ We will do this using Calm Actions.
 
 #. In **Calm** > **Applications**
 
-#. Click on the **Openshift ocp1 XYZ** application and go to **Manage** tab
+#. Click on the **Openshift xyz1** application and go to **Manage** tab
 
 #. In the **Scale In** action, click on :fa:`play` play button
 

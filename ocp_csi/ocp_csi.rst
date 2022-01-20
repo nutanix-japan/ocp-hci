@@ -102,11 +102,11 @@ Install StorageClass
       
     export KUBECONFIG=~/openshift/auth/kubeconfig
 
-#. Create a secret that the StorageClass can use to access the Nutanix HCI storage
+#. Create a kubernetes secret that the StorageClass can use to access the Nutanix HCI storage
 
    Copy the following Secret configuration script, modify required fields and execute it in the command line
 
-   **Open a text editor (notepad / vi / nano), paste the contents and change the fields indicated to suit your environment. Example is also provided**
+   **Open a text editor (notepad / vi / nano), paste the contents below and change the fields indicated to suit your environment. Example is also provided**
 
    **Be sure to use your environment's details for the following fields:**
 
@@ -175,7 +175,7 @@ Install StorageClass
     # storageclass.storage.k8s.io/nutanix-volume created
     
 #. Make this your default StorageClass
-   
+
    .. code-block:: bash
     
     oc patch storageclass nutanix-volume -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
@@ -213,9 +213,6 @@ Install StorageClass
    
 We have sucessfully installed Nutanix StorageClass so we can provision Physical Volumes (PV) and Physical Volume Claims (PVC) for the applications we will be deploying in this OCP cluster.
 
-
-
-    
 
 
 
