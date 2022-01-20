@@ -86,7 +86,7 @@ If you don't have a Windows Tools VM in your HPOC. Use these instructions here i
 
     To be able to manage other clusters or a group of clusters, you will need to register this cluster to ``https://console.redhat.com/openshift/`` web interface
 
-#. Go through the following important components and make a note of the following details (you will need this information for your validation exercise):
+#. Go through the following important components and make a note of the following details 
    
    .. list-table::
      :widths: 25 30 30 30
@@ -140,7 +140,6 @@ If you don't have a Windows Tools VM in your HPOC. Use these instructions here i
        -
        - 
        - Make a note of system and user namespaces
-
 
 You can see how managing all parts of the OCP cluster are in a single place. In a open source kubernetes cluster you would have to install many management packages and go many places them. This is one of the strong selling points of a OCP kubernetes cluster.
 
