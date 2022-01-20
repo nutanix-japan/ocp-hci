@@ -13,7 +13,7 @@ Deploy this VM on your assigned cluster if directed to do so as part of **Lab Se
 
 .. raw:: html
 
-  <strong><font color="red">Only deploy the VM once, it does not need to be cleaned up as part of any lab completion.</font></strong>
+  <body><font color="red">Only deploy the VM once, it does not need to be cleaned up as part of any lab completion.</font></body>
 
 Deploying Linux Tools VM
 ++++++++++++++++++++++++

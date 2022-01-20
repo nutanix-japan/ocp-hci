@@ -15,14 +15,14 @@ This Windows Server 2012 R2 image comes pre-installed with a number of tools, in
 - OpenOffice
 - Python
 - pgAdmin
-- Chocolatey Package Manager
-- Google Chrome Browser
+- Chocolatey package manager
+- Google Chrome browser
 
 Deploy this VM on your assigned cluster if directed to do so as part of **Lab Setup**.
 
 .. raw:: html
 
-  <strong><font color="red">Only deploy the VM once, it does not need to be cleaned up as part of any lab completion.</font></strong>
+  <body><font color="red">Only deploy the VM once, it does not need to be cleaned up as part of any lab completion.</font></body>
 
 Deploying Windows Tools VM
 ++++++++++++++++++++++++++
