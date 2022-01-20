@@ -16,12 +16,20 @@ Single node OCP cluster implementation is also available with Assisted Installer
 
  Estimated time to complete this lab is 60 minutes.
 
+.. note::
+ 
+  .. raw:: html
+
+   <body><font color="red">If you are doing the lab using a Single Node HPOC (SPOC) there will not be enough resources to deploy a second OCP cluster. Please delete the other OCP cluster(s) from Calm > Actions > Delete before proceeding with this lab.</font></body>
+
 Pre-requisites for Assisted Installation
 +++++++++++++++++++++++++++++++++++++++++
 
 - Administrator creates the OCP Master and Worker VMs
 - Adminsitrator provisions compute, networking and storage associated with the OCP Master and Worker VMs
 - Access to Red Hat Console to use Assisted Installer and install a OCP cluster
+
+
 
 High Level Overview of Assisted Installation
 ++++++++++++++++++++++++++++++++++++++++++++
