@@ -16,6 +16,7 @@ This Windows Server 2012 R2 image comes pre-installed with a number of tools, in
 - Python
 - pgAdmin
 - Chocolatey Package Manager
+- Google Chrome Browser
 
 Deploy this VM on your assigned cluster if directed to do so as part of **Lab Setup**.
 
@@ -60,7 +61,7 @@ In **Prism Central** > select :fa:`bars` **> Compute and Storage > VMs**, and cl
 
 #. Click **Next** at the bottom
 
-#. In Management page 
+#. In **Management** section 
    
    - **Categories** - leave blank
    - **Timezone** - leave at default UTC

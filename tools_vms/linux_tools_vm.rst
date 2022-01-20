@@ -51,7 +51,7 @@ In **Prism Central** > select :fa:`bars` **> Compute and Storage > VMs**, and cl
 
 #. Click **Next** at the bottom
 
-#. In Management page 
+#. In **Management** section 
    
    - **Categories** - leave blank
    - **Timezone** - leave at default UTC
