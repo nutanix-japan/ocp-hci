@@ -64,3 +64,8 @@ In **Prism Central** > select :fa:`bars` **> Compute and Storage > VMs**, and cl
 #. Select your *Initials*-Linux-ToolsVM
 
 #. Under **Actions** drop-down menu, choose **Power On**
+
+Login to the VM via SSH or Console session, using the following credentials:
+
+- **Username** - root
+- **password** - nutanix/4u
