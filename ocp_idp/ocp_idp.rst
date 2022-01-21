@@ -39,27 +39,28 @@ This setup can also be done using the OCP Cluster Manger GUI. But in this sectio
 
      cat << EOF | oc apply -f -
      apiVersion: config.openshift.io/v1
-     kind: OAuth 
+     kind: OAuth
      metadata:
        name: cluster
      spec:
        identityProviders:
-         - name: ntnxlab.local
-           mappingMethod: claim
-           type: LDAP
+       - name: ntnxlab.local 
+         mappingMethod: claim 
+         type: LDAP
+         ldap:
            attributes:
-             id:
-               - sAMAccountName
+             id: 
+             - sAMAccountName
              email: []
-             name:
-               - displayName
-             preferredUsername:
-               - sAMAccountName
-           bindDN: administrator@ntnxlab.local
-           bindPassword:
+             name: 
+             - displayName
+             preferredUsername: 
+             - sAMAccountName
+           bindDN: administrator@ntnxlab.local 
+           bindPassword: 
              name: ldap-secret
            insecure: true
-           url: "ldap://dc.ntnxlab.local/CN=Users,DC=ntnxlab,DC=local?sAMAccountName"
+           url: ldap://dc.ntnxlab.local/CN=Users,DC=ntnxlab,DC=local?sAMAccountName
      EOF
 
 #. Create the LDAP sync config file
@@ -104,7 +105,6 @@ This setup can also be done using the OCP Cluster Manger GUI. But in this sectio
     
     oc adm policy add-cluster-role-to-group cluster-admin OCP_SSP_Admins
     oc adm policy add-cluster-role-to-group console-operator OCP_Cluster_Operators
-    oc adm policy add-cluster-role-to-group cluster-admin OCP_Cluster_Admins
 
 
 If you logout of the OCP cluster manager Web UI. You will be able to see two authentication mechanisms(instead of just 1 before):
@@ -173,7 +173,7 @@ Assign the following groups to be able to access OCP.
 
 .. tip:: 
 
- #. You will have to modify the config file in step 7 (ldapsync.yaml) to include these
+ #. You will have to modify the config file in step 7 (ldapsync.yaml) to include these. Check the format of specifying this and add one configuration per line. 
 
  #. You will have run the following command in step 9 to add a admin policy
 
