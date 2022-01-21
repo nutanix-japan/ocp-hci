@@ -34,34 +34,33 @@ This setup can also be done using the OCP Cluster Manger GUI. But in this sectio
     oc create secret generic ldap-secret --from-literal=bindPassword='nutanix/4u' -n openshift-config
 
 #. Setup the OAuth provider
-   
+
    .. code-block:: bash
 
-    cat << EOF | oc create -f -
-    apiVersion: config.openshift.io/v1
-    kind: OAuth
-    metadata:
-      name: cluster
-    spec:
-      identityProviders:
-      - name: ntnxlab.local 
-        mappingMethod: claim 
-        type: LDAP
-        ldap:
-          attributes:
-            id: 
-            - sAMAccountName
-            email: []
-            name: 
-            - displayName
-            preferredUsername: 
-            - sAMAccountName
-            bindDN: administrator@ntnxlab.local 
-            bindPassword: 
-              name: ldap-secret
-            insecure: true
-            url: ldap://dc.ntnxlab.local/CN=Users,DC=ntnxlab,DC=local?sAMAccountName
-    EOF
+     cat << EOF | oc apply -f -
+     apiVersion: config.openshift.io/v1
+     kind: OAuth 
+     metadata:
+       name: cluster
+     spec:
+       identityProviders:
+         - name: ntnxlab.local
+           mappingMethod: claim
+           type: LDAP
+           attributes:
+             id:
+               - sAMAccountName
+             email: []
+             name:
+               - displayName
+             preferredUsername:
+               - sAMAccountName
+           bindDN: administrator@ntnxlab.local
+           bindPassword:
+             name: ldap-secret
+           insecure: true
+           url: "ldap://dc.ntnxlab.local/CN=Users,DC=ntnxlab,DC=local?sAMAccountName"
+     EOF
 
 #. Create the LDAP sync config file
 
@@ -74,25 +73,24 @@ This setup can also be done using the OCP Cluster Manger GUI. But in this sectio
     bindPassword: "nutanix/4u"
     insecure: true
     groupUIDNameMapping:
-    CN=SSP Admins,CN=Users,DC=ntnxlab,DC=local: OCP_SSP_Admins
-    CN=Domain Admins,CN=Users,DC=ntnxlab,DC=local: OCP_Cluster_Admins
-    CN=SSP Operators,CN=Users,DC=ntnxlab,DC=local: OCP_Cluster_Operators
+      CN=SSP Admins,CN=Users,DC=ntnxlab,DC=local: OCP_SSP_Admins
+      CN=SSP Operators,CN=Users,DC=ntnxlab,DC=local: OCP_Cluster_Operators
     augmentedActiveDirectory:
-    groupsQuery:
+      groupsQuery:
         baseDN: CN=users,DC=ntnxlab,DC=local
         scope: sub
         derefAliases: never
         pageSize: 0
-    groupUIDAttribute: dn
-    groupNameAttributes: [ cn ]
-    usersQuery:
+      groupUIDAttribute: dn
+      groupNameAttributes: [ cn ]
+      usersQuery:
         baseDN: cn=users,dc=ntnxlab,dc=local
         scope: sub
         derefAliases: never
         filter: (objectclass=person)
         pageSize: 0
-    userNameAttributes: [ sAMAccountName ] 
-    groupMembershipAttributes: [ memberOf ]""" > ldapsync.yaml
+      userNameAttributes: [ sAMAccountName ] 
+      groupMembershipAttributes: [ memberOf ]""" > ldapsync.yaml
 
 #. Setup the LDAP sync
 
@@ -102,24 +100,85 @@ This setup can also be done using the OCP Cluster Manger GUI. But in this sectio
 
 #. Create rolebinding using the following commands
    
-   .. code-block:: bash
+   .. code-block:: bashd
     
     oc adm policy add-cluster-role-to-group cluster-admin OCP_SSP_Admins
     oc adm policy add-cluster-role-to-group console-operator OCP_Cluster_Operators
     oc adm policy add-cluster-role-to-group cluster-admin OCP_Cluster_Admins
 
+
 If you logout of the OCP cluster manager Web UI. You will be able to see two authentication mechanisms(instead of just 1 before):
 
 - **Local** - kubeadmin
-- **ntnxlab** - AD users 
+- **ntnxlab** - ntnxlab.local
+
+.. figure:: images/ocp_after_idp.png
+
 
 Verifying Authentication and Authorisation
 ++++++++++++++++++++++++++++++++++++++++++
 
 Now that we have setup connectivity for OCP to Active Directory as ID provider, we can now check which user (authentication) is allowed to perform what action (authorization).
 
+
 Cluster Admin 
 -------------
 
+#. In the OCP Web UI login page, select **ntnxlab.local**
+
+#. Enter the following credentials
+  
+   - **Username** - adminuser01
+   - **Password** - nutanix/4u
+
+#. Observe what management capabilites are available for adminuser01
+   
+#. Take a screenshot of the login page and add it to you validation screenshot bundle
+
+
+
 Cluster Operator
 ----------------
+
+#. In the OCP Web UI login page, select **ntnxlab.local**
+
+#. Enter the following credentials
+  
+   - **Username** - operator01
+   - **Password** - nutanix/4u
+
+#. Observe what management capabilites are available for adminuser01
+   
+#. Take a screenshot of the login page and add it to you validation screenshot bundle
+
+You have sucessfully configured authentication and authorisation for OCP with Active Directory as IDP.
+
+Challenge
+----------
+
+Assign the following groups to be able to access OCP.
+
+.. list-table::
+  :widths: 20 20 
+  :header-rows: 1
+
+  * - AD User Group
+    - OCP Role
+
+  * - SSP Admins
+    - cluster-admin
+
+  * - SSP Operators
+    - cluster-operator 
+
+.. tip:: 
+
+ #. You will have to modify the config file in step 7 (ldapsync.yaml) to include these
+
+ #. You will have run the following command in step 9 to add a admin policy
+
+    .. code-block:: bash
+
+     oc adm policy add-cluster-role-to-group <cluster role> <group name>
+     
+ 
