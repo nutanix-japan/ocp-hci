@@ -196,16 +196,16 @@ We will create the following resources:
    .. code-block:: bash 
 
     cluster_name        = "your cluster name" # << Change this
-    subnet_name         = "your network name" # << Change this
-    user                = "admin"             # << Change this
+    subnet_name         = "Primary"
+    user                = "admin"            
     password            = "XXXXXXX"           # << Change this
     endpoint            = "Prism Element IP"  # << Change this
-    vm_worker_prefix    = "ocp-worker"
-    vm_master_prefix    = "ocp-master"
+    vm_worker_prefix    = "xyz-worker"        # << Change xyz to your initials
+    vm_master_prefix    = "xyz-master"        # << Change xyz to your initials
     vm_domain           = "ntnxlab.local"
     vm_master_count     = 3
     vm_worker_count     = 2
-    image_uri           = "Discover ISO URL you copied from RH Console" # << Change this
+    image_uri           = "Discover ISO URL you copied earlier" # << Change this
     
 #. Validate and run your Terraform code
 
