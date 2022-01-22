@@ -78,9 +78,7 @@ HA of Zookeper
 
    .. code-block:: bash
 
-*oc delete po zk-2 --force --grace-period=0*
-
-   .. code-block:: bash
+    oc delete po zk-2 --force --grace-period=0
 
 # This will forcefully delete Zookeeper pod *zk-2*.
 
