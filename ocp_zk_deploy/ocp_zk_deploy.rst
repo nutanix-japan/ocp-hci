@@ -112,7 +112,7 @@ Exploring Volumes in Prism Element
 
  .. figure:: images/ocp_pe_get_vg.png
 
-# From the drop down list at the top, select **Storage**. Then click on **Storage Container** and click on **Breakdown** thereafter. You will see the three volumes associated with the pvcs for Zookeeper listed here.
+# From the drop down list at the top, select **Storage**. Then click on **Storage Container** and click on **Breakdown** thereafter. You will see the three volumes associated with the pvcs for Zookeeper listed here. The volume group names listed here will match the volume names listed in the pvc output in OCP.
 
 Populating Zookeeper with Data
 ++++++++++++++++++++++++++++++
