@@ -45,9 +45,27 @@ There are a few steps involved in deploying Zookeper.
 
   .. figure:: images/ocp_install_zookeeper_monitor.png
 
-# To install it, run the command *oc create -f zookeeper.yaml* as shown in the screenshot above. You can then monitor the pods with the command *oc get pods -w* and/or the StatefulSet deployed by the manifest with the command *oc get sts -w*. Note that the *-w* switch at the end of these get commands will monitor the status until a break input is sent via the keyboard. Once you're satisfied that all the pods are deployed (when you see the all 3 pods are in a ready state), you can break by using the keyboard combination *ctrl+c*. 
+# To install it, run the command 
 
- .. figure:: images/ocp_get_pvc.png
+  .. code-block:: bash
+
+   oc create -f zookeeper.yaml 
+
+as shown in the screenshot above. You can then monitor the pods with the command 
+
+  .. code-block:: bash
+   
+   oc get pods -w 
+   
+and/or the StatefulSet deployed by the manifest with the command 
+
+  .. code-block:: bash
+
+   oc get sts -w 
+   
+Note that the *-w* switch at the end of these get commands will monitor the status until a break input is sent via the keyboard. Once you're satisfied that all the pods are deployed (when you see the all 3 pods are in a ready state), you can break by using the keyboard combination *ctrl+c*. 
+
+ .. fiigure:: images/ocp_get_pvc.png
 
 # You have now successfully deployed Zookeeper. Each Zookeeper pod will have it's own persistent storage volume. To check this, run the command *oc get pvc* as shown in the screenshot above. You will see a list of PVCs (one associated with each Zookeeper pod). They will be named *datadir-zk-X* where X is the number of the pod associated with that persistent volume claim or pvc. Note that each pvc has a unique name beginning with pvc under the **VOLUME** header of this output and that each is 10 GB in size. Make a mental note or take a screenshot of these names for your reference later.
 
