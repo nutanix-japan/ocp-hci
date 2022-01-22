@@ -27,6 +27,14 @@ There are a few steps involved in deploying Zookeper.
 
    .. figure:: images/ocp_set_kubeconfig.png
 
+  .. code-block:: bash
+
+   export KUBECONFIG=~/openshift/auth/kubeconfig
+
+  .. code-block:: bash
+
+   oc cluster-info
+
 # As shown in the screenshot above, what you are essentially doing here is exporting your KUBECONFIG again and checking the info of the cluster to ensure you are still connected. Once you've established that, you now need to ensure that a default StorageClass (SC) has been set for your OCP deployment. While this was done in a previous lab, if you've potentially skipped that step, you can now ensure that you have indeed set a default.
 
   .. figure:: images/ocp_get_sc.png
@@ -126,6 +134,12 @@ HA of Zookeper
 
 # This will forcefully delete Zookeeper pod *zk-2*.
 
-# You can then monitor the status as shown in the screenshot above with the command *oc get po -w*. Again, this command can only be cancelled with a break *ctrl+c* input from your keyboard.
+# You can then monitor the status as shown in the screenshot above with the command 
+
+  .. code-block:: bash
+
+   oc get po -w 
+   
+# Again, this command can only be cancelled with a break *ctrl+c* input from your keyboard.
 
 # You have now 'accidentally deleted a pod' but OCP has recovered that pod as pods are assumed to be ephemeral by design in Kubernetes. The deleted pod was recovered and the volume associated with that pod previously was re-attached automatically. The main difference in this specific Zookeper deployment is that because it is a StatefulSet, it has recovereed with the exact same name *zk-2*. This also means that any other software that's meant to interact with it -- **for example, backup with Veeam Kasten** -- will continue to do so without your intervention.
