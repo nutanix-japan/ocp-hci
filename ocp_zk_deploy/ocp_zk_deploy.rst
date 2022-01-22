@@ -11,13 +11,17 @@ Deploying Zookeper
 
 There are a few steps involved in deploying Zookeper.
 
-# 1. The first step is to install some necessary packages in your LB-DNS-0 VM. You should already be familiar with using this to interact with your OCP deployment.d
+# 1. The first step is to install some necessary packages in your LB-DNS-0 VM. You should already be familiar with using this to interact with your OCP deployment.
 
    Using the terminal via Calm, you can interact with your OCP deployment
 
    .. figure:: images/ocp_install_packages.png
 
-# As shown in the screenshot above, you can run the command *sudo yum -y install vim wget*
+# As shown in the screenshot above, you can run the command 
+
+  .. code-block:: bash
+   
+   sudo yum -y install vim wget
 
 # 2. Once the packages are successfully installed, the second step would be to grab check the status of your OCP deployment. This step can be skipped if you're sure that you're connected successfully to your OCP deployment. 
 
@@ -27,21 +31,43 @@ There are a few steps involved in deploying Zookeper.
 
   .. figure:: images/ocp_get_sc.png
 
-# As shown in the screenshot above, you can do this with the command *oc get sc* which will display all the StorageClasses you have configured in your OCP deployment. At present, there should only be one named "nutanix-volume"  and it should be showing you that it is the default. However, in this example, you will see that is NOT the default. 
+# As shown in the screenshot above, you can do this with the command 
+
+  .. code-block:: bash
+   
+   oc get sc 
+   
+# which will display all the StorageClasses you have configured in your OCP deployment. At present, there should only be one named "nutanix-volume"  and it should be showing you that it is the default. However, in this example, you will see that is NOT the default. 
 
 # In order to set it as the default, you will need to patch it.
 
   .. figure:: images/ocp_patch_sc.png
 
-# As shown in the screenshot above, this can be done with the command *oc patch storageclass nutanix-volume -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'*
+# As shown in the screenshot above, this can be done with the command 
+
+  .. code-block:: bash
+
+   oc patch storageclass nutanix-volume -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 
   .. figure:: images/ocp_get_sc_default.png
 
-# Once you've run this command to patch the SC, you will see the the SC now shows that it is the default with literal label (default). Run the command *oc get sc* again and you will see this as shown in the screenshot above.
+# Once you've run this command to patch the SC, you will see the the SC now shows that it is the default with literal label (default). Run the command 
+
+  .. code-block:: bash
+   
+   oc get sc 
+   
+# again and you will see this as shown in the screenshot above.
 
   .. figure:: images/ocp_wget_zookeeper.png
 
-#. Now that all that is verified proper, the third step for deploying Zookeeper in your OCP deployment would be to grab the Zookeeper deployment manifest into your LB-DNS-0 VM. To do so, run the command *wget https://raw.githubusercontent.com/Cxpher/ocp-hci-2/main/ocp_zk_deploy/zookeeper.yaml* as shown in the screenshot above. This will get the manifest into your system.
+#. Now that all that is verified proper, the third step for deploying Zookeeper in your OCP deployment would be to grab the Zookeeper deployment manifest into your LB-DNS-0 VM. To do so, run the command 
+
+  .. code-block:: bash
+   
+   wget https://raw.githubusercontent.com/Cxpher/ocp-hci-2/main/ocp_zk_deploy/zookeeper.yaml 
+
+# as shown in the screenshot above. This will get the manifest into your system.
 
   .. figure:: images/ocp_install_zookeeper_monitor.png
 
@@ -51,21 +77,21 @@ There are a few steps involved in deploying Zookeper.
 
    oc create -f zookeeper.yaml 
 
-as shown in the screenshot above. You can then monitor the pods with the command 
+# as shown in the screenshot above. You can then monitor the pods with the command 
 
   .. code-block:: bash
    
    oc get pods -w 
    
-and/or the StatefulSet deployed by the manifest with the command 
+# and/or the StatefulSet deployed by the manifest with the command 
 
   .. code-block:: bash
 
    oc get sts -w 
    
-Note that the *-w* switch at the end of these get commands will monitor the status until a break input is sent via the keyboard. Once you're satisfied that all the pods are deployed (when you see the all 3 pods are in a ready state), you can break by using the keyboard combination *ctrl+c*. 
+# Note that the *-w* switch at the end of these get commands will monitor the status until a break input is sent via the keyboard. Once you're satisfied that all the pods are deployed (when you see the all 3 pods are in a ready state), you can break by using the keyboard combination *ctrl+c*. 
 
- .. fiigure:: images/ocp_get_pvc.png
+  .. figure:: images/ocp_get_pvc.png
 
 # You have now successfully deployed Zookeeper. Each Zookeeper pod will have it's own persistent storage volume. To check this, run the command *oc get pvc* as shown in the screenshot above. You will see a list of PVCs (one associated with each Zookeeper pod). They will be named *datadir-zk-X* where X is the number of the pod associated with that persistent volume claim or pvc. Note that each pvc has a unique name beginning with pvc under the **VOLUME** header of this output and that each is 10 GB in size. Make a mental note or take a screenshot of these names for your reference later.
 
@@ -83,7 +109,7 @@ Exploring Volumes in Prism Element
 Populating Zookeeper with Data
 ++++++++++++++++++++++++++++++
 
-Add some data to zookeper here
+# Add some data to zookeper here
 
 HA of Zookeper
 ++++++++++++++
