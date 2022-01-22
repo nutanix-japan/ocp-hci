@@ -74,7 +74,13 @@ HA of Zookeper
 
  .. figure:: images/ocp_delete_pod.png
 
-# As shown in the screenshot above, check to ensure all three pods are healthy with the commands *oc get sts* and or *oc get po*. Once verified, run the command *oc delete po zk-2 --force --grace-period=0*
+# As shown in the screenshot above, check to ensure all three pods are healthy with the commands *oc get sts* and or *oc get po*. Once verified, run the command 
+
+   .. code-block:: bash
+
+*oc delete po zk-2 --force --grace-period=0*
+
+   .. code-block:: bash
 
 # This will forcefully delete Zookeeper pod *zk-2*.
 
