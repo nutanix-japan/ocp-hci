@@ -10,7 +10,7 @@ We will use the AutoAD Active Directory VM as the IDP as it is already installed
 
 This setup can also be done using the OCP Cluster Manger GUI. But in this section we will use commands.
 
-#. In Calm go to your **Applications** > **Openshift ocp1** application
+#. In Calm go to your **Applications** > **Openshift xyz1** application
 
 #. Go to the **Services** 
 
