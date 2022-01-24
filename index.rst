@@ -21,6 +21,8 @@
   :name: _workloads_on_ocp
   :hidden:
 
+  ocp_zk_deploy/ocp_zk_deploy
+
 
 .. toctree::
   :maxdepth: 2
