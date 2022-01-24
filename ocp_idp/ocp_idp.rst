@@ -180,5 +180,5 @@ Assign the following groups to be able to access OCP.
     .. code-block:: bash
 
      oc adm policy add-cluster-role-to-group <cluster role> <group name>
-     
+
  
