@@ -36,6 +36,7 @@ This setup can also be done using the OCP Cluster Manger GUI. But in this sectio
 #. Setup the OAuth provider
 
    .. code-block:: bash
+     :linenos:
 
      cat << EOF | oc apply -f -
      apiVersion: config.openshift.io/v1

@@ -115,7 +115,6 @@ OCP has the following infrastructure pre-requistes available in the environment.
     - Calm Endpoint to contact AutoAD+DNS server
     - You will create this
 
-
 Now we can proceed to setup pre-requistes and deploying blueprints. 
 
 .. _endpoint:
@@ -150,6 +149,8 @@ Let's create a Calm endpoint for authentication, authorization and DNS updates f
    .. figure:: images/ocp_create_endpoint.png
 
 #. Click **Save**
+
+#. Take a screenshot of the Calm endpoint for validation 
 
 Upload Blueprints
 +++++++++++++++++

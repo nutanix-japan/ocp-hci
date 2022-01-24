@@ -193,7 +193,7 @@ We will create the following resources:
     
     vi terraform.tfvars
 
-   .. code-block:: bash 
+   .. code-block:: bash
 
     cluster_name        = "your cluster name" # << Change this
     subnet_name         = "Primary"
