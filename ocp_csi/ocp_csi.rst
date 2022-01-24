@@ -136,6 +136,8 @@ Install StorageClass
    - Prism Element Password
 
    .. code-block:: bash
+    :linenos:
+    :emphasize-lines: 8
 
     cat << EOF | oc create -f -
     apiVersion: v1
@@ -164,6 +166,8 @@ Install StorageClass
    - Storage Container Name
 
    .. code-block:: bash
+    :linenos:
+    :emphasize-lines: 15,18
 
     cat << EOF | oc create -f -
     apiVersion: storage.k8s.io/v1
