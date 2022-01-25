@@ -136,7 +136,11 @@ Cluster Admin
    
 #. Take a screenshot of the login page and add it to you validation screenshot bundle
 
+.. note::
+ 
+      .. raw:: html
 
+         <body><font color="green">Validation Task 10 - Take a screenshot of the of OCP Cluster Manager Login page with Admin user login</font></body>
 
 Cluster Operator
 ----------------
@@ -148,9 +152,13 @@ Cluster Operator
    - **Username** - operator01
    - **Password** - nutanix/4u
 
-#. Observe what management capabilites are available for adminuser01
+#. Observe what management capabilites are available for operator01
    
-#. Take a screenshot of the login page and add it to you validation screenshot bundle
+.. note::
+ 
+      .. raw:: html
+
+         <body><font color="green">Validation Task 11 - Take a screenshot of the of OCP Cluster Manager Login page with Operator user login</font></body>
 
 You have sucessfully configured authentication and authorisation for OCP with Active Directory as IDP.
 
@@ -174,12 +182,14 @@ Assign the following groups to be able to access OCP.
 
 .. tip:: 
 
- #. You will have to modify the config file in step 7 (ldapsync.yaml) to include these. Check the format of specifying this and add one configuration per line. 
+ #. You will have to modify the config file in step 7 (ldapsync.yaml) to include these. Identify the format of specifying this and add one configuration per line. 
 
  #. You will have run the following command in step 9 to add a admin policy
 
     .. code-block:: bash
 
      oc adm policy add-cluster-role-to-group <cluster role> <group name>
+
+You have successfully completed integrating Active Directory with OCP Cluster for Authentication and Authorisation.
 
  

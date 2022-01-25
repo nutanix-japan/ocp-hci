@@ -73,7 +73,13 @@ Install Nutanix CSI Operator
    
 #. Click on **Install** 
 
-#. Once installed you will see the operator in **Operator** > ** Installed Operators** 
+#. Once installed you will see the operator in **Operator** > **Installed Operators** 
+
+.. note::
+ 
+  .. raw:: html
+
+   <body><font color="green">Validation Task 7 - Take a screenshot of the of Nutanix Operator in Red Hat Console</font></body>
 
 You have succesfully installed the Nutanix CSI operator to take care of StorageClass installation and upgrades.
 
@@ -125,7 +131,7 @@ Install StorageClass
 
 #. Create a kubernetes secret that the StorageClass can use to access the Nutanix HCI storage
 
-   Copy the following Secret configuration script, modify required fields and execute it in the command line
+   Copy the following Secret configuration script, modify required fields (high-lighted) and execute it in the command line
 
    **Open a text editor (notepad / vi / nano), paste the contents below and change the fields indicated to suit your environment. Example is also provided**
 
@@ -204,9 +210,17 @@ Install StorageClass
    .. code-block:: bash
     
     oc patch storageclass nutanix-volume -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+    #
+    oc get sc
+
+   .. note::
+ 
+    .. raw:: html
+
+         <body><font color="green">Validation Task 8 - Take a screenshot of the of your default storage class</font></body>
 
 #. List your StorageClass
- 
+      
    .. code-block:: bash
 
     oc get StorageClass -A

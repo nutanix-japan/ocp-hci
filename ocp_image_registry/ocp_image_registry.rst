@@ -116,6 +116,12 @@ Presenting the PVC to OCP Image Registry
               Claim: image-registry-claim   ## << Here is the claim
         Unsupported Config Overrides:  <nil>
 
+.. note::
+ 
+      .. raw:: html
+
+         <body><font color="green">Validation Task 9 - Take a screenshot of the of your image-registry-claim from the above command</font></body>
+
 To check the existence this PV in Prism Element, check the volume detail in Storage container.
 
 #. Go to your **Prism Element** > **Storage** > **Volume Group**

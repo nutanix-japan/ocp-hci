@@ -123,6 +123,12 @@ Now we have the provisioning VM up and running. This section of the lab is done.
 
 .. figure:: images/ocp_lab_status_1.png
 
+.. note::
+ 
+  .. raw:: html
+
+   <body><font color="green">Validation Task 3 - Take a screenshot of the Privisioning VM application in Calm </font></body>
+
 We will proceed to deploy a OCP cluster in the next section of the lab. 
 
 

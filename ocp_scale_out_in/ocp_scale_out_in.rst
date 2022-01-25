@@ -86,61 +86,6 @@ If you don't have a Windows Tools VM in your HPOC. Use these instructions here i
 
     To be able to manage other clusters or a group of clusters, you will need to register this cluster to ``https://console.redhat.com/openshift/`` web interface
 
-#. Go through the following important components and make a note of the following details 
-   
-   .. list-table::
-     :widths: 25 30 30 30
-     :header-rows: 1
-
-     * - OCP Property 
-       - Sub Property
-       - Value
-       - Notes
-     * - Overview
-       - 
-       -
-       -
-     * - Projects
-       - 
-       - 
-       -
-     * - Networking
-       - Services
-       -
-       -
-     * - 
-       - Routes
-       - 
-       -
-     * - Storage
-       - StorageClasses
-       - 
-       -
-     * - Monitoring
-       - Dashboards
-       - 
-       -
-     * - Compute
-       - Nodes (these are your OCP Cluster VMs)
-       -
-       -
-     * - User Management 
-       - Users
-       - 
-       - Identify which users from your AutoAD are added
-     * - 
-       - Groups
-       -
-       - Identify which groups from your AutoAD are added
-     * - Administration
-       - Cluster Settings 
-       -
-       - Get your OCP cluster's version
-     * - Namespaces  
-       -
-       - 
-       - Make a note of system and user namespaces
-
 You can see how managing all parts of the OCP cluster are in a single place. In a open source kubernetes cluster you would have to install many management packages and go many places them. This is one of the strong selling points of a OCP kubernetes cluster.
 
 Day 1: Scale Out Worker Nodes
@@ -181,6 +126,12 @@ We will do this using Calm Actions.
    .. figure:: images/ocp_scaleout_check_cm.png
 
 Calm makes it really simple to scale out your OCP cluster Day 1 operations. 
+
+.. note::
+ 
+  .. raw:: html
+
+   <body><font color="green">Validation Task 5 - Take a screenshot of the of your scaled out OCP Worker (nodes) services in Calm as show in the figure above. </font></body>
 
 Day 1: Scale In Worker Nodes 
 ++++++++++++++++++++++++++++
@@ -230,6 +181,12 @@ We will do this using Calm Actions.
      As an optional task run the **Scale Out** action once again with ``1`` node and check if the OCP node becomes **Ready**.
 
 Calm makes it simple to scale in your OCP cluster Day 1 operations as the resource requirements reduces. 
+
+.. note::
+ 
+  .. raw:: html
+
+   <body><font color="green">Validation Task 6 - Take a screenshot of the of your scaled in OCP Worker (nodes) services in Calm as show in the figure above. </font></body>
 
 We have now successfully completed this section of the lab doing Day 1 operations.
 

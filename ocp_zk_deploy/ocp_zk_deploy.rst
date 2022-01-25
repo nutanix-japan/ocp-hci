@@ -67,23 +67,24 @@ There are a few steps involved in deploying Zookeper.
     
 #. Again and you will see this as shown in the screenshot above.
 
-   .. figure:: images/ocp_wget_zookeeper.png
-
 #. Now that all that is verified proper, the third step for deploying Zookeeper in your OCP deployment would be to grab the Zookeeper deployment manifest into your LB-DNS-0 VM. To do so, run the command 
 
    .. code-block:: bash
    
     wget https://raw.githubusercontent.com/Cxpher/ocp-hci-2/main/ocp_zk_deploy/zookeeper.yaml 
 
-#. As shown in the screenshot above. This will get the manifest into your system.
 
-   .. figure:: images/ocp_install_zookeeper_monitor.png
+   .. figure:: images/ocp_wget_zookeeper.png
+
+#. As shown in the screenshot above. This will get the manifest into your system.
 
 #. To install it, run the command 
 
    .. code-block:: bash
 
     oc create -f zookeeper.yaml 
+
+   .. figure:: images/ocp_install_zookeeper_monitor.png
 
 #. As shown in the screenshot above. You can then monitor the pods with the command 
 
@@ -113,6 +114,12 @@ Exploring Volumes in Prism Element
    .. figure:: images/ocp_pe_get_vg.png
 
 #. From the drop down list at the top, select **Storage**. Then click on **Storage Container** and click on **Breakdown** thereafter. You will see the three volumes associated with the pvcs for Zookeeper listed here. The volume group names listed here will match the volume names listed in the pvc output in OCP.
+
+.. note::
+ 
+    .. raw:: html
+
+         <body><font color="green">Validation Task 12 - Take a screenshot of the three volumes of Zookeeper StatefulSet in Prism Element</font></body>
 
 Populating Zookeeper with Data
 ++++++++++++++++++++++++++++++

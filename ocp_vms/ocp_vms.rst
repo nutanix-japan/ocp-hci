@@ -138,6 +138,14 @@ Click on each VM (Service) will display IP addresses and **Open Terminal** optio
 
 .. figure:: images/ocp_deployed_vms.png
 
+
+.. note::
+ 
+  .. raw:: html
+
+   <body><font color="green">Validation Task 4 - Take a screenshot of the of deployed OCP services (nodes) in Calm </font></body>
+
+
 We have completed this section of the lab where our OCP cluster is sucessfully deployed.
 
 .. figure:: images/ocp_vm_complete.png

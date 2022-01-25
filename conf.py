@@ -37,6 +37,7 @@ extensions = ['sphinx.ext.todo',
     'sphinxcontrib.fulltoc',
     'sphinx_fontawesome',
     'sphinx.ext.autosectionlabel']
+ #   'sphinx_typo3_theme']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -88,8 +89,10 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-#html_theme = "sphinx_rtd_theme"
+html_theme = "sphinx_rtd_theme"
 html_theme = 'bootstrap'
+# select the theme
+# html_theme = 'sphinx_typo3_theme'
 html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 # (Optional) Logo. Should be small enough to fit the navbar (ideally 24x24).

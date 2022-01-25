@@ -194,6 +194,8 @@ We will create the following resources:
     vi terraform.tfvars
 
    .. code-block:: bash
+    :linenos:
+    :emphasize-lines: 1,4,5,6,7,11
 
     cluster_name        = "your cluster name" # << Change this
     subnet_name         = "Primary"

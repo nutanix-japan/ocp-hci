@@ -150,7 +150,12 @@ Let's create a Calm endpoint for authentication, authorization and DNS updates f
 
 #. Click **Save**
 
-#. Take a screenshot of the Calm endpoint for validation 
+
+.. note::
+ 
+  .. raw:: html
+
+   <body><font color="green">Validation Task 1 - Take a screenshot of the Calm endpoint you just configured and store it somewhere safe. You will zip up all screenshots and uplaod to XReady mission after completing the lab. </font></body>
 
 Upload Blueprints
 +++++++++++++++++
@@ -184,6 +189,13 @@ Upload Blueprints
 #. Return to **Blueprints** once again and you will see both blueprints uploaded to Calm
 
    .. figure:: images/ocp_bp_list.png
+
+.. note::
+ 
+  .. raw:: html
+
+   <body><font color="green">Validation Task 2 - Take a screenshot of the uploaded blueprints. </font></body>
+
 
 Now that we are setup with all required information. We can proceed to deploying the Provisioning VM and ultimately OCP Cluster in the next sections of the lab.
 
