@@ -155,7 +155,7 @@ Let's create a Calm endpoint for authentication, authorization and DNS updates f
  
   .. raw:: html
 
-   <body><font color="green">Validation Task 1 - Take a screenshot of the Calm endpoint you just configured and store it somewhere safe. You will zip up all screenshots and uplaod to XReady mission after completing the lab. </font></body>
+   <body><font color="green">Validation Task 1 - Take a screenshot of the Calm endpoint you just configured and store it somewhere safe. You will zip up all screenshots and upload to XReady mission after completing the lab. </font></body>
 
 Upload Blueprints
 +++++++++++++++++

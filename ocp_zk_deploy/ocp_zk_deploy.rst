@@ -119,7 +119,7 @@ Exploring Volumes in Prism Element
  
     .. raw:: html
 
-         <body><font color="green">Validation Task 12 - Take a screenshot of the three volumes of Zookeeper StatefulSet in Prism Element</font></body>
+         <body><font color="green">Validation Task 12 - Take a screenshot of the three volumes of Zookeeper StatefulSet in Prism Element. Zip up all 12 screenshots you have captured so far and upload to XReady mission</font></body>
 
 Populating Zookeeper with Data
 ++++++++++++++++++++++++++++++
