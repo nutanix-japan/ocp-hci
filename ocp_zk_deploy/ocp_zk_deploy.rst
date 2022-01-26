@@ -121,15 +121,15 @@ Exploring Volumes in Prism Element
 
          <body><font color="green">Validation Task 12 - Take a screenshot of the three volumes of Zookeeper StatefulSet in Prism Element. Zip up all 12 screenshots you have captured so far and upload to XReady mission</font></body>
 
-Populating Zookeeper with Data
-++++++++++++++++++++++++++++++
-
-#. Add some data to zookeper here
+.. Populating Zookeeper with Data
+.. // ++++++++++++++++++++++++++++++
+.. // 
+.. #. Add some data to zookeper here
 
 HA of Zookeper
 ++++++++++++++
 
-#. In this lab, we will be able to experience the resiliency of the deployed Zookeeper StatefulSet by deleting one of the pods forcefully.
+#. In this section, we will be able to experience the resiliency of the deployed Zookeeper StatefulSet by deleting one of the pods forcefully.
 
    .. figure:: images/ocp_delete_pod.png
 
