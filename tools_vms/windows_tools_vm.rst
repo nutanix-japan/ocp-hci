@@ -45,7 +45,7 @@ In **Prism Central** > select :fa:`bars` **> Compute and Storage > VMs**, and cl
 
    - **Type** - DISK
    - **Operation** - Clone from Image 
-   - **Image** - Linux_ToolsVM.qcow2
+   - **Image** - WinToolsVM-Q1CY21.qcow2
    - **Capacity** - leave at default size
    - **Bus Type** - leave at default SCSI Setting
 
