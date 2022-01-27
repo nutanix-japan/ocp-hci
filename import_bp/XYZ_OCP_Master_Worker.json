@@ -2766,8 +2766,7 @@
 				"name": "CRED",
 				"editables": {
 					"secret": true
-				},
-				"cred_class": "static"
+				}
 			}],
 			"package_definition_list": [{
 				"description": "",
@@ -4008,8 +4007,6 @@
 					"variable_list": [],
 					"description": ""
 				}],
-				"environment_reference_list": [],
-				"patch_list": [],
 				"description": "",
 				"action_list": [{
 					"description": "",
@@ -4155,8 +4152,6 @@
 					"name": "Scale In"
 				}],
 				"name": "MasterWorker",
-				"restore_config_list": [],
-				"snapshot_config_list": [],
 				"variable_list": [{
 					"val_type": "STRING",
 					"is_mandatory": false,

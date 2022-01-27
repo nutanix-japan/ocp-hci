@@ -377,8 +377,7 @@
 						"secret_reference": {}
 					}
 				},
-				"name": "CRED",
-				"cred_class": "static"
+				"name": "CRED"
 			}],
 			"package_definition_list": [{
 				"description": "",
