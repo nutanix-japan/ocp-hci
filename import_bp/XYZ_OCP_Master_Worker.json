@@ -2040,7 +2040,7 @@
 						"guest_customization": null,
 						"power_state": "ON",
 						"type": "",
-						"account_uuid": "11a8799f-21b8-4247-9712-bb57a772ba73",
+						"account_uuid": "9acb40ad-068c-42fd-aa8e-ffa52445fcd8",
 						"boot_config": {
 							"boot_device": {
 								"type": "",
@@ -2059,7 +2059,7 @@
 								"kind": "app_package",
 								"type": "",
 								"name": "RHCOS47_BOOTSTRAP",
-								"uuid": "400b71fe-e142-4d7a-942d-736899e43e29"
+								"uuid": "e9108a14-a916-449e-aa0b-b50964b204b2"
 							},
 							"type": "",
 							"disk_size_mib": 0,
@@ -2249,7 +2249,7 @@
 						"guest_customization": null,
 						"power_state": "ON",
 						"type": "",
-						"account_uuid": "11a8799f-21b8-4247-9712-bb57a772ba73",
+						"account_uuid": "9acb40ad-068c-42fd-aa8e-ffa52445fcd8",
 						"boot_config": {
 							"boot_device": {
 								"type": "",
@@ -2268,7 +2268,7 @@
 								"kind": "app_package",
 								"type": "",
 								"name": "RHCOS47_BOOTSTRAP",
-								"uuid": "400b71fe-e142-4d7a-942d-736899e43e29"
+								"uuid": "e9108a14-a916-449e-aa0b-b50964b204b2"
 							},
 							"type": "",
 							"disk_size_mib": 0,
@@ -2477,7 +2477,7 @@
 						},
 						"power_state": "ON",
 						"type": "",
-						"account_uuid": "11a8799f-21b8-4247-9712-bb57a772ba73",
+						"account_uuid": "9acb40ad-068c-42fd-aa8e-ffa52445fcd8",
 						"boot_config": {
 							"boot_device": {
 								"type": "",
@@ -2496,7 +2496,7 @@
 								"kind": "app_package",
 								"type": "",
 								"name": "OpenshiftC8",
-								"uuid": "2258a23d-9b53-4de0-b573-73ee9856bc0f"
+								"uuid": "8d5a3772-2217-c3d2-5922-0ac6c25cb381"
 							},
 							"type": "",
 							"disk_size_mib": 0,
@@ -2696,7 +2696,7 @@
 						"guest_customization": null,
 						"power_state": "ON",
 						"type": "",
-						"account_uuid": "11a8799f-21b8-4247-9712-bb57a772ba73",
+						"account_uuid": "9acb40ad-068c-42fd-aa8e-ffa52445fcd8",
 						"boot_config": {
 							"boot_device": {
 								"type": "",
@@ -2715,7 +2715,7 @@
 								"kind": "app_package",
 								"type": "",
 								"name": "RHCOS47_BOOTSTRAP",
-								"uuid": "400b71fe-e142-4d7a-942d-736899e43e29"
+								"uuid": "e9108a14-a916-449e-aa0b-b50964b204b2"
 							},
 							"type": "",
 							"disk_size_mib": 0,
@@ -2766,7 +2766,8 @@
 				"name": "CRED",
 				"editables": {
 					"secret": true
-				}
+				},
+				"cred_class": "static"
 			}],
 			"package_definition_list": [{
 				"description": "",
@@ -2989,35 +2990,6 @@
 						},
 						"variable_list": []
 					}
-				},
-				"variable_list": []
-			}, {
-				"description": "",
-				"action_list": [],
-				"type": "SUBSTRATE_IMAGE",
-				"service_local_reference_list": [],
-				"name": "OpenshiftC8",
-				"version": "",
-				"options": {
-					"type": "",
-					"name": "OpenshiftC8",
-					"resources": {
-						"image_type": "DISK_IMAGE",
-						"checksum": {
-							"checksum_algorithm": "",
-							"type": "",
-							"checksum_value": ""
-						},
-						"source_uri": "https:\/\/cloud.centos.org\/centos\/8\/x86_64\/images\/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2",
-						"version": {
-							"product_version": "1.0.0",
-							"type": "",
-							"product_name": "Openshift-Centos8"
-						},
-						"architecture": "X86_64",
-						"type": ""
-					},
-					"description": ""
 				},
 				"variable_list": []
 			}, {
@@ -3909,6 +3881,31 @@
 					}
 				},
 				"variable_list": []
+			}, {
+				"description": "",
+				"action_list": [],
+				"type": "SUBSTRATE_IMAGE",
+				"service_local_reference_list": [],
+				"name": "OpenshiftC8",
+				"version": "",
+				"options": {
+					"type": "",
+					"name": "OpenshiftC8",
+					"resources": {
+						"image_type": "DISK_IMAGE",
+						"checksum": {},
+						"source_uri": "https:\/\/cloud.centos.org\/centos\/8-stream\/x86_64\/images\/CentOS-Stream-GenericCloud-8-20210603.0.x86_64.qcow2",
+						"version": {
+							"product_version": "1.0.0",
+							"type": "",
+							"product_name": "Openshift-Centos8"
+						},
+						"architecture": "X86_64",
+						"type": ""
+					},
+					"description": ""
+				},
+				"variable_list": []
 			}],
 			"app_profile_list": [{
 				"deployment_create_list": [{
@@ -4007,6 +4004,8 @@
 					"variable_list": [],
 					"description": ""
 				}],
+				"environment_reference_list": [],
+				"patch_list": [],
 				"description": "",
 				"action_list": [{
 					"description": "",
@@ -4152,6 +4151,8 @@
 					"name": "Scale In"
 				}],
 				"name": "MasterWorker",
+				"restore_config_list": [],
+				"snapshot_config_list": [],
 				"variable_list": [{
 					"val_type": "STRING",
 					"is_mandatory": false,
@@ -4327,10 +4328,10 @@
 	},
 	"api_version": "3.0",
 	"metadata": {
-		"last_update_time": "1641468938303052",
+		"last_update_time": "1643866978430503",
 		"kind": "blueprint",
-		"spec_version": 2,
-		"creation_time": "1641463718773574",
+		"spec_version": 4,
+		"creation_time": "1643801920581235",
 		"name": "XYZ_OCP_Master_Worker"
 	}
 }
