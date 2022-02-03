@@ -301,7 +301,7 @@
 								"kind": "subnet",
 								"type": "",
 								"name": "Primary",
-								"uuid": "b423e64c-7acc-46bd-9e17-8b5c894ca411"
+								"uuid": "510865ba-8a63-4a48-8057-cf7b13cfdede"
 							},
 							"type": ""
 						}],
@@ -324,7 +324,7 @@
 						},
 						"power_state": "ON",
 						"type": "",
-						"account_uuid": "11a8799f-21b8-4247-9712-bb57a772ba73",
+						"account_uuid": "9acb40ad-068c-42fd-aa8e-ffa52445fcd8",
 						"boot_config": {
 							"boot_device": {
 								"type": "",
@@ -343,7 +343,7 @@
 								"kind": "app_package",
 								"type": "",
 								"name": "Centos84",
-								"uuid": "50e92435-e47c-404f-b3d1-6dbff51848b2"
+								"uuid": "97920c97-39d2-3b9a-2176-68c3192ed6ed"
 							},
 							"type": "",
 							"disk_size_mib": 0,
@@ -377,7 +377,8 @@
 						"secret_reference": {}
 					}
 				},
-				"name": "CRED"
+				"name": "CRED",
+				"cred_class": "static"
 			}],
 			"package_definition_list": [{
 				"description": "",
@@ -483,12 +484,8 @@
 					"name": "Centos84",
 					"resources": {
 						"image_type": "DISK_IMAGE",
-						"checksum": {
-							"checksum_algorithm": "",
-							"type": "",
-							"checksum_value": ""
-						},
-						"source_uri": "https:\/\/cloud.centos.org\/centos\/8\/x86_64\/images\/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2",
+						"checksum": {},
+						"source_uri": "https:\/\/cloud.centos.org\/centos\/8-stream\/x86_64\/images\/CentOS-Stream-GenericCloud-8-20210603.0.x86_64.qcow2",
 						"version": {
 							"product_version": "1.0.0",
 							"type": "",
@@ -522,6 +519,8 @@
 					"variable_list": [],
 					"description": ""
 				}],
+				"environment_reference_list": [],
+				"patch_list": [],
 				"description": "",
 				"action_list": [{
 					"description": "",
@@ -719,7 +718,7 @@
 							"data_type": "BASE",
 							"type": "LOCAL",
 							"name": "OCP_BP",
-							"value": "XYZ_OCP_Master_Worker",
+							"value": "OCP_Master_Worker",
 							"label": "",
 							"attrs": {
 								"type": ""
@@ -883,7 +882,7 @@
 							"data_type": "BASE",
 							"type": "LOCAL",
 							"name": "WORKER",
-							"value": "2",
+							"value": "0",
 							"label": "Number of Workers",
 							"attrs": {
 								"type": ""
@@ -901,6 +900,7 @@
 					"name": "Deploy OCP"
 				}],
 				"name": "Nutanix",
+				"restore_config_list": [],
 				"variable_list": [{
 					"val_type": "STRING",
 					"is_mandatory": false,
@@ -990,14 +990,14 @@
 			},
 			"type": "USER"
 		},
-		"name": "XYZ_OCP_Prov_VM"
+		"name": "XYZ_OCP_Prov_VM_LB"
 	},
 	"api_version": "3.0",
 	"metadata": {
-		"last_update_time": "1641468778537835",
+		"last_update_time": "1643866177415982",
 		"kind": "blueprint",
-		"spec_version": 5,
-		"creation_time": "1641463754496583",
-		"name": "XYZ_OCP_Prov_VM"
+		"spec_version": 7,
+		"creation_time": "1643862779873391",
+		"name": "XYZ_OCP_Prov_VM_LB"
 	}
 }
