@@ -5,5 +5,5 @@ _build
 *.sh
 *.tfstate
 *.yaml
-callbp.py
-Dockerfiled
+*.py
+Dockerfile
