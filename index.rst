@@ -22,7 +22,7 @@
   :hidden:
 
   ocp_zk_deploy/ocp_zk_deploy
-
+  ocp_k10/ocp_k10
 
 .. toctree::
   :maxdepth: 2
