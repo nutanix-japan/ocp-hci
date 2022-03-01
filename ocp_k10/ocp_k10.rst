@@ -65,13 +65,13 @@ We will start by creating a VolumeSnapshotClass kubernetes object with Nutanix C
 
    .. code-block:: bash
    
-    cat << EOF > vss.yaml
+    cat << EOF | oc create -f -
     apiVersion: snapshot.storage.k8s.io/v1beta1
     kind: VolumeSnapshotClass
     metadata:
       name: acs-abs-snapshot-class
       annotations:
-        k10.kasten.io/is-snapshot-class: "true"
+        k10.kasten.io/is-snapshot-class: "true" # << Note the annotation to let kasten k10 use this volumesnapshotclass
     driver: csi.nutanix.com
     parameters:
       storageType: NutanixVolumes
@@ -225,6 +225,8 @@ job.batch "k10primer" deleted
    .. figure:: images/ocp_k10_login_token.png
 
 #. Click on **Sign In**
+
+   .. note:: you may be asked to enter your company email ID and company name before you can see the Kasten K10 administration page. Please do so if necesary.
 
 You have successfully setup Kasten backup application to backup your application. Lets move on to restoring the application in the next section.
 
