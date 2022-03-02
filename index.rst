@@ -21,7 +21,7 @@
   :name: _workloads_on_ocp
   :hidden:
 
-  ocp_zk_deploy/ocp_zk_deploy
+  ocp_wordpress_deploy/ocp_wordpress_deploy
   ocp_k10/ocp_k10
 
 .. toctree::
