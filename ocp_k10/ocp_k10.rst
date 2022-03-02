@@ -204,7 +204,7 @@ In this section we will install Kasten K10 in our OCP cluster to backup and rest
 
     # URL + PATH
     # Example here
-    # Your URL will be almost the same. But please verify
+    # Your URL will be almost the same. Verify to make sure
     
    .. code-block:: url 
 
