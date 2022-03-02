@@ -110,11 +110,22 @@ We will start by creating a VolumeSnapshotClass kubernetes object with Nutanix C
         GVS Backup command executed successfully  -  OK
         Pod deleted successfully  -  OK
 
-serviceaccount "k10-primer" deleted
-clusterrolebinding.rbac.authorization.k8s.io "k10-primer" deleted
-job.batch "k10primer" deleted
-     
-#. Install K10 using **helm** (you can also implement using Operator). Helm is pre-installed in your LB_DNS VM for your convenience.
+      serviceaccount "k10-primer" deleted
+      clusterrolebinding.rbac.authorization.k8s.io "k10-primer" deleted
+      job.batch "k10primer" deleted
+
+Installing Kasten K10 
++++++++++++++++++++++
+
+In this section we will install Kasten K10 in our OCP cluster to backup and restore of our OCP workload (wordpress in our case). 
+
+.. note::
+
+   Kasten K10 can also be implemented using `OCP Operator <https://docs.kasten.io/latest/install/openshift/operator.html>`_. However, at the time of writing this lab there were issues with the Operator approach. So we will use Helm based install.
+
+#. Install K10 using **helm** 
+
+   Helm is pre-installed in your LB_DNS VM for your convenience.
 
    .. code-block:: bash
 
@@ -186,6 +197,7 @@ job.batch "k10primer" deleted
 
       NAME        HOST/PORT                                     PATH    SERVICES   PORT   TERMINATION   WILDCARD
       k10-route   k10-route-kasten-io.apps.ocp1.ntnxlab.local   /k10/   gateway    http                 None
+
 #. Make the URL by appending the path to the HOST shown in the command above
 
    .. code-block:: bash
@@ -228,8 +240,14 @@ job.batch "k10primer" deleted
 
    .. note:: you may be asked to enter your company email ID and company name before you can see the Kasten K10 administration page. Please do so if necesary.
 
-You have successfully setup Kasten backup application to backup your application. Lets move on to restoring the application in the next section.
+You have successfully setup Kasten backup application to backup your application.
+
+Nutanix Objects as Kasten Destination
++++++++++++++++++++++++++++++++++++++
+
+In this section we will setup up Nutanix Objects as a backup destination to backup our wordpress application.
 
 
 
-    
+
+

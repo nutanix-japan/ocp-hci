@@ -124,7 +124,7 @@ Deploying App
     NAME        HOST/PORT                                   PATH   SERVICES    PORT   TERMINATION   WILDCARD
     wordpress   wordpress-default.apps.xyz9.ntnxlab.local          wordpress   80                   None
 
-#. Copy the value of HOST/PORT field and prepend a ``http://`` to it as we not using SSL (secure) termination
+#. Copy the value of **HOST/PORT** field and prepend a ``http://`` to it as we not using SSL (secure) termination
 
    Your route should look as follows:
 
