@@ -1,8 +1,8 @@
 .. _ocp_wordpress_deploy:
 
------------------------------
-OCP: Deploying App with MYSQL
------------------------------
+------------------
+Deploying Workload
+------------------
 
 In this section we will deploy a simple Wordpress application with MYSQL as the backend storage.
 

@@ -22,6 +22,7 @@
   :hidden:
 
   ocp_wordpress_deploy/ocp_wordpress_deploy
+  objects_prep/objects_prep
   ocp_k10/ocp_k10
 
 .. toctree::

@@ -1,21 +1,21 @@
-.. _ocp_k10
+.. _ocp_k10:
 
-------------------------------------------
-OCP: Day 2 Backup and Restore Applications
-------------------------------------------
+-------------------------------
+Backup and Restore Applications
+-------------------------------
 
-In this section we will implement Kaster K10 as a backup and restore management applicaion.
+In this section we will implement Kasten K10 as a backup and restore management applicaion.
 
 Backup and Restore Architecture
 +++++++++++++++++++++++++++++++
 
 At the very high level, implementing backup, restore and DR involves the following components:
 
-- Source - applications hosted on OCP cluster
-- Processing/management - Kasten K10 application
-- Destination - Nutanix Objects as a backup location
+- **Source** - applications hosted on OCP cluster
+- **Processing/management** - Kasten K10 application
+- **Destination** - Nutanix Objects as a backup location
 
-We will also be implement Nutanix HCI snapshots to facilitate quiescing of worloads to back them up.
+We will also be implement Nutanix HCI snapshots to facilitate quiescing of worloads to back them up. This will be done using VolumeSnapshotClass kubernetes object in this lab.
 
 .. list-table::
   :widths: 25 50 25
@@ -36,11 +36,16 @@ Potential Architectures
 
 - Architecture 1 - All in one cluster (applications, backup application and backup destination)
 
+  - Workload snapshots and backup exports are stored in the same Nutanix HCI cluster
+  - Snapshots are provided by Nutanix DFS
+
   .. figure:: images/backup_design_1.png
 
 - Architecture 2 - Source in one cluster (applications, backup application) 
  
-  - Destination in second cluster (backup destination)
+  - Workload snapshot location is the source Nutanix HCI cluster
+  - Snapshots are provided by Nutanix DFS
+  - Backup export location in the Objects/Files cluster 
   
   .. figure:: images/backup_design_2.png
 
@@ -248,65 +253,3 @@ In this section we will install Kasten K10 in our OCP cluster to backup and rest
 
 You have successfully setup Kasten backup application to backup your application.
 
-Nutanix Objects as Kasten Destination
-+++++++++++++++++++++++++++++++++++++
-
-In this section we will setup up Nutanix Objects as a backup destination to backup our wordpress application.
-
-Generating Access Keys
-----------------------
-
-#. Go to Prism Central > Objects
-
-#. Note down the **ntnx-objects** object stores' public IP
-
-#. On the top menu, click on **Access Keys**
-
-#. Click on **+ Add people** 
-
-#. Select **Add people not in a directory service**
-
-#. Enter your email and name 
-
-   .. figure:: images/objects_access_key.png
-
-#. Click on **Next**
-
-#. Click on **Generate Keys**
-
-#. Once generated, click on **Download Keys**
-
-#. Once downloaded, click on **Close**
-
-Create Bucket
--------------
-
-We will create a bucket as backup destination
-
-#. On the top menu, click on **Object Stores**
-
-#. Click on **ntnx-objects**, this will open objects store management page in a separate browser tab
-
-#. Click on **Create Bucket**
-
-#. Enter *Initials*-k10 as the bucket name 
-
-   .. figure:: images/create_k10_bucket.png
-
-#. Click on **Create**
-
-#. In the list of buckets, click on the *Initials*-k10 bucket 
-
-   .. figure:: images/bucket_config.png
-
-#. Click on **User Access** menu and **Edit User Access**
-
-   .. figure:: images/bucket_ua.png
-
-#. In the **Share Bucket xyz-k10** window, type in your email that you configured in User Access section
-
-#. Give **Read** and **Write** permissions
-
-   .. figure:: images/share_k10_bucket.png
-
-#. Click on **Save**
