@@ -49,6 +49,10 @@ In this lab, we will be implementing Architecture 1 with all components in a sin
 Installing VolumeSnapshotClass
 +++++++++++++++++++++++++++++++
 
+Before you proceed with this section, verify that Nutanix CSI operator version and make sure it is ``2.5.1`` - we need this version to be able to implement volumesnapshotclass
+
+.. figure:: images/csi_operator_version.png
+
 We will start by creating a VolumeSnapshotClass kubernetes object with Nutanix CSI. This helps in facilitating snapshots of the source workload. 
 
 #. In Calm go to your **Applications** > **Openshift xyz1** application
@@ -249,7 +253,60 @@ Nutanix Objects as Kasten Destination
 
 In this section we will setup up Nutanix Objects as a backup destination to backup our wordpress application.
 
+Generating Access Keys
+----------------------
 
+#. Go to Prism Central > Objects
 
+#. Note down the **ntnx-objects** object stores' public IP
 
+#. On the top menu, click on **Access Keys**
 
+#. Click on **+ Add people** 
+
+#. Select **Add people not in a directory service**
+
+#. Enter your email and name 
+
+   .. figure:: images/objects_access_key.png
+
+#. Click on **Next**
+
+#. Click on **Generate Keys**
+
+#. Once generated, click on **Download Keys**
+
+#. Once downloaded, click on **Close**
+
+Create Bucket
+-------------
+
+We will create a bucket as backup destination
+
+#. On the top menu, click on **Object Stores**
+
+#. Click on **ntnx-objects**, this will open objects store management page in a separate browser tab
+
+#. Click on **Create Bucket**
+
+#. Enter *Initials*-k10 as the bucket name 
+
+   .. figure:: images/create_k10_bucket.png
+
+#. Click on **Create**
+
+#. In the list of buckets, click on the *Initials*-k10 bucket 
+
+   .. figure:: images/bucket_config.png
+
+#. Click on **User Access** menu and **Edit User Access**
+
+   .. figure:: images/bucket_ua.png
+
+#. In the **Share Bucket xyz-k10** window, type in your email that you configured in User Access section
+
+#. Give **Read** and **Write** permissions
+
+   .. figure:: images/share_k10_bucket.png
+
+#. Click on **Save**

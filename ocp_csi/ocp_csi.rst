@@ -57,7 +57,7 @@ Install Nutanix CSI Operator
 
 #. In the **Filter by Keyword** text box, type **Nutanix** to find the Nutanix CSI Operator
 
-#. Click on the **Nutanix CSI Operator**, read basic information about the Operator and click on **Install**
+#. Click on the **Nutanix CSI Operator**, verify Operator version to be ``2.5.1`` and click on **Install**
 
    .. figure:: images/nutanix_csi_operator.png
 
@@ -98,15 +98,15 @@ Install StorageClass
 
    We suggest doing the following when modifications to commands are required:
 
-   1. Copy the code from lab instructions to notepad/vi/nano or any other favourite text editor
+   1. Edit code from lab instructions using vi/nano/vim
    2. Modify the required fields (highlighted)
-   3. Paste the modified command into the terminal of LB_DNS service through Calm UI
+   3. Paste the commands into the terminal of LB_DNS service through Calm UI
       
-      If you are using **Windows PC** the shortcut for pasting into Calm invoked terminal is:
+      If you are using a **Windows PC** the shortcut for pasting into Calm invoked terminal is:
 
       **Shift + Insert**
 
-      If you are using **Mac** the shortcut for pasting into Calm invoked terminal is:
+      If you are using a **Mac** the shortcut for pasting into Calm invoked terminal is:
 
       **Command + v**
 
@@ -131,9 +131,9 @@ Install StorageClass
 
 #. Create a kubernetes secret that the StorageClass can use to access the Nutanix HCI storage
 
-   Copy the following Secret configuration script, modify required fields (high-lighted) and execute it in the command line
+   Copy the following Secret configuration script, modify required fields (high-lighted)
 
-   **Open a text editor (notepad / vi / nano), paste the contents below and change the fields indicated to suit your environment. Example is also provided**
+   **Open a text editor (vi / nano), paste the contents below and change the fields indicated to suit your environment. Example is also provided**
 
    **Be sure to use your environment's details for the following fields:**
 
@@ -145,7 +145,7 @@ Install StorageClass
     :linenos:
     :emphasize-lines: 8
 
-    cat << EOF | oc create -f -
+    cat << EOF > csi_secret.yaml
     apiVersion: v1
     kind: Secret
     metadata:
@@ -156,17 +156,23 @@ Install StorageClass
       # example: 
       # key: 10.38.2.71:9440:admin:password
     EOF
-    
+   
+   .. code-block:: bash
+      
+      # Modify the highlighted fields to suit your environment
+      vi csi_secret.yaml
+
+   .. code-block:: bash
+      
+      # Create the secret 
+      oc apply -f csi_secret.yaml
+
    .. code-block:: bash
    
     # example output here for the above command
     # secret/ntnx-secret created
 
 #. Copy the following StorageClass configuration script, modify required fields and execute it in the command line
-    
-   **Open a text editor (notepad / vi / nano), paste the contents and change the fields indicated to suit your environment. Example is also provided**
-
-   **Be sure to use your environment's details for the following fields:**
 
    - Data Services IP and 
    - Storage Container Name
@@ -175,7 +181,7 @@ Install StorageClass
     :linenos:
     :emphasize-lines: 15,18
 
-    cat << EOF | oc create -f -
+    cat << EOF >  storageclass.yaml
     apiVersion: storage.k8s.io/v1
     kind: StorageClass
     metadata:
@@ -199,6 +205,16 @@ Install StorageClass
     allowVolumeExpansion: true
     reclaimPolicy: Delete
     EOF
+
+   .. code-block:: bash
+      
+      # Modify the highlighted fields to suit your environment
+      vi storageclass.yaml
+
+   .. code-block:: bash
+      
+      # Create the storage class 
+      oc apply -f storageclass.yaml
 
    .. code-block:: bash
    
