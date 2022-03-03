@@ -14,36 +14,42 @@ At the very high level, implementing backup, restore and DR involves the followi
 - Source - applications hosted on OCP cluster
 - Processing/management - Kasten K10 application
 - Destination - Nutanix Objects as a backup location
- 
-.. figure:: images/ocp_backup_design.rst 
 
 We will also be implement Nutanix HCI snapshots to facilitate quiescing of worloads to back them up.
 
 .. list-table::
-  :widths: 25 75
+  :widths: 25 50 25
   :header-rows: 1
 
   * - Concept
     - Storage Location
+    - RTO/RPO
   * - Snapshots
     - Nutanix HCI Cluster (along with Storage container)
+    - High
   * - Backup
     - Nutanix Objects S3 (referred to Export location)
+    - Medium
 
 Potential Architectures
 +++++++++++++++++++++++
 
-Architecture 1 - All in one cluster (applications, backup application and backup destination)
-Architecture 2 - Source in one cluster (applications, backup application) 
+- Architecture 1 - All in one cluster (applications, backup application and backup destination)
+
+  .. figure:: images/backup_design_1.png
+
+- Architecture 2 - Source in one cluster (applications, backup application) 
  
   - Destination in second cluster (backup destination)
+  
+  .. figure:: images/backup_design_2.png
 
 In this lab, we will be implementing Architecture 1 with all components in a single cluster. 
 
 Installing VolumeSnapshotClass
 +++++++++++++++++++++++++++++++
 
-We will start by creating a VolumeSnapshotClass kubernetes object with Nutanix CSI. This helps in facilating snapshots of the source workload. 
+We will start by creating a VolumeSnapshotClass kubernetes object with Nutanix CSI. This helps in facilitating snapshots of the source workload. 
 
 #. In Calm go to your **Applications** > **Openshift xyz1** application
 
@@ -149,15 +155,7 @@ In this section we will install Kasten K10 in our OCP cluster to backup and rest
       NOTES:
       Thank you for installing Kasten’s K10 Data Management Platform!
 
-      Documentation can be found at https://docs.kasten.io/.
-
-      How to access the K10 Dashboard:
-
-      The K10 dashboard is not exposed externally. To establish a connection to it use the following `kubectl` command:
-
-      `kubectl --namespace kasten-io port-forward service/gateway 8080:8000`
-
-      The Kasten dashboard will be available at: `http://127.0.0.1:8080/k10/#/`
+      Documentation can be found at https://docs.kasten.io/
 
 #.  Make sure all kasten k10 resources are deployed properly by running the following command:
 
@@ -203,7 +201,7 @@ In this section we will install Kasten K10 in our OCP cluster to backup and rest
    .. code-block:: bash
 
     # URL + PATH
-    # Example here
+    # Example below
     # Your URL will be almost the same. Verify to make sure
     
    .. code-block:: url 
@@ -227,12 +225,15 @@ In this section we will install Kasten K10 in our OCP cluster to backup and rest
     k10_login_secret=$(kubectl get serviceaccount k10-k10 -o jsonpath="{.secrets[0].name}" --namespace kasten-io)
 
     kubectl get secret $k10_login_secret --namespace kasten-io -ojsonpath="{.data.token}{'\n'}" | base64 --decode; echo ""
-
-    # Sample Output here
-    # Copy the following token and paste in the Kasten login UI
-
-    eyJhbGciOiJSUzI1NiIsImtpZCI6IlpDdnRDQmFvandWa0VTSWNTb042a2dpVTItVFMtd3huREpKZDM1dl9CX0kifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrYXN0ZW4taW8iLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlY3JldC5uYW1lIjoiazEwLWsxMC10b2tlbi1jdnZreCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrMTAtazEwIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiZGQ2NDI4MzYtZmE4ZS00NWYyLTg2YTctNjgyMzJlMDE2NjAwIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omthc3Rlbi1pbzprMTAtazEwIn0.SXo18kP4FKBEu6377n24okNg3yh8oGw2LE4JGhc4lr_V2-fm7HI13hoMnPVWaHIGPqB-NUQXtoTPQxuFO8zEjNKtFZ0g3YSfbRa_Brt-ALzclkqdVGuxPaOpmt1MDnlY6WsCkaHTAIu9pP0knEo1YTip0kxhaAJwP9v15nP3IDIcqzH4lgz28SWdOetoiMRps6bdcWfsaZxs2gLWfC5xHMd2klM8-vsDWoU2YT0WIAxrfT7As5n9b4IAmbMf80hyElypwmaRRI-q7rka-M1t4y81-TNmmd7p29wqiL04jlkuIr4oh554yQ8yfUyw0AukwUj4ARNRbfEiirH4pEs4PQ
   
+   .. code-block:: bash
+
+    # Sample output shown here - your token will be different
+    
+    eyJhbGciOiJSUzI1NiIsImtpZCI6IlpDdnRDQmFvandWa0VTSWNTb042a2dpVTItVFMtd3huREpKZDM1dl9CX0kifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrYXN0ZW4taW8iLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlY3JldC5uYW1lIjoiazEwLWsxMC10b2tlbi1jdnZreCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrMTAtazEwIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiZGQ2NDI4MzYtZmE4ZS00NWYyLTg2YTctNjgyMzJlMDE2NjAwIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omthc3Rlbi1pbzprMTAtazEwIn0.SXo18kP4FKBEu6377n24okNg3yh8oGw2LE4JGhc4lr_V2-fm7HI13hoMnPVWaHIGPqB-NUQXtoTPQxuFO8zEjNKtFZ0g3YSfbRa_Brt-ALzclkqdVGuxPaOpmt1MDnlY6WsCkaHTAIu9pP0knEo1YTip0kxhaAJwP9v15nP3IDIcqzH4lgz28SWdOetoiMRps6bdcWfsaZxs2gLWfC5xHMd2klM8-vsDWoU2YT0WIAxrfT7As5n9b4IAmbMf80hyElypwmaRRI-q7rka-M1t4y81-TNmmd7p29wqiL04jlkuIr4oh554yQ8yfUyw0AukwUj4ARNRbfEiirH4pEs4PQ
+    
+    # Copy the token from your ssh console and paste in the Kasten login UI
+
 #. Return to the broswer and paste this value
 
    .. figure:: images/ocp_k10_login_token.png
