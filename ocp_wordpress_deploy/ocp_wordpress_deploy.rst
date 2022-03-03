@@ -8,8 +8,8 @@ In this section we will deploy a simple Wordpress application with MYSQL as the 
 
 We will test backup and recovery of this application in next section.
 
-Deploying App
-+++++++++++++
+Deploying Wordpress App
++++++++++++++++++++++++
 
 #. In Calm go to your **Applications** > **Openshift xyz1** application
 

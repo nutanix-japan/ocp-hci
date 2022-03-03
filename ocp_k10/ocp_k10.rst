@@ -27,8 +27,8 @@ We will also be implement Nutanix HCI snapshots to facilitate quiescing of worlo
   * - Snapshots
     - Nutanix HCI Cluster (along with Storage container)
     - High
-  * - Backup
-    - Nutanix Objects S3 (referred to Export location)
+  * - Backup Exports
+    - Nutanix Objects S3 (referred as Export location)
     - Medium
 
 Potential Architectures
@@ -252,6 +252,40 @@ In this section we will install Kasten K10 in our OCP cluster to backup and rest
    .. note:: you may be asked to enter your company email ID and company name before you can see the Kasten K10 administration page. Please do so if necesary.
 
 Setup up Backup Target 
+++++++++++++++++++++++
+
+We will create a backup target to point to our bucket we created in the previous section :ref:`objects_prep`. In Kasten this is called Location Profiles.
+
+#. In Kasten dashboard click on **Settings**
+
+   .. figure:: images/kasten_dash.png
+
+#. Click on **Locations** > **+ New Profile**
+  
+   .. figure:: images/kasten_location_profile.png
+
+#. Enter the following details
+
+   - **Profile Name** - ntnx-objects
+   - **Cloud Storage Provider** - S3 Compatible
+   - **S3 Access Key** - Access key from the file you downloaded in the previous section
+   - **S3 Secret Key** - Secret key from the file you downloaded in the previous section
+   - **Endpoint** - Public IP of ntnx-objects Object Store (e.g. https://10.42.32.18)
+   - **Skip certificate chain and hostname verification** - Checked and confirm to **Disable SSL Verify** in the prompt
+   - **Region** - Leave blank
+   - **Bucket Name** - *Initials*-k10 (e.g. xyz-k10)
+
+   .. figure:: images/location_profile_config.png
+
+#. Click on **Save**
+
+#. Kasten will do a validation and the profile will be available in the **Settings** > **Locations** page
+   
+   .. figure:: images/location_profile.png
+
+   .. note:: 
+
+    If there are validation errors, please go back to checking all the input parameters for creating location profile
 
 You have successfully setup Kasten backup application to backup your application.
 
