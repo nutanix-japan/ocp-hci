@@ -12,6 +12,8 @@ Generating Access Keys
 
 #. Note down the **ntnx-objects** object stores' public IP
 
+   .. figure:: images/object_public_ip.png
+
 #. On the top menu, click on **Access Keys**
 
 #. Click on **+ Add people** 

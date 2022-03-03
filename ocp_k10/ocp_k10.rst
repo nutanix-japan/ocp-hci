@@ -251,5 +251,7 @@ In this section we will install Kasten K10 in our OCP cluster to backup and rest
 
    .. note:: you may be asked to enter your company email ID and company name before you can see the Kasten K10 administration page. Please do so if necesary.
 
+Setup up Backup Target 
+
 You have successfully setup Kasten backup application to backup your application.
 

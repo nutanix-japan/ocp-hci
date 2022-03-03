@@ -30,7 +30,7 @@ This setup can also be done using the OCP Cluster Manger GUI. But in this sectio
 
    .. code-block:: bash
 
-    # Create a kubernetes secret for AutoAS AD administrator password
+    # Create a kubernetes secret for AutoAD administrator password
     oc create secret generic ldap-secret --from-literal=bindPassword='nutanix/4u' -n openshift-config
 
 #. Setup the OAuth provider
