@@ -24,6 +24,7 @@
   ocp_wordpress_deploy/ocp_wordpress_deploy
   objects_prep/objects_prep
   ocp_k10/ocp_k10
+  ocp_k10_backup_restore/ocp_k10_backup_restore
 
 .. toctree::
   :maxdepth: 2
