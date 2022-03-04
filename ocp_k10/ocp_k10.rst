@@ -18,17 +18,17 @@ At the very high level, implementing backup, restore and DR involves the followi
 We will also be implement Nutanix HCI snapshots to facilitate quiescing of worloads to back them up. This will be done using VolumeSnapshotClass kubernetes object in this lab.
 
 .. list-table::
-  :widths: 25 50 25
+  :widths: 15 30 10
   :header-rows: 1
 
   * - Concept
     - Storage Location
     - RTO/RPO
-  * - Snapshots
+  * - Backup (Snapshots)
     - Nutanix HCI Cluster (along with Storage container)
     - High
-  * - Backup Exports
-    - Nutanix Objects S3 (referred as Export location)
+  * - Exports
+    - Nutanix Objects S3 (stored in backup target)
     - Medium
 
 Potential Architectures
@@ -172,9 +172,10 @@ In this section we will install Kasten K10 in our OCP cluster to backup and rest
 
     .. code-block:: bash
       
-        oc get pods -n kasten-io
+        oc get pods -n kasten-io -w
 
-        #Output here. Make sure all pods are running
+        # Output here. Wait until  all pods are running
+        # This may take a few minutes 
 
         NAME                                  READY   STATUS    RESTARTS   AGE
         aggregatedapis-svc-7874bdc658-hcvbh   1/1     Running   0          3m26s
@@ -217,7 +218,7 @@ In this section we will install Kasten K10 in our OCP cluster to backup and rest
     
    .. code-block:: url 
 
-     http://k10-route-kasten-io.apps.ocp1.ntnxlab.local/k10
+     http://k10-route-kasten-io.apps.ocp1.ntnxlab.local/k10/
    
 #. Copy the URL and paste in a browser in your **WindowsToolsVM**
 
@@ -331,3 +332,58 @@ Backup Wordpress
 #. You will see the details as follows (it will take a few minutes for the backup to run)
 
    .. figure:: images/kasten_default_backup_success.png
+
+#. Once the backup is finished, you will see that the default namespace/application is Compliant under **Dashboard** > **Applications**
+
+   .. figure:: images/kasten_compliant_defaut_ns.png
+
+#. You can go to Prism Central > Tasks to see snapshots tasks requested by Kasten 
+
+   .. figure:: images/pc_snapshot_tasks.png
+
+#. The volumesnapshot object we created along with other Objects in Nutanix CSI provider has enabled us to do this snapshot and backup
+
+You have completed backup, now let us move on to simulating data loss and restore operations.
+
+Simulating Data Loss 
+++++++++++++++++++++
+
+#. Go to the Wordpress applications Web UI in the other browser tab.
+
+   .. note::
+
+      If you accidentally closed the tab, you can do the following to get the URL
+      
+      Follow instruction here to get the Wordpress Web URL :ref:`ocp_wordpress_deploy`
+
+#. Click on **Users** menu 
+
+#. Hover your mouse prompt over the **admin_1** user
+
+#. You will see the Delete menu
+
+#. Click on **Delete**
+   
+   .. figure:: images/wordpress_user_delete.png
+
+#. Click on **Confirm Deletion**
+
+Restoring Worpress Application
+++++++++++++++++++++++++++++++
+
+#. Browse to your Kasten dashboard
+
+#. Click on the **1 Compliant** part in Applications
+
+   .. figure:: images/kasten_restore_start.png
+
+#. Click on restore 
+
+   .. figure:: images/kasten_restore_2.png
+
+#. You will see two restore points and be asked to **Select an Instance**
+  
+   - Restore from backup (this will restore from Nutanix DFS snapshot)
+   - Restore from export (this will restore from Objects stores xyz-k10 bucket)
+
+#. Select the EXPORTED one to ntnx-objects

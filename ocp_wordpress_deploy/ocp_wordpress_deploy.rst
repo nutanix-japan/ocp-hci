@@ -154,7 +154,7 @@ Deploying Wordpress App
 
 #. Login to the wordpress site using admin and the password you used to install wordpress application
 
-#. You will see the wordpress administraion page
+#. You will see the wordpress administration page
 
 #. Lets populate some data by creating a new admin user
 
