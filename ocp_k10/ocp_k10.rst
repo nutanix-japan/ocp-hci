@@ -390,24 +390,105 @@ Restoring Worpress Application
 
    .. figure:: images/kasten_select_objects_restore.png
 
-#. Click on **Restore** in the review window
-
 #. Click on **Deselect All Artifacts**
 
 #. Select only the PVC and Deployments as shown here
    
-   - PVC - mysql-pv-claim
-   - PVC - wp-pv-claim 
-   - Deployments - wordpress
-   - Deployments - wordpress-mysql
+   - **PVC** - mysql-pv-claim
+   - **PVC** - wp-pv-claim 
+   - **Deployments** - wordpress
+   - **Deployments** - wordpress-mysql
  
-   .. figure:: images/kastem_restore_artifacts.png
+   .. figure:: images/kasten_restore_artifacts.png
    
+#. Click on **Restore** and **Restore** again in the confirmation window ]
 
-   
+#. Return to the Kasten Dashboard to monitor the progress 
 
+#. Go to your ssh shell and execute the following command to observe the pods
 
+   .. code-block:: bash
 
+    oc get po -n default -w
 
+    # Output here
+    # The wordpress and mysql pod will be terminated
+    # Some restore operation pods will get created
+    # Data will be restored
+    # Wordpress and mysql pod will be created
 
+    NAME                               READY   STATUS    RESTARTS   AGE
+    wordpress-9c5b954c6-bpblk          1/1     Running   0          5h27m
+    wordpress-mysql-77756785c8-r4b5r   1/1     Running   0          5h27m
+    wordpress-mysql-77756785c8-r4b5r   1/1     Terminating   0          5h28m
+    wordpress-9c5b954c6-bpblk          1/1     Terminating   0          5h28m
+    wordpress-9c5b954c6-bpblk          0/1     Terminating   0          5h28m
+    wordpress-mysql-77756785c8-r4b5r   0/1     Terminating   0          5h28m
+    wordpress-9c5b954c6-bpblk          0/1     Terminating   0          5h28m
+    wordpress-9c5b954c6-bpblk          0/1     Terminating   0          5h28m
+    wordpress-mysql-77756785c8-r4b5r   0/1     Terminating   0          5h28m
+    wordpress-mysql-77756785c8-r4b5r   0/1     Terminating   0          5h28m
+    affinity-pod-1                     0/1     Pending       0          0s
+    affinity-pod-1                     0/1     Pending       0          0s
+    affinity-pod-0                     0/1     Pending       0          0s
+    affinity-pod-0                     0/1     Pending       0          0s
+    affinity-pod-1                     0/1     Pending       0          8s
+    affinity-pod-0                     0/1     Pending       0          8s
+    affinity-pod-1                     0/1     ContainerCreating   0          8s
+    affinity-pod-0                     0/1     ContainerCreating   0          8s
+    affinity-pod-0                     0/1     ContainerCreating   0          19s
+    affinity-pod-1                     0/1     ContainerCreating   0          20s
+    affinity-pod-0                     1/1     Running             0          20s
+    affinity-pod-1                     1/1     Running             0          21s
+    affinity-pod-1                     1/1     Terminating         0          25s
+    affinity-pod-0                     1/1     Terminating         0          25s
+    restore-data-6p96k                 0/1     Pending             0          0s
+    restore-data-6p96k                 0/1     Pending             0          0s
+    restore-data-6p96k                 0/1     ContainerCreating   0          0s
+    restore-data-4887h                 0/1     Pending             0          0s
+    restore-data-4887h                 0/1     Pending             0          0s
+    restore-data-4887h                 0/1     ContainerCreating   0          1s
+    restore-data-6p96k                 0/1     ContainerCreating   0          3s
+    restore-data-6p96k                 1/1     Running             0          4s
+    restore-data-6p96k                 1/1     Terminating         0          8s
+    restore-data-4887h                 0/1     ContainerCreating   0          8s
+    restore-data-4887h                 1/1     Running             0          10s
+    restore-data-4887h                 1/1     Terminating         0          16s
+    wordpress-mysql-77756785c8-d4djd   0/1     Pending             0          0s
+    wordpress-9c5b954c6-qmq86          0/1     Pending             0          0s
+    wordpress-mysql-77756785c8-d4djd   0/1     Pending             0          0s
+    wordpress-9c5b954c6-qmq86          0/1     Pending             0          0s
+    wordpress-mysql-77756785c8-d4djd   0/1     ContainerCreating   0          0s
+    wordpress-9c5b954c6-qmq86          0/1     ContainerCreating   0          0s
+    wordpress-mysql-77756785c8-d4djd   0/1     ContainerCreating   0          3s
+    wordpress-9c5b954c6-qmq86          0/1     ContainerCreating   0          7s
+    affinity-pod-0                     0/1     Terminating         0          59s
+    wordpress-mysql-77756785c8-d4djd   1/1     Running             0          10s #<< restored wordpress
+    affinity-pod-1                     0/1     Terminating         0          59s
+    wordpress-9c5b954c6-qmq86          1/1     Running             0          11s #<< restored mysql
+    affinity-pod-1                     0/1     Terminating         0          63s
+    affinity-pod-1                     0/1     Terminating         0          63s
+    affinity-pod-0                     0/1     Terminating         0          63s
+    affinity-pod-0                     0/1     Terminating         0          63s
+    restore-data-6p96k                 0/1     Terminating         0          40s
+    restore-data-6p96k                 0/1     Terminating         0          47s
+    restore-data-6p96k                 0/1     Terminating         0          47s
+    restore-data-4887h                 0/1     Terminating         0          48s
+
+#. Go back to Kasten Wed UI and you will see restore completing successfully
+
+   .. figure:: images/kasten_restore_success.png
+
+#. Login to Wordpress GUI to check if the deleted user is now present
+
+   .. figure:: images/wordpress_restored_user_state.png
+
+You have succesfully restored the lost account. 
+
+Takeaways
++++++++++
+
+- Applications hosted on OCP on Nutanix can be backed up to Nutanix Objects/Files
+- Nutanix provides Infrastructure for OCP workloads 
+- Nutanix provides Objects/Files storage for backup workloads
 
