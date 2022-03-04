@@ -387,3 +387,27 @@ Restoring Worpress Application
    - Restore from export (this will restore from Objects stores xyz-k10 bucket)
 
 #. Select the EXPORTED one to ntnx-objects
+
+   .. figure:: images/kasten_select_objects_restore.png
+
+#. Click on **Restore** in the review window
+
+#. Click on **Deselect All Artifacts**
+
+#. Select only the PVC and Deployments as shown here
+   
+   - PVC - mysql-pv-claim
+   - PVC - wp-pv-claim 
+   - Deployments - wordpress
+   - Deployments - wordpress-mysql
+ 
+   .. figure:: images/kastem_restore_artifacts.png
+   
+
+   
+
+
+
+
+
+
