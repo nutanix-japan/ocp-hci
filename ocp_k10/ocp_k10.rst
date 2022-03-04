@@ -129,6 +129,8 @@ We will start by creating a VolumeSnapshotClass kubernetes object with Nutanix C
       clusterrolebinding.rbac.authorization.k8s.io "k10-primer" deleted
       job.batch "k10primer" deleted
 
+#. Make sure all pre-checks are OK. If not, go back and check the associated errors and resolve them. Ask your instructor for help.
+
 Installing Kasten K10 
 +++++++++++++++++++++
 
@@ -289,3 +291,43 @@ We will create a backup target to point to our bucket we created in the previous
 
 You have successfully setup Kasten backup application to backup your application.
 
+Backup Wordpress
+++++++++++++++++
+
+#. Go to Kasten dashboard
+
+#. Click on **Applications** 
+
+   .. figure:: images/kasten_apps.png
+
+#. Click on **0 Compliant** button
+
+#. As we installed our Wordpress application in the ``default`` namespace, click on **Create a Policy** as shown here
+
+   .. figure:: images/kasten_default_policy.png
+
+#. In the **New Policy** window, leave the policy name as **default-backup**
+
+#. Select on **Enable Backups via Snapshot Exports** 
+
+#. Make sure **Export Location Profile** is point to **ntnx-object** location profile we created before
+
+#. Leave everything else as is and click on **Create Policy** at the bottom of the window.
+
+   .. figure:: images/kasten_default_policy_options.png
+
+#. Under **default-backup** policy, click on **Run Once**
+
+   .. figure:: images/kasten_policy_run_once.png
+
+#. Confirm by clicking on **Run Policy**
+
+#. Return to Kasten dashboard
+
+#. Under **Actions**, click on the **Policy Run** for **default-backup** policy
+
+   .. figure:: images/actions_policy_run.png
+
+#. You will see the details as follows (it will take a few minutes for the backup to run)
+
+   .. figure:: images/kasten_default_backup_success.png
