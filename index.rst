@@ -11,8 +11,7 @@
   ocp_vms/ocp_vms
   ocp_scale_out_in/ocp_scale_out_in
   ocp_csi/ocp_csi
-  ocp_image_registry/ocp_image_registry
-  ocp_idp/ocp_idp
+  ocp_assisted_install/ocp_assisted_install
   
 
 .. toctree::
@@ -33,7 +32,8 @@
   :hidden:
 
   ocp_vms_2/ocp_vms_2
-  ocp_assisted_install/ocp_assisted_install
+  ocp_image_registry/ocp_image_registry
+  ocp_idp/ocp_idp
 
 .. toctree::
   :maxdepth: 2
