@@ -15,9 +15,7 @@ Backup Wordpress
 
    .. figure:: images/kasten_apps.png
 
-#. Click on **0 Compliant** button
-
-#. As we installed our Wordpress application in the ``default`` namespace, click on **Create a Policy** as shown here
+#. As we installed our Wordpress application in the ``default`` namespace, click on **Create a Policy**  button under ``default`` namespace as shown here
 
    .. figure:: images/kasten_default_policy.png
 

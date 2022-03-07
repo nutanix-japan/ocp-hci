@@ -218,7 +218,12 @@ In this section we will install Kasten K10 in our OCP cluster to backup and rest
     
    .. code-block:: url 
 
+     http://k10-route-kasten-io.apps.ocp1.ntnxlab.local/k10/#
+
+     # if the above URL doesn't work try this one:
+
      http://k10-route-kasten-io.apps.ocp1.ntnxlab.local/k10/
+
    
 #. Copy the URL and paste in a browser in your **WindowsToolsVM**
 
@@ -230,7 +235,7 @@ In this section we will install Kasten K10 in our OCP cluster to backup and rest
 
    We need to find the secret starting with *k10-k10-token-* and find the token value by decoding it. 
 
-   Run the following commands to get this.
+   Run the following commands to get this:
 
    .. code-block:: bash
 
@@ -245,8 +250,18 @@ In this section we will install Kasten K10 in our OCP cluster to backup and rest
     eyJhbGciOiJSUzI1NiIsImtpZCI6IlpDdnRDQmFvandWa0VTSWNTb042a2dpVTItVFMtd3huREpKZDM1dl9CX0kifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrYXN0ZW4taW8iLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlY3JldC5uYW1lIjoiazEwLWsxMC10b2tlbi1jdnZreCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrMTAtazEwIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiZGQ2NDI4MzYtZmE4ZS00NWYyLTg2YTctNjgyMzJlMDE2NjAwIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omthc3Rlbi1pbzprMTAtazEwIn0.SXo18kP4FKBEu6377n24okNg3yh8oGw2LE4JGhc4lr_V2-fm7HI13hoMnPVWaHIGPqB-NUQXtoTPQxuFO8zEjNKtFZ0g3YSfbRa_Brt-ALzclkqdVGuxPaOpmt1MDnlY6WsCkaHTAIu9pP0knEo1YTip0kxhaAJwP9v15nP3IDIcqzH4lgz28SWdOetoiMRps6bdcWfsaZxs2gLWfC5xHMd2klM8-vsDWoU2YT0WIAxrfT7As5n9b4IAmbMf80hyElypwmaRRI-q7rka-M1t4y81-TNmmd7p29wqiL04jlkuIr4oh554yQ8yfUyw0AukwUj4ARNRbfEiirH4pEs4PQ
     
     # Copy the token from your ssh console and paste in the Kasten login UI
+   
+   .. note::
+      
+      If the secret doesn't work: use the following commands to get the second secret in serviceaccount k10-k10
 
-#. Return to the broswer and paste this value
+      .. code-block:: bash
+
+         k10_login_secret=$(kubectl get serviceaccount k10-k10 -o jsonpath="{.secrets[1].name}" --namespace kasten-io)
+
+         kubectl get secret $k10_login_secret --namespace kasten-io -ojsonpath="{.data.token}{'\n'}" | base64 --decode; echo ""
+  
+#. Return to the broswer and paste the secret value
 
    .. figure:: images/ocp_k10_login_token.png
 

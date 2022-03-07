@@ -26,53 +26,37 @@ These are minimum required resrouces and software for the OCP VMs at the time of
 
 The Calm blueprints in this lab will have these resources pre-configured for your use.
 
-For latest resource requirements refer to OpenShift portal `here. <https://docs.openshift.com/container-platform/3.11/install/prerequisites.html>`_
+For latest resource requirements refer to OpenShift portal `here. <https://docs.openshift.com/container-platform/4.9/installing/installing_platform_agnostic/installing-platform-agnostic.html#installation-minimum-resource-requirements_installing-platform-agnostic>`_
 
 .. list-table::
-     :widths: 25 30 30 30
+     :widths: 15 25 10 10 10 10
      :header-rows: 1
 
-     * - OCP Component 
-       - Resource
-       - Resource Requirement
-       - Software Requirement
+     * - OCP Role
+       - Operating System
+       - vCPU
+       - RAM (minimum)
+       - Storage
+       - IOPS
+     * - Bootstrap
+       - RHCOS
+       - 4
+       - 16 GB
+       - 100 GB
+       - 300
      * - Master
-       - CPU
-       - 4 vCPU
-       - 
-     * - 
-       - RAM
+       - RHCOS
+       - 4
        - 16 GB
-       - 
-     * - 
-       - OS Disk
-       - 50 GB
-       - 
-     * - 
-       - OS
-       - 
-       - RHEL 7.5
-     * - 
-       - Number of Master VMs
-       - 3
-       - 
+       - 100 GB
+       - 300
      * - Worker
-       - CPU
-       - 4 vCPU
-       - 
-     * - 
-       - RAM
+       - RHCOS, RHEL 7.9, or RHEL 8.4
+       - 8
        - 16 GB
-       - 
-     * - 
-       - OS Disk
-       - 50 GB
-       - 
-     * - 
-       - OS
-       - 
-       - RHEL 7.5
-
+       - 100 GB
+       - 300
+       
 
 We will use two Calm blueprints to deploy OCP infrastructure.
 
@@ -87,10 +71,14 @@ We will use two Calm blueprints to deploy OCP infrastructure.
 
 .. figure:: images/ocp_bp_actions.png 
 
-Pre-requisites for OCP Environment in HPOC/SPOC
-+++++++++++++++++++++++++++++++++++++++++++++++
+Pre-requisites for Infrastructure in HPOC/SPOC Clusters
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-OCP has the following infrastructure pre-requistes available in the environment. Since we will be doing the labs in Nutanix HPOC/SPOC clusters, here is a list of OCP pre-requisites and HPOC/SPOC components that fulfill them.
+Since we will be doing the OCP labs in Nutanix HPOC/SPOC clusters, here is a list of pre-requisites and HPOC/SPOC components that fulfill them.
+
+Some are created with your HPOC/SPOC cluster runbook (see screenshot below) you chose while booking the cluster in `RX <https://rx.corp.nutanix.com/>`_
+
+.. figure:: images/ocp_runbook.png
 
 .. list-table::
   :widths: 40 70 40 

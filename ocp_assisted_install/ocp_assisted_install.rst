@@ -36,7 +36,7 @@ High Level Overview of Assisted Installation
 
 Assisted Installer does the following:
 
-- Provides RHOCS and OCP installation binaries in a CD-ROM ISO file
+- Provides RHCOS and OCP installation binaries in a CD-ROM ISO file
 - Once the OCP VMs (Master and Worker) nodes are booted with this CD-ROM ISO file, using the public key the VMs connect to Red Hat Console
 - VMs show in Assisted Installer page and the administrator (you) begins the installation
 - Red Hat Console will manage and monitor the installation process from start to end 
@@ -58,8 +58,8 @@ Assisted Installer does the following:
 At a very high level, we will accomplish the following to get a OCP cluster deployed using Assisted Installer:
 
 1. Provision OCP Cluster in Red Hat Console and Generate CD-ROM ISO URL 
-3. Provision OCP Infrastructure - Create Master and Worker VMs in your AHV HPOC/SPOC cluster using Terraform infrastructure as code
-4. Install OCP Cluster in Red Hat Console
+2. Provision OCP Infrastructure - Create Master and Worker VMs in your AHV HPOC/SPOC cluster using Terraform infrastructure as code
+3. Install OCP Cluster in Red Hat Console
 
 Provision OCP Cluster in Red Hat Console
 +++++++++++++++++++++++++++++++++++++++++
@@ -232,24 +232,24 @@ We will create the following resources:
 
       Enter a value: yes
 
-      nutanix_image.rhocs: Creating...
-      nutanix_image.rhocs: Still creating... [10s elapsed]
-      nutanix_image.rhocs: Creation complete after 14s [id=e04cff4e-a6cf-45f9-890d-96097c4b53ed]
-      nutanix_virtual_machine.rhocs-master[0]: Creating...
-      nutanix_virtual_machine.rhocs-master[1]: Creating...
-      nutanix_virtual_machine.rhocs-worker[0]: Creating...
-      nutanix_virtual_machine.rhocs-master[2]: Creating...
-      nutanix_virtual_machine.rhocs-worker[1]: Creating...
-      nutanix_virtual_machine.rhocs-master[0]: Still creating... [10s elapsed]
-      nutanix_virtual_machine.rhocs-master[1]: Still creating... [10s elapsed]
-      nutanix_virtual_machine.rhocs-master[2]: Still creating... [10s elapsed]
-      nutanix_virtual_machine.rhocs-worker[0]: Still creating... [10s elapsed]
-      nutanix_virtual_machine.rhocs-worker[1]: Still creating... [10s elapsed]
-      nutanix_virtual_machine.rhocs-master[0]: Creation complete after 16s [id=3a88a3d7-304e-4284-886d-f7882764d7cc]
-      nutanix_virtual_machine.rhocs-master[2]: Creation complete after 17s [id=5e87599a-5643-465d-9870-5b34751b2158]
-      nutanix_virtual_machine.rhocs-worker[0]: Creation complete after 17s [id=78fb2e69-fee7-4244-ae5c-55ffbc1da21d]
-      nutanix_virtual_machine.rhocs-master[1]: Creation complete after 17s [id=7775b527-fc55-4cac-aabc-a024ea4938c1]
-      nutanix_virtual_machine.rhocs-worker[1]: Creation complete after 17s [id=c9801a82-a7e3-444e-a206-d5e3e3a75bb1]
+      nutanix_image.RHCOS: Creating...
+      nutanix_image.RHCOS: Still creating... [10s elapsed]
+      nutanix_image.RHCOS: Creation complete after 14s [id=e04cff4e-a6cf-45f9-890d-96097c4b53ed]
+      nutanix_virtual_machine.RHCOS-master[0]: Creating...
+      nutanix_virtual_machine.RHCOS-master[1]: Creating...
+      nutanix_virtual_machine.RHCOS-worker[0]: Creating...
+      nutanix_virtual_machine.RHCOS-master[2]: Creating...
+      nutanix_virtual_machine.RHCOS-worker[1]: Creating...
+      nutanix_virtual_machine.RHCOS-master[0]: Still creating... [10s elapsed]
+      nutanix_virtual_machine.RHCOS-master[1]: Still creating... [10s elapsed]
+      nutanix_virtual_machine.RHCOS-master[2]: Still creating... [10s elapsed]
+      nutanix_virtual_machine.RHCOS-worker[0]: Still creating... [10s elapsed]
+      nutanix_virtual_machine.RHCOS-worker[1]: Still creating... [10s elapsed]
+      nutanix_virtual_machine.RHCOS-master[0]: Creation complete after 16s [id=3a88a3d7-304e-4284-886d-f7882764d7cc]
+      nutanix_virtual_machine.RHCOS-master[2]: Creation complete after 17s [id=5e87599a-5643-465d-9870-5b34751b2158]
+      nutanix_virtual_machine.RHCOS-worker[0]: Creation complete after 17s [id=78fb2e69-fee7-4244-ae5c-55ffbc1da21d]
+      nutanix_virtual_machine.RHCOS-master[1]: Creation complete after 17s [id=7775b527-fc55-4cac-aabc-a024ea4938c1]
+      nutanix_virtual_machine.RHCOS-worker[1]: Creation complete after 17s [id=c9801a82-a7e3-444e-a206-d5e3e3a75bb1]
 
       Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
 
@@ -265,12 +265,12 @@ We will create the following resources:
 
       data.nutanix_cluster.cluster            # < This is your existing Prism Element HPOC/SPOC cluster
       data.nutanix_subnet.subnet              # < This is your existing Primary subnet
-      nutanix_image.rhocs                     # < This is OCP Discovery ISO image
-      nutanix_virtual_machine.rhocs-master[0] # < This is master vm 1
-      nutanix_virtual_machine.rhocs-master[1] # < This is master vm 2
-      nutanix_virtual_machine.rhocs-master[2] # < This is master vm 3
-      nutanix_virtual_machine.rhocs-worker[0] # < This is worker vm 1
-      nutanix_virtual_machine.rhocs-worker[1] # < This is worker vm 2
+      nutanix_image.RHCOS                     # < This is OCP Discovery ISO image
+      nutanix_virtual_machine.RHCOS-master[0] # < This is master vm 1
+      nutanix_virtual_machine.RHCOS-master[1] # < This is master vm 2
+      nutanix_virtual_machine.RHCOS-master[2] # < This is master vm 3
+      nutanix_virtual_machine.RHCOS-worker[0] # < This is worker vm 1
+      nutanix_virtual_machine.RHCOS-worker[1] # < This is worker vm 2
 
 
 #. Login to Prism Element :fa:`bars` > VM and verify the VMs and if they are powered on
@@ -294,7 +294,11 @@ In this section we will use Red Hat Console's Assisted Installer wizard to insta
    
    .. note::
 
-    Prism Element now shows used IP in the **Networking** setup page. You can use this to determine the IPs for **API Virtual IP** and **Ingress Virtual IP** of your OCP cluster.
+    Prism Element now shows used IP in the **Networking** setup page. 
+    
+    You can use this to determine the IPs for **API Virtual IP** and **Ingress Virtual IP** of your OCP cluster.
+
+    Because AHV IPAM is **not aware of the statically assigned IP address**, the VIPs should be out of the IP Pools in the Primary subnet.
     
     Prism Element > :fa:`bars` > Network Configuration > **Primary**
 

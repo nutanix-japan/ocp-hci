@@ -28,7 +28,7 @@ In this section we will configure the environemnt for the OCP VM blueprint to ru
 
 .. note::
 
-  Latest versions of Calm automatically assigns endpoint to Calm Actions if only one is present. It is important to confirm this in the lab.
+  Calm automatically assigns endpoint to Calm Actions as endpoint is created in your previous lab section :ref:`endpoint`. It is important to confirm end points for actions in the lab.
 
 #. In **Prism Central** > **Services** > **Calm**
  
@@ -69,7 +69,7 @@ Now we will check if OCP DNS endpoints are configured for the services.
 
 #. If the endpoint is not assigned properly, correct the condition
 
-#. Save the blueprint and confirm there are no validation errors (warnings about KUBECONFIG and PE_PW (runtime variables) can be ignored)
+#. Save the blueprint and confirm there are no validation errors (warnings about KUBECONFIG (runtime variable) can be ignored)
 
    .. figure:: images/ocp_bp_save_validation.png
 
@@ -124,7 +124,7 @@ Deploying OCP Cluster
 
 #. Observe the VM create, package install and other Calm actions 
 
-#. This should take about 20-25 minutes
+#. This should take about 30-35 minutes
 
 #. Meanwhile you can notice that Prism Central's event will be getting quite busy. This is a result of VMs, storage, etc,. getting provisioned by Calm using REST calls to Prism Cental
 

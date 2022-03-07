@@ -14,7 +14,7 @@ OCP comes with a in-built container image registry. The advantages of these cont
 - Registry can be easily scaled up or down
 - Image data is stored in a cloud storage 
 
-In this lab we will create a physical volume claim (PVC) and present it as storage to the running image registry on this OCP cluster. This will be our first use case for Nutanix provided HCI storage.
+In this lab we will create a persistent volume claim (PVC) and present it as storage to the running image registry on this OCP cluster. This will be our first use case for Nutanix provided HCI storage.
 
 The PVC will be 100 GB.
 
