@@ -107,56 +107,35 @@ If it is not already present in your HPOC, create Linux Tools VM using instructi
 
 We will create the following resources:
 
-
 .. list-table::
-     :widths: 25 30 30 30
+     :widths: 15 25 10 10 10 10
      :header-rows: 1
 
-     * - OCP Component 
-       - Resource
-       - Resource Requirement
-       - Software Requirement
+     * - OCP Role
+       - Operating System
+       - vCPU
+       - RAM (minimum)
+       - Storage
+       - IOPS
+     * - Bootstrap
+       - RHCOS
+       - 4
+       - 16 GB
+       - 100 GB
+       - 300
      * - Master
-       - CPU
-       - 4 vCPU
-       - 
-     * - 
-       - RAM
+       - RHCOS
+       - 4
        - 16 GB
-       - 
-     * - 
-       - OS Disk
-       - 120 GB
-       - 
-     * - 
-       - OS
-       - 
-       - RHEL 7.5
-     * - 
-       - Number of Master VMs
-       - 3
-       - 
+       - 100 GB
+       - 300
      * - Worker
-       - CPU
-       - 4 vCPU
-       - 
-     * - 
-       - RAM
+       - RHCOS, RHEL 7.9, or RHEL 8.4
+       - 8
        - 16 GB
-       - 
-     * - 
-       - OS Disk
-       - 120 GB
-       - 
-     * - 
-       - OS
-       - 
-       - RHEL 7.5
-     * - 
-       - Number of Woker VMs
-       - 2
-       - 
-
+       - 100 GB
+       - 300
+       
 #. Login to the Linux Tools VM using the following credentials
     
    - **Username** - root

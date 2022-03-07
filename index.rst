@@ -76,23 +76,25 @@ Agenda
 ++++++
 
 - OCP: Infrastructure Lifecycle Mangement
-    - Setting up Nutanix Calm and importing OCP Blueprints
-    - Deploying Provisioning VM
-    - OCP: Deploying OCP Cluster
-    - OCP: Scale out and Scale in OCP Cluster Worker Nodes
-    - OCP: Deploying Nutanix CSI Drivers for OCP Cluster
-    - OCP: Deploying OCP Image Registry
+
+  - Setting up Nutanix Calm and importing OCP Blueprints
+  - Deploying Provisioning VM
+  - OCP: Deploying OCP Cluster
+  - OCP: Scale out and Scale in OCP Cluster Worker Nodes
+  - OCP: Deploying Nutanix CSI Drivers for OCP Cluster
+  - OCP: Deploying OCP Image Registry
 
 - OCP: Day in Life of OCP Administrator
-    - Deploying Zookeper application on OCP
-    - Walk through application to for OCP and Nutanix components 
-    - HA Testing Zookeeper
-    - Backup and Restore Zookeeper?
+
+  - Deploying Wordpress application on OCP
+  - Setting up Nutanix Objects as for backup target
+  - Deploying Kasten K10 backup applicaiton on OCP 
+  - Backup and Restore Wordpress
 
 - Optional Labs
-    - OCP: Deploy using Red Hat Assited Installer
-    - OCP: OCP Clusters Security Benchmarking
-    - OCP: OCP Clusters 
+
+  - OCP: Deploy second OCP cluster using Calm
+  - OCP: Deploy using Red Hat Assited Installer
 
 Introductions
 +++++++++++++

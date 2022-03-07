@@ -187,7 +187,7 @@ Restoring Worpress Application
     restore-data-6p96k                 0/1     Terminating         0          47s
     restore-data-4887h                 0/1     Terminating         0          48s
 
-#. Go back to Kasten Wed UI and you will see restore completing successfully
+#. Go back to Kasten Web UI and you will see restore completing successfully
 
    .. figure:: images/kasten_restore_success.png
 
