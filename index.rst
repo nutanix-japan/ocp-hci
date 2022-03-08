@@ -61,7 +61,11 @@ Nutanix believes there is no room for silos in the Enterprise Cloud. By approach
 
 .. note::
 
- Estimated time to complete this lab is 90 to 120 minutes depending on your familiarity level with Nutanix and Openshift concepts.
+ Estimated time to complete the labs depending on your familiarity level with Nutanix, Kubernets and Openshift concepts is as follows:
+
+ - **OCP on Nutanix HCI** - 90 minutes to 120 minutes
+ - **Workloads on OCP** - 90 minutes to 120 minutes
+ - **Optional Labs** - 30 minutes to 45 minutes
 
 What's New
 ++++++++++
@@ -75,16 +79,16 @@ What's New
 Agenda
 ++++++
 
-- OCP: Infrastructure Lifecycle Mangement
+- OCP on Nutanix HCI
 
   - Setting up Nutanix Calm and importing OCP Blueprints
   - Deploying Provisioning VM
   - OCP: Deploying OCP Cluster
   - OCP: Scale out and Scale in OCP Cluster Worker Nodes
   - OCP: Deploying Nutanix CSI Drivers for OCP Cluster
-  - OCP: Deploying OCP Image Registry
+  - OCP: Deploy using Red Hat Assited Installer
 
-- OCP: Day in Life of OCP Administrator
+- Workloads on OCP 
 
   - Deploying Wordpress application on OCP
   - Setting up Nutanix Objects as for backup target
@@ -94,24 +98,19 @@ Agenda
 - Optional Labs
 
   - OCP: Deploy second OCP cluster using Calm
-  - OCP: Deploy using Red Hat Assited Installer
-
-Introductions
-+++++++++++++
-
-- Familiarity with Nutanix HCI
-- Familiarity with Containers
+  - OCP: Provisioning storage to OCP Image Registry
 
 Initial Setup
 +++++++++++++
 
-- Take note of the *Passwords* being used.
+- Take note of the *Passwords* being used from you RX reservation details
 - Log into your virtual desktops (connection info below)
+- Login to Global Protect VPN if you have access 
 
-Cluster assignment
+Cluster Assignment
 ++++++++++++++++++
 
-The instructor will tell the attendees their assigned clusters.
+The instructor will inform the attendees their assigned clusters.
 
 .. note::
 
