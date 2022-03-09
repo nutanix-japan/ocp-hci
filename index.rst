@@ -11,9 +11,7 @@
   ocp_vms/ocp_vms
   ocp_scale_out_in/ocp_scale_out_in
   ocp_csi/ocp_csi
-  ocp_assisted_install/ocp_assisted_install
   
-
 .. toctree::
   :maxdepth: 2
   :caption:  Workloads on OCP
@@ -24,6 +22,14 @@
   objects_prep/objects_prep
   ocp_k10/ocp_k10
   ocp_k10_backup_restore/ocp_k10_backup_restore
+
+.. toctree::
+  :maxdepth: 2
+  :caption:  OCP with Assisted Installer
+  :name: _ocp_hci
+  :hidden:
+
+  ocp_assisted_install/ocp_assisted_install
 
 .. toctree::
   :maxdepth: 2
