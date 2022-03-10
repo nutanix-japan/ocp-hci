@@ -110,7 +110,7 @@ Now it is time to launch the provisioning VM blueprint.
         -rwxr-xr-x. 2 core   core   118M Nov  4 19:41 oc
         -rwxr-xr-x. 1 core   core   369M Nov 22 17:12 openshift-install
         -rw-r--r--. 1 core   core    954 Nov  4 19:41 README.md
-        -rw-rw-r--. 1 core   core   988M Dec 26 05:12 rhcos-live.x86_64.iso ## << this is RHOCS ISO
+        -rw-rw-r--. 1 core   core   988M Dec 26 05:12 rhcos-live.x86_64.iso ## << this is RHCOS ISO
         drwxrwxr-x. 2 apache apache  105 Dec 26 05:12 web
 
         openshift/web:
