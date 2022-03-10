@@ -98,7 +98,7 @@ Deploying OCP Cluster
    - **OCP_PULL_SECRET** - download/copy pull secret this from your Red Hat Portal `Login <https://console.redhat.com/openshift/install/pull-secret>`_ (you will need Red Hat Portal Access)
    - **OCP_SUBDOMAIN** - Initials1 (e.g. **xyz1**) 
    - **OCP_MACHINE_NETWORK** - provide your Primary network address for your HPOC/SPOC (e.g. 10.38.2.64/26 ) - check in your cluster reservation email/webpage
-   - **OCP_BP** - XYZ_OCP_Master_Worker
+   - **OCP_BP** - name of the OCP_Master_Worker BP that you uploaded  (e.g. XYZ_OCP_Master_Worker)
 
    .. note::
 
