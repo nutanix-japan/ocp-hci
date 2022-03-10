@@ -97,7 +97,7 @@ Some are created with your HPOC/SPOC cluster runbook (see screenshot below) you 
     - BootcampInfra
     - Deployed with HPOC
   * - VM Boot images
-    - CentOS, RHOCS, etc.
+    - CentOS, RHCOS, etc.
     - Deployed with HPOC (downloadable images)
   * - DNS Entries Update Mechanism
     - Calm Endpoint to contact AutoAD+DNS server
