@@ -36,6 +36,7 @@ extensions = ['sphinx.ext.todo',
     'sphinx.ext.ifconfig',
     'sphinxcontrib.fulltoc',
     'sphinx_fontawesome',
+    'sphinx_copybutton',
     'sphinx.ext.autosectionlabel']
  #   'sphinx_typo3_theme']
 
