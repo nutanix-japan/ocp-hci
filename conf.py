@@ -54,7 +54,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Nutanix OCP Bootcamp'
-copyright = u'2020 Nutanix'
+copyright = u'2022 Nutanix'
 author = u'Nutanix Global Technical Enablement'
 
 # The version info for the project you're documenting, acts as replacement for
