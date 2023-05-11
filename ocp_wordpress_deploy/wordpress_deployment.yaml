@@ -19,7 +19,6 @@ metadata:
   labels:
     app: wordpress
 spec:
-  storageClassName: nutanix-dynfiles
   accessModes:
     - ReadWriteOnce
   resources:
