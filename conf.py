@@ -161,6 +161,14 @@ html_theme_options = {
     # Values: "true" (default) or "false"
     'globaltoc_includehidden': "true",
 
+    # Include previous and next buttons 
+
+    'prev_next_buttons_location': 'bottom',
+
+    # Include sticky navigation
+
+    'sticky_navigation': True,
+
     # HTML navbar class (Default: "navbar") to attach to <div> element.
     # For black navbar, do "navbar navbar-inverse"
     'navbar_class': "navbar-inverse",
